@@ -12,7 +12,7 @@ To try to learn how to classify discourse into the following categories
 9. other
 
 
-## 1st task: Try to learn relations from comment pairs first.
+## Task 1: Try to learn relations from comment pairs first.
 Flatten the tree into pairs
 Throw away tree structure and discard longer distance relationships 1st
 
@@ -36,3 +36,6 @@ will break down into
 (comment-1.2, comment-1.2.1)
 
 Try to learn classification based on this.
+
+# Task 2: 
+Maintain tree structure. Not sure how yet.
