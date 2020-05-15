@@ -51,9 +51,10 @@ Temporary Items
 # =========================
 # passwords
 join_forum_data/reddit_tokens.py
-# text data. too big, move it manually to wherever needed
+# text data. too big, move it manually with a HDD wherever needed
 coarse_discourse_dump_reddit.json
-
+# python cache files
+__pycache__/*
 # =========================
 # Spyder config folder
 # =========================
