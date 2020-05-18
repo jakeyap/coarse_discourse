@@ -8,6 +8,7 @@ import json
 import reddit_utilities as rd_util
 import time
 '''
+# import json file into python data
 with open('coarse_discourse_dataset.json') as jsonfile:
     counter = 0
     lines = jsonfile.readlines()
@@ -20,16 +21,15 @@ with open('coarse_discourse_dataset.json') as jsonfile:
         if counter > 10:
             break
 
-
 # the dumps function helps to display json data nicely
 helper = json.dumps(reader, indent=4)
 print(helper)
 '''        
-STOP_INDEX = 100000
 DEBUG = False
+STOP_INDEX = 100000
 DEBUG_LINE = 845
 
-
+# start flattening process
 comment_pairs = []
 time0 = time.time()
 with open('coarse_discourse_dump_reddit.json') as jsonfile:
@@ -45,12 +45,12 @@ with open('coarse_discourse_dump_reddit.json') as jsonfile:
                 debuglog = open('debuglog.txt', 'w')
                 debuglog.write(prettyformat)
                 debuglog.close()
-                rd_util.flatten_posts(thread_json, comment_pairs)
+                comment_pairs = rd_util.flatten_posts_pairs(thread_json, comment_pairs)
                 break
         else:
             if counter < STOP_INDEX:
                 thread_json = json.loads(line)
-                rd_util.flatten_posts(thread_json, comment_pairs)
+                comment_pairs = rd_util.flatten_posts_pairs(thread_json, comment_pairs)
             if counter >= STOP_INDEX:
                 break
         if counter % 100 == 0:
