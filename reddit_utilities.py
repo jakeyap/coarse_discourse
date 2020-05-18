@@ -9,24 +9,33 @@ from transformers import BertTokenizer
 print('Loading pre-trained model tokenizer')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
+import numpy as np
+
 def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000):
     """
-    Flatten entire reddit json file into comment pairs
-    Arguments: 
-        filename:       reddit data in json format
-        comment_pairs:  list of lists (see output)
-        start:          index to start from
-        count:          number of threads to do
-    Output:
-        comment_pairs:  list of lists
-            [
-                [comment1 comment1.1]
-                [comment1.1 comment1.1.1]
-                [comment1.1 comment1.1.2]
-            ]
-    Notes: 
-        1. the tree will be traversed in a depth first order
-        2. if the comment has no body, it will be discarded
+    Flattens entire reddit json file into comment pairs.
+    1. the tree will be traversed in a depth first order
+    2. if the comment has no body, it will be discarded
+    
+    Parameters
+    ----------
+    filename : string 
+        Name of a .json file
+    comments : list of lists, optional
+        See output. The default is [].
+    start : int, optional
+        Index to start from. The default is 0.
+    count : int, optional
+        Number of threads to do. The default is 100000.
+
+    Returns
+    -------
+    comments : list of lists
+        [
+            [comment1 comment1.1]
+            [comment1.1 comment1.1.1]
+            [comment1.1 comment1.1.2]
+        ]
     """
     import json
     with open(filename) as jsonfile:
@@ -44,23 +53,31 @@ def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000):
             counter = counter + 1
     return comments
 
+
 def flatten_thread2pairs_single(thread_json, comment_pairs=[]):
-    """ 
-    Flatten a single reddit thread into comment pairs
-    Arguments: 
-        thread_json:    a reddit thread in dictionary form
-        comment_pairs:  list of lists (see output)
-    Output:
-        comment_pairs:  list of lists
-            [
-                [comment1 comment1.1]
-                [comment1.1 comment1.1.1]
-                [comment1.1 comment1.1.2]
-            ]
-    Notes: 
-        1. the tree will be traversed in a depth first order
-        2. if the comment has no body, it will be discarded
     """
+    Flattens a single reddit thread into comment pairs
+    1. the tree will be traversed in a depth first order
+    2. if the comment has no body, it will be discarded
+    
+    Parameters
+    ----------
+    thread_json : dictionary
+        A single reddit thread.
+    comment_pairs : list of lists, optional
+        See output. The default is [].
+
+    Returns
+    -------
+    comment_pairs : list of lists
+        [
+            [comment1 comment1.1]
+            [comment1.1 comment1.1.1]
+            [comment1.1 comment1.1.2]
+        ].
+
+    """
+    
     # posts_json is a list of dicts
     posts_json = thread_json['posts']
     
@@ -94,24 +111,33 @@ def flatten_thread2pairs_single(thread_json, comment_pairs=[]):
                 pass
     return comment_pairs
 
+
 def flatten_threads2single_all(filename, comments=[], start=0, count=100000):
-    """ 
+    """
     Flatten entire reddit json file into a single level of comments
-    Arguments: 
-        filename:   reddit data in json format
-        comments:   list of comments
-        start:      index to start from
-        count:      number of threads to do
-    Output:
-        comments:   list of comments
-            [
-                comment1
-                comment1.1
-                comment1.2
-            ]
-    Notes: 
-        1. the tree will be traversed in a depth first order
-        2. if the comment has no body, it will be discarded
+    1. the tree will be traversed in a depth first order
+    2. if the comment has no body, it will be discarded
+
+    Parameters
+    ----------
+    filename : string
+        Name of a .json file.
+    comments : list, optional
+        List of comments. The default is [].
+    start : int, optional
+        Index to start from. The default is 0.
+    count : int, optional
+        Number of threads to do. The default is 100000.
+
+    Returns
+    -------
+    comments : list
+        [
+            comment1
+            comment1.1
+            comment1.2
+        ]
+
     """
     import json
     with open(filename) as jsonfile:
@@ -129,22 +155,29 @@ def flatten_threads2single_all(filename, comments=[], start=0, count=100000):
             counter = counter + 1
     return comments
 
+
 def flatten_thread2single_single(thread_json, comments=[]):
-    """ 
-    Flatten a single reddit reddit into a single level of comments
-    Arguments: 
-        thread_json:    a reddit thread in dictionary form
-        comments:       list of comments
-    Output:
-        comments:       list of comments
-            [
-                comment1
-                comment1.1
-                comment1.2
-            ]
-    Notes: 
-        1. the tree will be traversed in a depth first order
-        2. if the comment has no body, it will be discarded
+    """
+    Flattens a single reddit reddit into a list of comments
+    1. the tree will be traversed in a depth first order
+    2. if the comment has no body, it will be discarded
+
+    Parameters
+    ----------
+    thread_json : dictionary
+        A reddit thread in dictionary form.
+    comments : list, optional
+        See output. The default is [].
+
+    Returns
+    -------
+    comments : list
+        [
+            comment1
+            comment1.1
+            comment1.2
+        ]
+
     """
     # posts_json is a list of dicts
     posts_json = thread_json['posts']
@@ -162,45 +195,71 @@ Some helper functions below
 """
 
 def post_is_first(post_json):
-    """ 
-    Determine if post is the first in thread 
+    """
+    Determines if post is the first in thread 
     Check whether the json field 'is_first_post' exists
-    Args:
-        post_json:  a dictionary that is a reddit post
-    Returns:
-        Boolean
+    
+    Parameters
+    ----------
+    post_json : dictionary
+        A dictionary that is a reddit post.
+
+    Returns
+    -------
+    bool
+        True if post is_first_post.
+
     """
     if 'is_first_post' in post_json.keys():
         return True
     else:
         return False
     
+
 def post_has_body(post_json):
-    """ 
+    """
     Determine if post has text/body. If no, data is missing
     Check whether the json field 'body' exists
-    Args:
-        post_json:  a dictionary that is a reddit post
-    Returns:
-        Boolean
+    
+    Parameters
+    ----------
+    post_json : dictionary
+        A dictionary that is a reddit post.
+
+    Returns
+    -------
+    bool
+        True if post has a body.
+
     """
     if 'body' in post_json.keys():
         return True
     else:
         return False    
     
+    
 def post_parent(single_post_json, posts_json, lut):
     """
     Finds the parent of current post.
-    Args:       single_post_json (a post in json format)
-                posts_json all the posts in the current thread
-                lut (a list of post IDs)
-    Returns:    parent post
-    
     Just look at the 'in_reply_to' json field
     In some cases, the 'in_reply_to' is linked to a bot post
     In those cases, use 'majority_link' instead
     Other times, the comment is deleted from database. 
+    
+    Parameters
+    ----------
+    single_post_json : dictionary
+        A post in dictionary format.
+    posts_json : list
+        List of dictionaries. All posts in the current thread.
+    lut : list
+        A list of post IDs.
+
+    Returns
+    -------
+    parent : dictionary
+        A post in dictionary format.
+
     """
     try:
         # Find ID of current post's parent
@@ -232,9 +291,41 @@ def count_sentence(post):
     """
     return
 
+#TODO
+def count_tokens(post_json):
+    """
+    Counts the number of tokens in a post
+
+    Parameters
+    ----------
+    post_json : dictionary
+        A dictionary that is a reddit post.
+
+    Returns
+    -------
+    count : int
+        number of tokens in post.
+    """
+    tokenizer_text = tokenizer.tokenize(post_json['body'])
+    count = len(tokenizer_text)
+    return count
+
 def count_words(sentence, tokenizer):
     """
     Counts number of words in a sentence
+
+    Parameters
+    ----------
+    sentence : list
+        DESCRIPTION.
+    tokenizer : transformers.Tokenizer
+        A tokenizer from huggingface's transformers library.
+
+    Returns
+    -------
+    counts : int
+        Number of words in sentence.
+    
     """
     print("Sentence is: ", sentence)
     print('Tokenize input')
@@ -245,11 +336,19 @@ def count_words(sentence, tokenizer):
 def count_all_labels(comments):
     """
     Goes thru all the threads in dataset, then count the labels in a histogram
-    Arg: 
-        comments:   list of all posts in the thread in dictionary form
-    Returns:
-        histogram:  a dictionary. key=labels, value=counts
-        errorloc:   a list containing indices with no majority label
+
+    Parameters
+    ----------
+    comments : list of dictionaries
+        List of all posts in the thread in dictionary form.
+
+    Returns
+    -------
+    histogram : dictionary
+        key=labels, value=counts.
+    errorloc : TYPE
+        a list containing indices with no majority label.
+
     """
     histogram = {}
     counter = 0
@@ -270,6 +369,10 @@ def count_all_labels(comments):
             histogram[label] = 1
         counter = counter + 1
     return histogram, errorloc
+
+def count_all_token_lengths(comments):
+    
+    return 
 
 def print_json_file(json_filename, start=0, count=5, debug=False):
     """
@@ -306,6 +409,7 @@ def print_json_file(json_filename, start=0, count=5, debug=False):
         logfile.close()
 
 if __name__ =='__main__':
+    
     pairs = flatten_threads2pairs_all('coarse_discourse_dump_reddit.json')
     comments = flatten_threads2single_all('coarse_discourse_dump_reddit.json')
     
@@ -314,10 +418,31 @@ if __name__ =='__main__':
     
     labels = list(histogram.keys())
     counts = list(histogram.values())
+    
     import matplotlib.pyplot as plt
+    plt.figure(1)
     plt.bar(x=labels, height=counts)
     plt.ylabel('Counts')
     plt.xlabel('Labels')
     plt.xticks(labels, labels, rotation='vertical')
     plt.tight_layout()
     plt.grid(True)
+    
+    
+    token_counts = []
+    counter = 0
+    for each_post in comments:
+        if (counter % 1000 == 0):
+            print("Tokenizing sample ", counter)
+        token_count = count_tokens(each_post)
+        token_counts.append(token_count)
+        counter = counter + 1
+    
+    plt.figure(2)
+    plt.hist(token_counts, bins=10,
+             edgecolor='black', 
+             facecolor='blue')
+    plt.yscale('log')
+    #plt.xscale('log')
+    plt.ylabel('frequency')
+    plt.xlabel('token length')
