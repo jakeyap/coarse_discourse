@@ -13,8 +13,9 @@ To try to learn how to classify discourse into the following categories
 
 ## Task 0: Preprocessing
 ~~Import data from reddit~~
+~~Flatten tree into single comments~~
 ~~Flatten the tree into pairs~~
-~~Check category labels~~
+~~Get a sense of category labels density~~
 Convert labels into one-hot vectors
 Draw a histogram of token lengths for posts
 Decide on a length to truncate for BERT

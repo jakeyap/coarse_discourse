@@ -10,7 +10,7 @@ print('Loading pre-trained model tokenizer')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000):
-    ''' 
+    """
     Flatten entire reddit json file into comment pairs
     Arguments: 
         filename:       reddit data in json format
@@ -27,7 +27,7 @@ def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000):
     Notes: 
         1. the tree will be traversed in a depth first order
         2. if the comment has no body, it will be discarded
-    '''
+    """
     import json
     with open(filename) as jsonfile:
         lines = jsonfile.readlines()       
@@ -45,7 +45,7 @@ def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000):
     return comments
 
 def flatten_thread2pairs_single(thread_json, comment_pairs=[]):
-    ''' 
+    """ 
     Flatten a single reddit thread into comment pairs
     Arguments: 
         thread_json:    a reddit thread in dictionary form
@@ -60,7 +60,7 @@ def flatten_thread2pairs_single(thread_json, comment_pairs=[]):
     Notes: 
         1. the tree will be traversed in a depth first order
         2. if the comment has no body, it will be discarded
-    '''
+    """
     # posts_json is a list of dicts
     posts_json = thread_json['posts']
     
@@ -95,7 +95,7 @@ def flatten_thread2pairs_single(thread_json, comment_pairs=[]):
     return comment_pairs
 
 def flatten_threads2single_all(filename, comments=[], start=0, count=100000):
-    ''' 
+    """ 
     Flatten entire reddit json file into a single level of comments
     Arguments: 
         filename:   reddit data in json format
@@ -112,7 +112,7 @@ def flatten_threads2single_all(filename, comments=[], start=0, count=100000):
     Notes: 
         1. the tree will be traversed in a depth first order
         2. if the comment has no body, it will be discarded
-    '''
+    """
     import json
     with open(filename) as jsonfile:
         lines = jsonfile.readlines()       
@@ -130,7 +130,7 @@ def flatten_threads2single_all(filename, comments=[], start=0, count=100000):
     return comments
 
 def flatten_thread2single_single(thread_json, comments=[]):
-    ''' 
+    """ 
     Flatten a single reddit reddit into a single level of comments
     Arguments: 
         thread_json:    a reddit thread in dictionary form
@@ -145,7 +145,7 @@ def flatten_thread2single_single(thread_json, comments=[]):
     Notes: 
         1. the tree will be traversed in a depth first order
         2. if the comment has no body, it will be discarded
-    '''
+    """
     # posts_json is a list of dicts
     posts_json = thread_json['posts']
     
@@ -157,40 +157,40 @@ def flatten_thread2single_single(thread_json, comments=[]):
             comments.append(each_post)
     return comments
 
-'''
+"""
 Some helper functions below
-'''
+"""
 
 def post_is_first(post_json):
-    ''' 
+    """ 
     Determine if post is the first in thread 
     Check whether the json field 'is_first_post' exists
     Args:
         post_json:  a dictionary that is a reddit post
     Returns:
         Boolean
-    '''
+    """
     if 'is_first_post' in post_json.keys():
         return True
     else:
         return False
     
 def post_has_body(post_json):
-    ''' 
+    """ 
     Determine if post has text/body. If no, data is missing
     Check whether the json field 'body' exists
     Args:
         post_json:  a dictionary that is a reddit post
     Returns:
         Boolean
-    '''
+    """
     if 'body' in post_json.keys():
         return True
     else:
         return False    
     
 def post_parent(single_post_json, posts_json, lut):
-    '''
+    """
     Finds the parent of current post.
     Args:       single_post_json (a post in json format)
                 posts_json all the posts in the current thread
@@ -201,7 +201,7 @@ def post_parent(single_post_json, posts_json, lut):
     In some cases, the 'in_reply_to' is linked to a bot post
     In those cases, use 'majority_link' instead
     Other times, the comment is deleted from database. 
-    '''
+    """
     try:
         # Find ID of current post's parent
         parent_id = single_post_json['in_reply_to']
@@ -227,15 +227,15 @@ def post_parent(single_post_json, posts_json, lut):
 
 #TODO
 def count_sentence(post):
-    '''
+    """
     Counts number of sentences in a post
-    '''
+    """
     return
 
 def count_words(sentence, tokenizer):
-    '''
+    """
     Counts number of words in a sentence
-    '''
+    """
     print("Sentence is: ", sentence)
     print('Tokenize input')
     
@@ -243,14 +243,14 @@ def count_words(sentence, tokenizer):
     return tokenized_text
     
 def count_all_labels(comments):
-    '''
+    """
     Goes thru all the threads in dataset, then count the labels in a histogram
     Arg: 
         comments:   list of all posts in the thread in dictionary form
     Returns:
         histogram:  a dictionary. key=labels, value=counts
         errorloc:   a list containing indices with no majority label
-    '''
+    """
     histogram = {}
     counter = 0
     errorloc= []
@@ -272,7 +272,7 @@ def count_all_labels(comments):
     return histogram, errorloc
 
 def print_json_file(json_filename, start=0, count=5, debug=False):
-    '''
+    """
     Prints a few samples inside the json file
     Args:
         json_filename:  text of database file name
@@ -281,7 +281,7 @@ def print_json_file(json_filename, start=0, count=5, debug=False):
         debug:          set to True if need to save the logfile
     Returns:
         None
-    '''
+    """
     import json
     if debug:
         logfile = open('logfile.txt', 'w')
@@ -304,8 +304,20 @@ def print_json_file(json_filename, start=0, count=5, debug=False):
             counter = counter + 1
     if debug:
         logfile.close()
-'''
+
 if __name__ =='__main__':
     pairs = flatten_threads2pairs_all('coarse_discourse_dump_reddit.json')
     comments = flatten_threads2single_all('coarse_discourse_dump_reddit.json')
-    '''
+    
+    histogram, errorlocations = count_all_labels(comments)
+    histogram['unclear'] = len(errorlocations)
+    
+    labels = list(histogram.keys())
+    counts = list(histogram.values())
+    import matplotlib.pyplot as plt
+    plt.bar(x=labels, height=counts)
+    plt.ylabel('Counts')
+    plt.xlabel('Labels')
+    plt.xticks(labels, labels, rotation='vertical')
+    plt.tight_layout()
+    plt.grid(True)
