@@ -25,9 +25,9 @@ with open('coarse_discourse_dataset.json') as jsonfile:
 helper = json.dumps(reader, indent=4)
 print(helper)
 '''        
-DEBUG = False
+DEBUG = True
 STOP_INDEX = 100000
-DEBUG_LINE = 845
+DEBUG_LINE = 10
 
 # start flattening process
 comment_pairs = []
@@ -45,12 +45,12 @@ with open('coarse_discourse_dump_reddit.json') as jsonfile:
                 debuglog = open('debuglog.txt', 'w')
                 debuglog.write(prettyformat)
                 debuglog.close()
-                comment_pairs = rd_util.flatten_posts_pairs(thread_json, comment_pairs)
+                comment_pairs = rd_util.flatten_thread2pairs_single(thread_json, comment_pairs)
                 break
         else:
             if counter < STOP_INDEX:
                 thread_json = json.loads(line)
-                comment_pairs = rd_util.flatten_posts_pairs(thread_json, comment_pairs)
+                comment_pairs = rd_util.flatten_thread2single_single(thread_json, comment_pairs)
             if counter >= STOP_INDEX:
                 break
         if counter % 100 == 0:

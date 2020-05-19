@@ -1,1154 +1,1956 @@
 {
-    "title": "DTX120: #87 - Nashville",
+    "title": "Are there people who still believe 911 unfolded as told by the administration of the time?",
     "is_self_post": true,
-    "subreddit": "100movies365days",
+    "subreddit": "911truth",
     "posts": [
         {
             "is_first_post": true,
-            "id": "t3_1bx6qw",
-            "majority_type": "announcement",
-            "url": "https://www.reddit.com/r/100movies365days/comments/1bx6qw/dtx120_87_nashville/",
-            "author": "DTX120",
-            "majority_link": "none",
-            "body": "4/7/13  \n\n7/27/12  \n\nhttp://www.imdb.com/title/tt0073440/reference\n\nIt was only a few minutes into Robert Altman's homespun epic *Nashville* that I got the feeling I was watching a great movie. By the end it could not be denied. Now I'm sure it helps that I'm a musician, since this created an immediate connection to the subject matter. I spent a portion of the movie with my Telecaster in my lap trying to play along with the characters who all seem to be really playing and singing these songs. However I also am *not* a fan of country western, so that could have easily been a turn off.  \n\nTo begin describing the action in the film is daunting. I can't even process a lot of what I saw. This movie is extremely dense, and the first 30 minutes or so are spent just trying to figure out who people are. Their relationships to one another - some of which are purely incidental - slowly become clear as things progress. It's an ensemble cast with no clear lead and lots of overlapping conversations. Some developments all tie together in the end. Some seem to be kind of loose ends. There is throughout, however, a very keen sense about people. These naturalistic performances are believable and so is the world they inhabit. It feels like a film that doesn't exaggerate - rather, it downplays some of the outrageousness which just makes it seem all the more outrageous. Consider for example Shelley Duvall's wig or Jeff Goldblum's entire character.  \n\nI feel I should mention this. Jeff Goldblum is in this film. He never speaks, and he is awesome.  \n\n*Nashville* is a musical. There is reportedly around an hour of music in its 150+ minute run time. I believe it. Sometimes these songs, most if not all of which are original, seem to speak pointedly to or about a character. Sometimes it's all about the shifts and glances in the audience. There are many memorable scenes, such as when a fragile country starlet spaces out on stage and begins rambling between numbers, or a disenchanted housewife waits at the back of a bar for a womanizing folk singer, or a poor deceived waitress is goaded into a striptease by a raucous crowd and still refuses to believe that she can't actually sing.   \n\nThis is rich film, a complex tapestry perfectly suited to a moment in time (the US Bicentennial) that seems as though it will reward additional viewings. I sometimes become fidgety during long movies but I was never bored with *Nashville*. It swept me along with its quirky and interesting characters to a climax that maybe I should have seen coming.  \n\n8/10",
-            "annotations": [
-                {
-                    "annotator": "fc96a15ab87f02dd1998ff55a64f6478",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                },
-                {
-                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                }
-            ]
-        },
-        {
-            "id": "t1_c9b2nyd",
-            "majority_type": "elaboration",
-            "post_depth": 1,
-            "author": "mcgrewf10",
-            "in_reply_to": "t3_1bx6qw",
-            "majority_link": "t3_1bx6qw",
-            "body": "I've wanted to watch this for a long time. I was also turned off by the country western aspect.",
-            "annotations": [
-                {
-                    "annotator": "fc96a15ab87f02dd1998ff55a64f6478",
-                    "main_type": "agreement",
-                    "link_to_post": "t3_1bx6qw"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_1bx6qw"
-                },
-                {
-                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_1bx6qw"
-                }
-            ]
-        },
-        {
-            "id": "t1_c9b30i1",
-            "majority_type": "elaboration",
-            "post_depth": 2,
-            "author": "DTX120",
-            "in_reply_to": "t1_c9b2nyd",
-            "majority_link": "t1_c9b2nyd",
-            "body": "You strike me as the type who would appreciate it. I would give it a go. This is also my first Altman film so I didn't really know what to expect, except that people always compare PTA's Boogie Nights and Magnolia as being influenced by Altman. Magnolia is probably the best analog in terms of structure (having no lead character) but it is stylistically very different, much more melodramatic and transparently earnest. ",
-            "annotations": [
-                {
-                    "annotator": "fc96a15ab87f02dd1998ff55a64f6478",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c9b2nyd"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c9b2nyd"
-                },
-                {
-                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c9b2nyd"
-                }
-            ]
-        },
-        {
-            "id": "t1_c9b6sj0",
-            "majority_type": "elaboration",
-            "post_depth": 3,
-            "author": "mcgrewf10",
-            "in_reply_to": "t1_c9b30i1",
-            "majority_link": "t1_c9b30i1",
-            "body": "Yeah, I've always heard that Altman was famous for his ensemble casts. But I, too, have never seen an Altman.",
-            "annotations": [
-                {
-                    "annotator": "fc96a15ab87f02dd1998ff55a64f6478",
-                    "main_type": "agreement",
-                    "link_to_post": "t1_c9b30i1"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c9b30i1"
-                },
-                {
-                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c9b30i1"
-                }
-            ]
-        }
-    ],
-    "url": "https://www.reddit.com/r/100movies365days/comments/1bx6qw/dtx120_87_nashville/"
-}{
-    "title": "Male, 23 years old. Going for 100 sets!",
-    "is_self_post": true,
-    "subreddit": "100sets",
-    "posts": [
-        {
-            "is_first_post": true,
-            "id": "t3_omv7p",
-            "majority_type": "announcement",
-            "url": "https://www.reddit.com/r/100sets/comments/omv7p/male_23_years_old_going_for_100_sets/",
-            "author": "Keatonus",
-            "majority_link": "none",
-            "body": "Alright guys, little background about myself. I'm a good looking, 23 year old male, have had modest success in the past with women, but have decided that modest just isn't good enough anymore.\n\nThe problem has never been a lack of attention, or opportunity. It's just been not having the killer instinct and extreme AA, to the point where women will basically EYE FUCK me, and I still don't have the testicular fortitude to say anything unless they say something first.\n\nMy goal is to approach 100 sets by the end of April, and hopefully break my AA.",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "announcement",
-                    "link_to_post": "none"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3igqif",
-            "majority_type": "elaboration",
-            "post_depth": 1,
-            "author": "Keatonus",
-            "in_reply_to": "t3_omv7p",
-            "majority_link": "t3_omv7p",
-            "body": "**January 16th 3 Sets:** \nWent out shopping with my grandma as I visited her. We go to a Factory store. Opened 3 sets.\n\n* First Set: was the changing room gal, HB 6 cute asian gal. Asked her a lot of questions about what i was wearing. Made her laugh several times with corny jokes, introduced her to my grandma, and we all talked for a minute after I was done picking out the clothes I wanted and left. \n\n* Second set: was this older gal, mid 40's. Wouldn't give her an HB because it was more of just a casual chat about the outfit I put on. She said she didn't like it, I responded with \"aw, I'm not attractive?!\" and she said \"I never said that haha\" and grinned. I gave her a wink as she continued laughing and went into her stall.\n\n* Third set:  **NUMBER CLOSE** As me and my Grandma are waiting in line to be helped checking out, and HB7 walks to the register and helps us. We IMMEDIATELY small talk. Exchanging intellectual talking points such as martyrs and assassinations, making her laugh with jokes, poking fun at her, transitioned to talking about movies, and she suggested I watch one. The Darjeeling Limited, I gave her a queer look, she then rolled out some receipt to write it down. I asked her to put her name down there too. She did, and then said \"Want my number so you can tell me when you watch it?\" I obliged her saying \"Yeah, that could work\". It was only after I got her number she even ACKNOWLEDGED my grandmother being ONE FOOT next to me the whole time! HAHA. She asked who she was, I said my Grandmother. Mind you I look completely white, and my grandmother is full Japanese. We talked for a bit about my grandma and the war, and how my grandma was bombed etc. Then I take my leave and text her about an hour later. We have been talking since.\n\nTL;DR: Got a number with my Grandma right next to me!",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3imrkb",
-            "majority_type": "humor",
-            "post_depth": 2,
-            "in_reply_to": "t1_c3igqif",
-            "majority_link": "t1_c3igqif",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "humor",
-                    "link_to_post": "t1_c3igqif"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c3igqif"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "humor",
-                    "link_to_post": "t1_c3igqif"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3ij8z0",
-            "majority_type": "appreciation",
-            "post_depth": 1,
-            "author": "answerorreply",
-            "in_reply_to": "t3_omv7p",
-            "majority_link": "t3_omv7p",
-            "body": "dude, these sets are awesome. You're doing great. Sounds like you're a natural at meeting people once you get past the AA.",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_omv7p"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3inx9t",
-            "majority_type": "appreciation",
-            "post_depth": 2,
-            "author": "Keatonus",
-            "in_reply_to": "t1_c3ij8z0",
-            "majority_link": "t1_c3ij8z0",
-            "body": "Thanks man! Yeah I'm trying to just keep the \"who cares have fun\" attitude on. Because normally I freak out about what to say. But I find if I just bring a subject up and get some momentum going, I'm actually a pretty good conversationalist.",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c3ij8z0"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c3ij8z0"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c3ij8z0"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3k2lc1",
-            "majority_type": "elaboration",
-            "post_depth": 1,
-            "author": "Keatonus",
-            "in_reply_to": "t3_omv7p",
-            "majority_link": "t3_omv7p",
-            "body": "Ok. Update! Sorry I haven't been doing this day to day like I should be. Let me see what I can remember\n\n**January 17-23 Sets:** Various sets I remember opening, unfortunately no number closes. Just good old fashioned chit chatting.\n\n* 4th set: During the 49ers and Giants game I went to grab a bite to eat at the local burger joint. Before ordering since no line was behind me I decided to small talk with the Female at the register HB5. Mostly talked about sports, a little about myself, and her coworker HB6 joined in the conversation. This lasted about 5 minutes, learned both had boyfriends through small talk and proceeded to order.\n\n* 5th set: Also small talked with the female who works at my local grocery chain. She was new there, we talked about the rain of all things haha. Male coworker semi interrupted us, still small talked with both. Then ordered my drink.\n\nBlahhh, I know there's more than this...Hence why I should try to update every day. Be back soon guys.",
-            "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "29a90e15afc16faf25337162301c0328",
-                    "main_type": "elaboration",
-                    "link_to_post": "t3_omv7p"
-                }
-            ]
-        },
-        {
-            "id": "t1_c3qodom",
+            "id": "t3_3as2wh",
             "majority_type": "question",
-            "post_depth": 1,
-            "in_reply_to": "t3_omv7p",
-            "majority_link": "t3_omv7p",
-            "body": "More updates!",
+            "majority_link": "none",
             "annotations": [
-                {
-                    "annotator": "d0bf500c45ae7c1c08eb65ef0a4e48f9",
-                    "main_type": "question",
-                    "link_to_post": "t3_omv7p"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "question",
-                    "link_to_post": "t3_omv7p"
-                },
                 {
                     "annotator": "29a90e15afc16faf25337162301c0328",
                     "main_type": "question",
-                    "link_to_post": "t3_omv7p"
+                    "link_to_post": "none"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "question",
+                    "link_to_post": "none"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "question",
+                    "link_to_post": "none"
+                }
+            ]
+        },
+        {
+            "id": "t1_csfnv52",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "in_reply_to": "t3_3as2wh",
+            "majority_link": "t3_3as2wh",
+            "annotations": [
+                {
+                    "annotator": "29a90e15afc16faf25337162301c0328",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                }
+            ]
+        },
+        {
+            "id": "t1_csfsrbq",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "in_reply_to": "t3_3as2wh",
+            "majority_link": "t3_3as2wh",
+            "annotations": [
+                {
+                    "annotator": "29a90e15afc16faf25337162301c0328",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                }
+            ]
+        },
+        {
+            "id": "t1_cshacg3",
+            "majority_type": "other",
+            "post_depth": 2,
+            "in_reply_to": "t1_csfsrbq",
+            "majority_link": "t1_csfsrbq",
+            "annotations": [
+                {
+                    "annotator": "29a90e15afc16faf25337162301c0328",
+                    "main_type": "other",
+                    "link_to_post": "t1_csfsrbq"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "humor",
+                    "link_to_post": "t1_csfsrbq"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "other",
+                    "link_to_post": "none"
+                }
+            ]
+        },
+        {
+            "id": "t1_csgx2e1",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "in_reply_to": "t3_3as2wh",
+            "majority_link": "t3_3as2wh",
+            "annotations": [
+                {
+                    "annotator": "29a90e15afc16faf25337162301c0328",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                }
+            ]
+        },
+        {
+            "id": "t1_csgra36",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "in_reply_to": "t3_3as2wh",
+            "majority_link": "t3_3as2wh",
+            "annotations": [
+                {
+                    "annotator": "29a90e15afc16faf25337162301c0328",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_3as2wh"
                 }
             ]
         }
     ],
-    "url": "https://www.reddit.com/r/100sets/comments/omv7p/male_23_years_old_going_for_100_sets/"
+    "url": "https://www.reddit.com/r/911truth/comments/3as2wh/are_there_people_who_still_believe_911_unfolded/"
 }{
-    "title": "122cal black currant cheesecake!",
+    "title": "Got 2 bras in same size. One seems to fit perfectly while the other doesn't fit. Help me determine which size to get for the second one!",
     "is_self_post": true,
-    "subreddit": "1200isplenty",
+    "subreddit": "abrathatfits",
     "posts": [
         {
             "is_first_post": true,
-            "id": "t3_259tbh",
-            "majority_type": "announcement",
-            "url": "https://www.reddit.com/r/1200isplenty/comments/259tbh/122cal_black_currant_cheesecake/",
-            "author": "foodandweight",
+            "id": "t3_1e0ur5",
+            "majority_type": "question",
+            "url": "https://www.reddit.com/r/ABraThatFits/comments/1e0ur5/got_2_bras_in_same_size_one_seems_to_fit/",
+            "author": "halpmewithbra",
             "majority_link": "none",
-            "body": "I love cheese cake! I love both making and eating it, so I'm sad to see that they usually have the most crazy calorie counts, and I don't see many low cal recipes for them especially not ones that can work for many different people (for instance, I see a lot that require sugar free Jell-O, cool whip, Neufchatel cream cheese, very specific items that aren't available everywhere).\n\n[So here is a reciped I made!](http://imgur.com/a/z6VbS) it's very delicious, and I hope others will enjoy it too :)",
+            "body": "Firstly, please excuse me for thrusting these puppies on yo' face. Har har.\n\nSecondly, THANK YOU SO MUCH FOR BEING HERE r/ABTF!!! I thought I just had ugly bewbs but it just turns out I'd been wearing the wrong bra sizes. \n\nHere's an [album](http://imgur.com/a/v9T0z) of my two latest bra purchases. Both are 32 E. As you can see, though, the plum colored Amour by Pour Moi is REALLY loose in the cups and the straps feel pretty loose even when I tighten them all the way. I've always had trouble with loose straps, maybe because I have pretty weak shoulders. The bra is gorgeous and I'd like to get it in the right size. Should I just go down a cup size? The band seems to fit perfectly.\n\nThe second one in white is the Curvy Kate Elegance and I think it fits perfectly but I don't want take out the tags until I'm absolutely sure. Does the cup seem too small? I worry that going up a size would make it too roomy and cause the straps to keep falling.\n\n\nThanks so much again. It's great having you guys around!",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "announcement",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "announcement",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "announcement",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "question",
                     "link_to_post": "none"
                 }
             ]
         },
         {
-            "id": "t1_chrzb0h",
-            "majority_type": "appreciation",
+            "id": "t1_c9vp4w4",
+            "majority_type": "answer",
             "post_depth": 1,
-            "in_reply_to": "t3_259tbh",
-            "majority_link": "t3_259tbh",
-            "body": ">very specific items that aren't available everywhere\n\nI find this funny, because I'm in the US and find it practically impossible to find gelatin in sheet form, digestive cookies, and Ribena light.\n\nI was, however, inspired by your recipe. to just wing it with what I *could* find.  I used sugar-free raspberry Jell-O and pre-made mini graham cracker crusts.  They came out entirely too Jell-O-like in texture, but still tasty, and I'll be tweaking them and trying again.  Thanks for the idea!",
+            "author": "ButTheBoobies",
+            "in_reply_to": "t3_1e0ur5",
+            "majority_link": "t3_1e0ur5",
+            "body": "So two things.\n\n1. You need to pull the Curvy Kate Elegance up into your inframammary fold to be able to tell if it fits. You can tell in the straight ahead and angle shots that the underwire is at least an inch lower than it should be.\n\n2. The Curvy Kate Elegance runs *really*, *super duper* shallow. This is probably why you're wearing it so low. Most women have to size up to get sufficient projection for their breasts, while others ([like myself](http://imgur.com/a/EiZeb)) can't even get that to work.\n\nCan you provide more information, such as your breast shape and your measurements? Based on the photos I'm inclined to say that you're closer to 32DD.",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1e0ur5",
+                    "second_type": "question"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1e0ur5"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1e0ur5"
                 }
             ]
         },
         {
-            "id": "t1_chs0eqa",
-            "majority_type": "elaboration",
+            "id": "t1_c9vq1mq",
+            "majority_type": "appreciation",
             "post_depth": 2,
-            "author": "foodandweight",
-            "in_reply_to": "t1_chrzb0h",
-            "majority_link": "t1_chrzb0h",
-            "body": "I know,  but I figured it would be easier to find equivilants to those items (like you did :D ) than it is for Europeans to find jell-o, cool whip and zero cal cheese. I see posts about gelatine from r/keto on the front page, so I was under the impression that was easily available too? And digestive cookies, I know y'all have them! :b but that's the easiest thing to replace in this recipe,  didn't even use them myself",
+            "author": "halpmewithbra",
+            "in_reply_to": "t1_c9vp4w4",
+            "majority_link": "t1_c9vp4w4",
+            "body": "Thanks for the prompt response! \n\nAfter reading what you said about the inframammary fold, I shortened the straps and brought it up higher. Holy hell, the cups are flattening and pushing everything out now. I'll post a pic again soon.\n\nMy band size is 30\" and bust is 36\" and I'm full on bottom. Should I just give up on the Amour altogether or is it just a matter of cup size?",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chrzb0h"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_c9vp4w4",
+                    "second_type": "question"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chrzb0h"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_c9vp4w4",
+                    "second_type": "question"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chrzb0h"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_c9vp4w4",
+                    "second_type": "question"
                 }
             ]
         },
         {
-            "id": "t1_chs0fj3",
-            "majority_type": "elaboration",
+            "id": "t1_c9vunc6",
+            "majority_type": "answer",
             "post_depth": 3,
-            "author": "LinkFixerBotSnr",
-            "in_reply_to": "t1_chs0eqa",
-            "majority_link": "t1_chs0eqa",
-            "body": "/r/keto \n\n*****\n[^report ^a ^**problem**](http://reddit.com/r/LinkFixerBotSnr) ^| [^delete ^comment](http://www.reddit.com/message/compose?to=LinkFixerBotSnr&subject=Comment%20Deletion%20%28Parent%20Commenter%20Only%29&message=%2Bdelete+chs0fj3) ^| [^source ^code](http://github.com/WinneonSword/LFB) ^| [^contact ^developer](http://reddit.com/user/WinneonSword)",
+            "author": "avazah",
+            "in_reply_to": "t1_c9vq1mq",
+            "majority_link": "t1_c9vq1mq",
+            "body": "Well, your measurements put you at 30E, and these bras are 32E. That's one cup size larger than 30E, so it's no wonder the pour moi doesn't fit. It may fit in 30E, I can't really say, or 32DD, but I believe it is too big for you here.\n\nI also agree with what ButTheBoobies says about the elegance. Can't really make a call on whether it fits or not just yet! ",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "other",
-                    "link_to_post": "t1_chs0eqa"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs0eqa"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs0eqa"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 }
             ]
         },
         {
-            "id": "t1_chs51e3",
-            "majority_type": "elaboration",
+            "id": "t1_c9vq7xu",
+            "majority_type": "answer",
             "post_depth": 3,
-            "in_reply_to": "t1_chs0eqa",
-            "majority_link": "t1_chs0eqa",
-            "body": "Oh, we have gelatin, but I've never seen it in sheet form.  From what I've read, conversion between the two forms is [no simple matter](http://www.nigella.com/kitchen-queries/view/Gelatine-Leaves-to-Powder-Conversion/2376). \n\nAs for digestive biscuits, I haven't seen those either, though I admittedly didn't look too hard.  Typically here we use graham crackers in their place, but it's not exactly the same.  According to [Wikipedia](http://en.wikipedia.org/wiki/Digestive_\\biscuit), \"graham crackers are typically a little dryer and more brittle.\"",
+            "author": "ButTheBoobies",
+            "in_reply_to": "t1_c9vq1mq",
+            "majority_link": "t1_c9vq1mq",
+            "body": "Your measurements put you pretty squarely in a 30E, so my bet is that the Amour is just not designed for a shallower shape like yours. Do you find that you can't keep all of your tissue swooped and scooped into the wires? It's hard to say how it's working as you haven't included any side shots to show where the outer underwire is hitting your side. \n\nI don't know this bra specifically, so I suppose there is also the possibility that the cup just runs large.",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs0fj3"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs0eqa"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs0eqa"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t1_c9vq1mq"
                 }
             ]
         },
         {
-            "id": "t1_chs51gj",
+            "id": "t1_c9vr2xe",
             "majority_type": "elaboration",
             "post_depth": 4,
-            "author": "autowikibot",
-            "in_reply_to": "t1_chs51e3",
-            "majority_link": "t1_chs51e3",
-            "body": "#####&#009;\n\n######&#009;\n\n####&#009;\n [**Digestive biscuit**](https://en.wikipedia.org/wiki/Digestive%20biscuit): [](#sfw) \n\n---\n\n>A __digestive biscuit__, sometimes described as a __sweet-meal biscuit__, is a semi-[sweet](https://en.wikipedia.org/wiki/Sweetness) [biscuit](https://en.wikipedia.org/wiki/Biscuit) (usually known in [American English](https://en.wikipedia.org/wiki/American_English) as a \"cookie\" ) that originated in the [United Kingdom](https://en.wikipedia.org/wiki/United_Kingdom) and is popular worldwide. The term \"digestive\" is derived from the belief that they had [antacid](https://en.wikipedia.org/wiki/Antacid) [properties](https://en.wikipedia.org/wiki/Chemical_property) due to the use of [sodium bicarbonate](https://en.wikipedia.org/wiki/Sodium_bicarbonate) when they were first developed.  Historically, some producers used [diastatic](https://en.wikipedia.org/wiki/%C2%B0Lintner) [malt extract](https://en.wikipedia.org/wiki/Malt) to \"digest\" some of the [starch](https://en.wikipedia.org/wiki/Starch) that existed in [flour](https://en.wikipedia.org/wiki/Flour) prior to [baking](https://en.wikipedia.org/wiki/Baking).  \n\n\n>====\n\n>[**Image**](https://i.imgur.com/FVw4oA3.jpg) [^(i)](https://commons.wikimedia.org/wiki/File:Digestive_biscuits.jpg)\n\n---\n\n^Interesting: [^Biscuit](https://en.wikipedia.org/wiki/Biscuit) ^| [^McVitie's](https://en.wikipedia.org/wiki/McVitie%27s) ^| [^Cracker ^\\(food)](https://en.wikipedia.org/wiki/Cracker_\\(food\\)) \n\n^Parent ^commenter ^can [^toggle ^NSFW](http://www.np.reddit.com/message/compose?to=autowikibot&subject=AutoWikibot NSFW toggle&message=%2Btoggle-nsfw+chs51gj) ^or[](#or) [^delete](http://www.np.reddit.com/message/compose?to=autowikibot&subject=AutoWikibot Deletion&message=%2Bdelete+chs51gj)^. ^Will ^also ^delete ^on ^comment ^score ^of ^-1 ^or ^less. ^| [^(FAQs)](http://www.np.reddit.com/r/autowikibot/wiki/index) ^| [^Mods](http://www.np.reddit.com/r/autowikibot/comments/1x013o/for_moderators_switches_commands_and_css/) ^| [^Magic ^Words](http://www.np.reddit.com/r/autowikibot/comments/1ux484/ask_wikibot/)",
+            "author": "unseenarchives",
+            "in_reply_to": "t1_c9vq7xu",
+            "majority_link": "t1_c9vq7xu",
+            "body": "I believe it's just an incompatible shape.  /u/t_maia recommended it for me and I am very much the opposite of shallow. Narrow root and tons of projection. ",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_chs51e3"
+                    "link_to_post": "t1_c9vq7xu"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_chs51e3"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "disagreement",
+                    "link_to_post": "t1_c9vq7xu"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_chs51e3"
+                    "link_to_post": "t1_c9vq7xu"
                 }
             ]
         },
         {
-            "id": "t1_chfcf7u",
-            "majority_type": "appreciation",
-            "post_depth": 1,
-            "author": "10andback",
-            "in_reply_to": "t3_259tbh",
-            "majority_link": "t3_259tbh",
-            "body": "Looks delicious, thanks for sharing!",
+            "id": "t1_c9wcvzn",
+            "majority_type": "elaboration",
+            "post_depth": 5,
+            "author": "t_maia",
+            "in_reply_to": "t1_c9vr2xe",
+            "majority_link": "t1_c9vr2xe",
+            "body": " >/u/t_maia recommended it for me \n\nYou got the wrong bra I think. \n\nPourMoi? Amour is available in two versions, one padded plunge (which is recommended for shallow shapes, PM-1500) and an unpadded balcony bra (which you got, PM-1502). \n\nSearch for PourMoi? Amour in this subreddit and you'll find fitchecks showing the other bra. \n\nYou can also compare the two at bratabase. \n\nhttp://www.bratabase.com/browse/pour-moi/amour-padded-pm-1500/\nhttp://www.bratabase.com/browse/pour-moi/amour-underwired-non-padded-pm-1502/\n\nIn addition I think the PourMoi? Amour sits too low just like the CK Elegance. You might want to try this bra again with the wires probably in the inframammary fold. \n\nButTheBoobies already covered the rest. \n\nBTW, since you got the unpadded now, could you please enter it into bratabase before you send it back? Thanks. ",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_c9vr2xe"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "disagreement",
+                    "link_to_post": "t1_c9vr2xe"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_c9vr2xe"
                 }
             ]
         },
         {
-            "id": "t1_chfgaif",
-            "majority_type": "appreciation",
-            "post_depth": 1,
-            "author": "Gingerstop",
-            "in_reply_to": "t3_259tbh",
-            "majority_link": "t3_259tbh",
-            "body": "Looks tasty!",
+            "id": "t1_c9vroi4",
+            "majority_type": "elaboration",
+            "post_depth": 5,
+            "author": "ButTheBoobies",
+            "in_reply_to": "t1_c9vr2xe",
+            "majority_link": "t1_c9vr2xe",
+            "body": "It's all shades of gray :) You may not be \"shallow\" like many of the ladies here, but you appear to be shallower than that bra is meant for. You might try a cup down, but I'd be concerned the wires would be too narrow.",
             "annotations": [
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_c9vr2xe"
                 },
                 {
-                    "annotator": "d3ff34d503cec21ac13d39d7440d5490",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
                     "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "link_to_post": "t1_c9wcvzn"
                 },
                 {
-                    "annotator": "9c89a75e42cad794ca168024b87b02c7",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_259tbh"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_c9vr2xe"
                 }
             ]
         }
     ],
-    "url": "https://www.reddit.com/r/1200isplenty/comments/259tbh/122cal_black_currant_cheesecake/"
+    "url": "https://www.reddit.com/r/ABraThatFits/comments/1e0ur5/got_2_bras_in_same_size_one_seems_to_fit/"
 }{
-    "title": "Need help finding a Springfield!",
+    "title": "I'm desperate and need help finding comfortable wireless bras.",
     "is_self_post": true,
-    "subreddit": "1911",
+    "subreddit": "abrathatfits",
     "posts": [
         {
             "is_first_post": true,
-            "id": "t3_16h61h",
+            "id": "t3_2qgrke",
             "majority_type": "question",
-            "url": "https://www.reddit.com/r/1911/comments/16h61h/need_help_finding_a_springfield/",
+            "url": "https://www.reddit.com/r/ABraThatFits/comments/2qgrke/im_desperate_and_need_help_finding_comfortable/",
+            "author": "inbedwithabook",
             "majority_link": "none",
-            "body": "I can't find them anywhere! I just want the most basic model they have such as the GI or Mil-spec. I would like to get a new one but they are sold out everywhere. [like this listing](http://www.firearmsforyou.com/guns/hand-guns/springfield-armory-pb9113l-1911-mil-spec-38-super-5-9-1-cocobolo-wood-grip-pk-1911-mil-spec-series-pb9113l/)",
+            "body": "I've always preferred wireless bras over wired, but for Christmas I figured I'd give wired another shot since it's been so long - and I'm so uncomfortable I'm about to cry. I'm itchy, and it feels tight (even though it's definitely the right size) and I feel ungrateful for my gift (it was from my mom), but I can't handle how uncomfortable it is. I'm a 42DD, what is a comfortable yet sturdy wireless bra for my size? I'd be wearing it everyday, and probably buy multiples.",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "question",
                     "link_to_post": "none"
                 }
             ]
         },
         {
-            "id": "t1_c7w0wls",
-            "majority_type": "question",
+            "id": "t1_cn5y4wb",
+            "majority_type": "answer",
             "post_depth": 1,
-            "author": "stanleyfarnsworth",
-            "in_reply_to": "t3_16h61h",
-            "majority_link": "t3_16h61h",
-            "body": "You want your 1911 to be in .38?",
+            "author": "crazymusicalgenius96",
+            "in_reply_to": "t3_2qgrke",
+            "majority_link": "t3_2qgrke",
+            "body": "There are many wireless options available in 42DD, but before you decide to go to a store or order anything online, you might want to measure yourself as per the guidelines in the Beginner's Guide. If the measurements indicate your size is around 42DD, the bra you just got for Christmas might be the wrong shape for you. Do the wires fully circle your breast tissue? Are the wires sitting in your inframammary fold (the place where the bottom of your breast meets your stomach)? Does the gore (the middle section between the cups) touch your sternum? These are common signs of fit to look out for in a wired bra.\n\nIf 42DD ends up being the size you measure as and you want some wireless options, here's a bunch: http://www.barenecessities.com/42DD-Wire-Free-Bras-Bras_catalog_nxs,31,size,1038,style,65.htm?cmp=xyz I'd guess that the ones by Bali and Playtex are probably available in most department stores, and the Anita and Goddess ones can likely be found at Nordstrom or Dillard's. ",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke",
+                    "second_type": "question"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
                 }
             ]
         },
         {
-            "id": "t1_c7w4ddx",
-            "majority_type": "question",
-            "post_depth": 1,
-            "author": "yourenzyme",
-            "in_reply_to": "t3_16h61h",
-            "majority_link": "t3_16h61h",
-            "body": "Where do you live? Eagle Guns and Range in Concord, NC has one in stock. Was looking at it yesterday as a matter of fact :) \n\nAnd it is the .45acp model\n\n3789 Roberta Church Road SW\nConcord, North Carolina 28027-9011\n\nPHONE: (704) 788-9013",
+            "id": "t1_cn5ykrq",
+            "majority_type": "appreciation",
+            "post_depth": 2,
+            "author": "inbedwithabook",
+            "in_reply_to": "t1_cn5y4wb",
+            "majority_link": "t1_cn5y4wb",
+            "body": "Thank you so much for the suggestions! I have already measured myself (it's how I got the 42DD measurement) and everything on the bra seems to be okay in terms of what you've mentioned. I just can never seem or find a wired bra that feels as comfortable as I'd like. ",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cn5y4wb"
+                },
+                {
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cn5y4wb",
                     "second_type": "answer"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "question",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cn5y4wb"
                 }
             ]
         },
         {
-            "id": "t1_c7w4iik",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "2wheeljunkie",
-            "in_reply_to": "t3_16h61h",
-            "majority_link": "t3_16h61h",
-            "body": "I saw several new ones yesterday, including a Range Officer at Piazza Jewelery and Pawn.  I don't know if they ship, though, but they do transfers.  Good prices, too\n\n10201 Page Ave.\nSt. Louis, MO 63132\n314-427-2277",
+            "id": "t1_cn5z6hi",
+            "majority_link": "t1_cn5ykrq",
+            "post_depth": 3,
+            "in_reply_to": "t1_cn5ykrq",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
-                    "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cn5ykrq"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn5ykrq"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "link_to_post": "t3_2qgrke"
                 }
-            ]
+            ],
+            "body": "If you're interested in trying an Anita bra, HerRoom has the Anita Jana one on sale right now 25% off and free shipping I think over a certain dollar amount. This is still a pretty expensive bra though! It's a mostly cotton bra and very comfortable, though the fabric when new is a bit stiff--it needs a couple of washes. Note that they don't have a DD cup--the bra is EU sized and it looks like their equivalent to a DD is E cup.\n\nIf you have access to Royce lingerie, they make beautiful wirefree stuff, but the prices are not cheap! It's a British company (so UK cup sizes, but at a DD cup I think UK and US still correspond to each other). I think they have a US site and they are stocked at some specialty stores in the US and elsewhere. If you can get a size in their Grace style, it's a lovely bra. Beware their bra-size calculator, though, as they appear to use the infamous +4 sizing method. \n\nEdit: Actually, when I think about it, you can probably find a decent range of styles and brands in wirefree bras in your size at large department stores. Bali, Playtex, and Goddess are all good bets, as is the Just My Size line by Hanes if you can find it. Any of those make good bras that are more economical than the Anita and Royce bras.",
+            "author": "Goddess_Keira"
         },
         {
-            "id": "t1_c7w8hlf",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "YourMothersAss",
-            "in_reply_to": "t3_16h61h",
-            "majority_link": "t3_16h61h",
-            "body": "lots of pawn shops around me, Augusta GA, have 1911 .45 ACP on the shelves.",
+            "id": "t1_cn60kfs",
+            "majority_link": "t1_cn5ykrq",
+            "post_depth": 3,
+            "in_reply_to": "t1_cn5ykrq",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
-                    "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cn5ykrq"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn5ykrq"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cn5ykrq"
                 }
-            ]
+            ],
+            "body": "That's totally fine! The recommendations /u/Goddess_Keira gave sound pretty good, I hope you can find some you like! You don't have to worry about the gore tacking in a wire-free bra, as they aren't designed to do that, but the other signs of good fit will still be important to look out for.",
+            "author": "crazymusicalgenius96"
         },
         {
-            "id": "t1_c7wckfd",
+            "id": "t1_cn5ylne",
             "majority_type": "answer",
             "post_depth": 1,
-            "author": "Vibora",
-            "in_reply_to": "t3_16h61h",
-            "majority_link": "t3_16h61h",
-            "body": "I want this one for myself but here you go. \n\nhttp://www.impactguns.com/product.aspx?zpid=15785\n\nPaying off some bills first though. ",
+            "author": "HorchataBorracha",
+            "in_reply_to": "t3_2qgrke",
+            "majority_link": "t3_2qgrke",
+            "body": "Honestly I would suggest checking out nursing bras, you'll have many more options in your size than you would with \"regular\" bras and there's more of an emphasis on comfort rather than creating the \"high and round\" shape. As long as you don't mind the weird peekaboo panels and nipple easy-access pockets you're golden.",
             "annotations": [
                 {
-                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "link_to_post": "t3_2qgrke"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
                     "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "link_to_post": "t3_2qgrke"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "answer",
-                    "link_to_post": "t3_16h61h"
+                    "link_to_post": "t3_2qgrke"
                 }
             ]
         },
         {
-            "id": "t1_c7w1x38",
-            "majority_type": "answer",
+            "id": "t1_cn8s42z",
+            "majority_type": "agreement",
             "post_depth": 2,
-            "in_reply_to": "t1_c7w0wls",
-            "majority_link": "t1_c7w0wls",
-            "body": "Oh hell no. Sorry, I linked to the wrong pistol. I want that but in .45 ACP.",
+            "author": "gigglesmcbug",
+            "in_reply_to": "t1_cn5ylne",
+            "majority_link": "t1_cn5ylne",
+            "body": "Nursing bras are amazing.  ",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t1_c7w0wls"
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cn5ylne"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "answer",
-                    "link_to_post": "t1_c7w0wls"
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t3_2qgrke"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn5ylne"
                 }
             ]
         },
         {
-            "id": "t1_c7w5lya",
+            "id": "t1_cn64ji7",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "BotticellusRex",
+            "in_reply_to": "t3_2qgrke",
+            "majority_link": "t3_2qgrke",
+            "body": "Cacique inside Lane Bryant has a LOT of options for you. I loved their wireless bras when I fit them. Their cotton ones come in a lot of colors and you should be able to get them on sale if there's out of season colors.\n\nI just checked and it's currently buy two, get two free, and that includes sale bras! [Check it out!](http://www.lanebryant.com/cacique-plus-size-sexy-bras-intimate-apparel/bras/wirefree-bras/4043c4044c117/index.cat?zf=sr:bra)",
+            "annotations": [
+                {
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
+                },
+                {
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
+                }
+            ]
+        },
+        {
+            "id": "t1_cn690sr",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "inbedwithabook",
+            "in_reply_to": "t1_cn64ji7",
+            "majority_link": "t1_cn64ji7",
+            "body": "That's where I got the wired ones from! I had wireless ones from them before that I loved so I thought I'd like the wired ones, as well. Back to the oldies! Haha",
+            "annotations": [
+                {
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cn64ji7"
+                },
+                {
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn64ji7"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cn64ji7"
+                }
+            ]
+        },
+        {
+            "id": "t1_cn6ahog",
             "majority_type": "elaboration",
             "post_depth": 3,
-            "author": "stanleyfarnsworth",
-            "in_reply_to": "t1_c7w1x38",
-            "majority_link": "t1_c7w1x38",
-            "body": "Hahaha. Ok. I was wondering. ",
+            "author": "BotticellusRex",
+            "in_reply_to": "t1_cn690sr",
+            "majority_link": "t1_cn690sr",
+            "body": "Definitely try a bunch of wired and wireless ones on. Some are a pretty tough fit, but their Comfort Cushion lines might be an option to ease you back into wired bras, if you're interested.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_c7w1x38"
+                    "link_to_post": "t1_cn690sr"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn690sr"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_c7w1x38"
+                    "link_to_post": "t1_cn690sr"
                 }
             ]
         },
         {
-            "id": "t1_c7w9bes",
-            "majority_type": "appreciation",
-            "post_depth": 2,
-            "in_reply_to": "t1_c7w4ddx",
-            "majority_link": "t1_c7w4ddx",
-            "body": "Thank you! I'll give them a call tomorrow\n",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c7w4ddx"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c7w4ddx"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7w90tj",
-            "majority_type": "appreciation",
-            "post_depth": 2,
-            "in_reply_to": "t1_c7w8hlf",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_c7w8hlf"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t3_16h61h"
-                }
-            ],
-            "body": "That's a good idea. I'll have to check around some pawn shops. "
-        },
-        {
-            "id": "t1_c7w9l3j",
-            "majority_type": "elaboration",
-            "post_depth": 3,
-            "author": "YourMothersAss",
-            "in_reply_to": "t1_c7w90tj",
-            "majority_link": "t1_c7w90tj",
-            "body": "Nothing to fancy though. Rock Island, Remington R1, ect, ect.",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7w90tj"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7w90tj"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7wa7b2",
-            "majority_type": "elaboration",
-            "post_depth": 4,
-            "in_reply_to": "t1_c7w9l3j",
-            "majority_link": "t1_c7w9l3j",
-            "body": "Yea I really want something with a forged frame to build on. I'm pretty set on a Springfield.",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7w9l3j"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7w9l3j"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7wqjxm",
-            "majority_type": "elaboration",
-            "post_depth": 5,
-            "author": "YourMothersAss",
-            "in_reply_to": "t1_c7wa7b2",
-            "majority_link": "t1_c7wa7b2",
-            "body": "then I believe the R1 model is what you are looking for.\nFixed Sights, Full frame, the same 3 safeties, lower ejection port, but again, nothing to fancy. The grips are a nice wood, but not crazy. No extended beaver tail.\nThey are, or were last time I saw, relatively cheap. $520 I seen a few at. And that is brand new. As opposed to the 1911 I got at $780. Also brand new.",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7wa7b2"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7wa7b2"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7ws0qu",
-            "majority_type": "question",
-            "post_depth": 6,
-            "in_reply_to": "t1_c7wqjxm",
-            "majority_link": "t1_c7wqjxm",
-            "body": "So you're saying the R1 is better than a Springfield?",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "question",
-                    "link_to_post": "t1_c7wqjxm"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "question",
-                    "link_to_post": "t1_c7wqjxm"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7ww8lu",
+            "id": "t1_cn5zasn",
             "majority_type": "answer",
-            "post_depth": 7,
-            "author": "YourMothersAss",
-            "in_reply_to": "t1_c7ws0qu",
-            "majority_link": "t1_c7ws0qu",
-            "body": "R1 isnt better. But it is Remington. So its still good.\nIts just a step down from the Range Officer model.\n",
+            "post_depth": 1,
+            "author": "lizzyborden42",
+            "in_reply_to": "t3_2qgrke",
+            "majority_link": "t3_2qgrke",
+            "body": "If you can't return the bra, you can always remove the underwire and see if it fits better. Not a perfect solution, but it might help.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "answer",
-                    "link_to_post": "t1_c7ws0qu"
+                    "link_to_post": "t3_2qgrke"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
                     "main_type": "answer",
-                    "link_to_post": "t1_c7ws0qu"
+                    "link_to_post": "t3_2qgrke"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_2qgrke"
                 }
             ]
         },
         {
-            "id": "t1_c7wwsuj",
-            "majority_type": "elaboration",
-            "post_depth": 8,
-            "in_reply_to": "t1_c7ww8lu",
-            "majority_link": "t1_c7ww8lu",
-            "body": "Yea I just wish I could find [this](http://www.impactguns.com/product.aspx?zpid=15780). Sold out everywhere.",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7ww8lu"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7ww8lu"
-                }
-            ]
-        },
-        {
-            "id": "t1_c7wx9ea",
-            "majority_link": "t1_c7wwsuj",
-            "post_depth": 9,
-            "in_reply_to": "t1_c7wwsuj",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7wwsuj",
-                    "second_type": "question"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "question",
-                    "link_to_post": "t1_c7wwsuj"
-                }
-            ],
-            "body": "That's the springfield equivalent to the Remington R1.\n\nUnrelated: how did you make the link to that page as \"this\"?",
-            "author": "YourMothersAss"
-        },
-        {
-            "id": "t1_c7wynxj",
-            "majority_link": "t1_c7wx9ea",
-            "post_depth": 10,
-            "in_reply_to": "t1_c7wx9ea",
-            "annotations": [
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t1_c7wx9ea"
-                },
-                {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_c7wx9ea"
-                }
-            ],
-            "body": "Click on the \"formatting help\" at the bottom right of the comment box. It will tell you [what you want to say](URL)"
-        },
-        {
-            "id": "t1_c7wgdeg",
+            "id": "t1_cn67col",
             "majority_type": "elaboration",
             "post_depth": 2,
-            "in_reply_to": "t1_c7wckfd",
-            "majority_link": "t1_c7wckfd",
-            "body": "Whew! Can't afford that one. I'm lookin for the base model that sells on impactguns.com for like $540.",
+            "author": "lo_dolly_lolita",
+            "in_reply_to": "t1_cn5zasn",
+            "majority_link": "t1_cn5zasn",
+            "body": "OR get a band extender until the band stretches out a little bit!",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "31ac59c1734c1547d4d0723ff254c247",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_c7wckfd"
+                    "link_to_post": "t1_cn5zasn"
                 },
                 {
-                    "annotator": "fd6076bf357438af2eab3af408e80dd9",
+                    "annotator": "84d17254e707caa405b61fa2ba5ff02f",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cn5zasn"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_c7wckfd"
+                    "link_to_post": "t1_cn5zasn"
                 }
             ]
         }
     ],
-    "url": "https://www.reddit.com/r/1911/comments/16h61h/need_help_finding_a_springfield/"
+    "url": "https://www.reddit.com/r/ABraThatFits/comments/2qgrke/im_desperate_and_need_help_finding_comfortable/"
 }{
-    "title": "Help with a possible trade?",
+    "title": "Trying to understand why loud music helps with ADHD for me.",
     "is_self_post": true,
-    "subreddit": "1911",
+    "subreddit": "adhd",
     "posts": [
         {
             "is_first_post": true,
-            "id": "t3_35igzp",
+            "id": "t3_1hrkr9",
             "majority_type": "question",
-            "url": "https://www.reddit.com/r/1911/comments/35igzp/help_with_a_possible_trade/",
-            "author": "WhatDaFlogNut",
+            "url": "https://www.reddit.com/r/ADHD/comments/1hrkr9/trying_to_understand_why_loud_music_helps_with/",
+            "author": "MrDurp",
             "majority_link": "none",
-            "body": "Hey there, I just discovered this sub so this is my first post. I recently purchased my first 1911 from an active police officer. Its a Colt Defender. It is in pretty good shape with a few blemishes here and there but nothing major. I assume the gun as seen some range time since the previous owner used it as his side arm. I have a guy who wants to trade me his Kimber Pro Carry II for my Defender. His seems to be pretty much brand new. I'd like to hear some opinions as to whether or not I should make the trade. Neither gun will be an everyday carry so I'm not concerned with the difference in barrel length. I'm more curious if going from a Colt to a Kimber would be a bad move? Thanks for any advice.\n\nEdit: Here is my Colt: http://imgur.com/6KQIvzY  Here is his Kimber: http://imgur.com/L0PdiD7",
+            "body": "I have recently noticed that music only works for me if it is very loud. If I go half volume I lose interest fast(thanks ADHD)\n\nMy wife complains that my music is too loud even with my headphones on. If she can hear it all all it's too loud.  \n\nI used to think this was just me liking loud music but I have observed that if its not loud I go all ADHD and drift off. I will put my headphones down even on my most favorite music if it is not loud.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
+                    "annotator": "324ca513dc5b339588057f321278791d",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "question",
                     "link_to_post": "none"
                 }
             ]
         },
         {
-            "id": "t1_cr4q30g",
+            "id": "t1_cax7ehx",
+            "majority_link": "t3_1hrkr9",
+            "post_depth": 1,
+            "in_reply_to": "t3_1hrkr9",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "other",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ],
+            "body": "I don't listen to music very loud, but I do listen to it loud enough that it cancels out noise around me. It's weird that I can concentrate and study with music, but if there is anyone talking or a tv on, I can't.",
+            "author": "ChrisBacon"
+        },
+        {
+            "id": "t1_caxg8mm",
+            "majority_link": "t1_cax7ehx",
+            "post_depth": 2,
+            "in_reply_to": "t1_cax7ehx",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "question",
+                    "link_to_post": "t1_cax7ehx"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cax7ehx"
+                }
+            ],
+            "body": "Is it possibly because the music is predictable, whereas people talking is novel? If hear a new song I get distracted by the lyrics and sound, but when it's a song I know well it seems to stimulate my brain while letting me focus.",
+            "author": "Sadiew1990"
+        },
+        {
+            "id": "t1_caxwdza",
+            "majority_link": "t1_caxg8mm",
+            "post_depth": 3,
+            "in_reply_to": "t1_caxg8mm",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t1_caxg8mm"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxg8mm"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxg8mm"
+                }
+            ],
+            "body": "I think this is pretty spot on, as it's something I've contemplated many times. ",
+            "author": "ChrisBacon"
+        },
+        {
+            "id": "t1_cay1aso",
+            "majority_link": "t1_caxg8mm",
+            "post_depth": 3,
+            "in_reply_to": "t1_caxg8mm",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t1_caxg8mm"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "disagreement",
+                    "link_to_post": "t1_caxg8mm"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxwdza"
+                }
+            ],
+            "body": "Huh. I have the opposite reaction. If I'm writing an essay, and I'm listening to a song I don't know, I phase it out, but if I know the song, I'm hearing the lyrics in my head as I listen. But I listen to mostly hip-hop, which puts a premium, on lyrical content, as opposed to something where lyrics matter less, or something instrumental? Interesting...",
+            "author": "maxxramman"
+        },
+        {
+            "id": "t1_caxa2pc",
             "majority_type": "answer",
             "post_depth": 1,
-            "author": "souobixo",
-            "in_reply_to": "t3_35igzp",
-            "majority_link": "t3_35igzp",
-            "body": "\"Going from a Colt to a Kimber is a bad move.\" Well... Kinda. I wouldn't call it a BAD move as much as \"a good move for the other guy\". I'm not on the Kimber bashing bandwagon, but I do understand why there is such a bandwagon. Without trying to sound like a jerk about it, I don't think a Kimber is quite the 1911 the Colt is, either in quality or reputation. Kimbers can be fine 1911's, but Colt is known as the standard by which others are measured. That being said,  Kimber is under that standard the same as an Ed Brown or Doug Turnbull is above it (although not by the same amount). Hope this helps and doesn't come off as dickish. In short, you'd be doing the other guy a favor and not yourself. \n\nEdit: I forgot to mention something else. Get a photo of that Colt posted!",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "I used to do homework whilst listening to very loud death metal.  It killed all other distractions, and made me concentrate, along with pumping me up.  It had to be really loud though.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
                     "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "link_to_post": "t3_1hrkr9"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
                 },
                 {
-                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "link_to_post": "t3_1hrkr9"
                 }
             ]
         },
         {
-            "id": "t1_cr4qxvx",
-            "majority_type": "appreciation",
+            "id": "t1_caxbuoe",
+            "majority_type": "agreement",
             "post_depth": 2,
-            "author": "WhatDaFlogNut",
-            "in_reply_to": "t1_cr4q30g",
-            "majority_link": "t1_cr4q30g",
-            "body": "Thanks for the input! I sort of share the same sentiment as you. Just wanted another opinion on it. I guess my real reason for asking is because I know the other guy's Kimber is almost mint and mine has quite a bit or range time. I don't know much about the longevity of these guns. Just assumed maybe newer would be better??? Also, here are pictures of both guns. Mine: http://imgur.com/6KQIvzY And his: http://imgur.com/L0PdiD7",
+            "author": "Franky_Meatballs",
+            "in_reply_to": "t1_caxa2pc",
+            "majority_link": "t1_caxa2pc",
+            "body": "Same here, it had to be metal and it had to be loud. That trick got me through university.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_cr4q30g"
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxa2pc"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_cr4q30g",
-                    "second_type": "question"
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxa2pc"
                 },
                 {
-                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_cr4q30g"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxa2pc"
                 }
             ]
         },
         {
-            "id": "t1_cr4r7uw",
+            "id": "t1_caybtmm",
+            "majority_type": "agreement",
+            "post_depth": 3,
+            "in_reply_to": "t1_caxbuoe",
+            "majority_link": "t1_caxbuoe",
+            "body": "Same here. If I was blasting Metallica with the door closed in our apartment...my roommates knew to leave me alone because I had a deadline.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxbuoe"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxbuoe"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxbuoe"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxhhvi",
+            "majority_link": "t1_caxa2pc",
+            "post_depth": 2,
+            "in_reply_to": "t1_caxa2pc",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "question",
+                    "link_to_post": "t1_caxa2pc"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxa2pc"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxa2pc"
+                }
+            ],
+            "body": "Are you me? This is what I did all of high school",
+            "author": "amon00"
+        },
+        {
+            "id": "t1_caxacxi",
+            "majority_link": "t3_1hrkr9",
+            "post_depth": 1,
+            "in_reply_to": "t3_1hrkr9",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "question",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ],
+            "body": "Have you experimented with different music genres? I have found that certain types of music work best for me, and I don't need to listen to them very loud to keep that side of my mind busy.\n\nMozart, Holst and Bach are intense.\n\nCeltic music might also be good."
+        },
+        {
+            "id": "t1_caxcx78",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "xXJollygoodpirateXx",
+            "in_reply_to": "t1_caxacxi",
+            "majority_link": "t1_caxacxi",
+            "body": "Drum and bass is heavy and intense and cuts me off from everything.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxdahm",
             "majority_type": "elaboration",
             "post_depth": 3,
-            "author": "espike845",
-            "in_reply_to": "t1_cr4qxvx",
-            "majority_link": "t1_cr4qxvx",
-            "body": "I've got nothing against Kimbers. As stated above they can be fine 1911s. I would rather have a Colt than a Kimber though. There is a reason why his is designed to look like yours.",
+            "author": "simply2positive",
+            "in_reply_to": "t1_caxcx78",
+            "majority_link": "t1_caxcx78",
+            "body": "The ultimate thinking person's music.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_cr4qxvx"
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxcx78"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
-                    "main_type": "answer",
-                    "link_to_post": "t1_cr4qxvx"
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxcx78"
                 },
                 {
-                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_cr4q30g"
+                    "link_to_post": "t1_caxcx78"
                 }
             ]
         },
         {
-            "id": "t1_cr528at",
+            "id": "t1_caxdbyy",
+            "majority_type": "agreement",
+            "post_depth": 4,
+            "author": "xXJollygoodpirateXx",
+            "in_reply_to": "t1_caxdahm",
+            "majority_link": "t1_caxdahm",
+            "body": "Agreed.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxdahm"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxdahm"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxdahm"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxi9fd",
+            "majority_type": "elaboration",
+            "post_depth": 3,
+            "author": "Watchmaker163",
+            "in_reply_to": "t1_caxcx78",
+            "majority_link": "t1_caxcx78",
+            "body": "I used to listen to Pendulum and similar music when I was working. That, and podcasts, I can listen to those for hours.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxcx78"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxcx78"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxiyrd",
+            "majority_type": "elaboration",
+            "post_depth": 3,
+            "in_reply_to": "t1_caxcx78",
+            "majority_link": "t1_caxcx78",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxcx78"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxcx78"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxeo80",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "CodeineCowboy",
+            "in_reply_to": "t1_caxacxi",
+            "majority_link": "t1_caxacxi",
+            "body": "> Mozart, Holst and Bach are intense.\n> \n\nBoards of Canda...",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                }
+            ]
+        },
+        {
+            "id": "t1_cay0q59",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "CaptainIncredible",
+            "in_reply_to": "t1_caxacxi",
+            "majority_link": "t1_caxacxi",
+            "body": "I find the mechanical harpsichord music of Bach is particularly helpful.  Also techno music.  I seem to like the repeating mathematical patterns. ",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxacxi"
+                }
+            ]
+        },
+        {
+            "id": "t1_caydszp",
+            "majority_type": "elaboration",
+            "post_depth": 3,
+            "in_reply_to": "t1_cay0q59",
+            "majority_link": "t1_cay0q59",
+            "body": "I love listening to harpsichord, but it gives me like a brain trip - I can \"see\" the notes and the music floating around - especially at a LIVE harpsichord concert.\n\nI get the same effect when I go the the symphony sometimes. I would imagine it's similar to what an LSD trip might be like.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cay0q59"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cay0q59"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cay0q59"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxanke",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "txkent",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "YES!  This a thousand times!  I just setup a \"listening station\" in the bedroom so I can jam and read whilst the wife watches TV from bed.  (Hey, I had to find a use for the stereo receiver that was sitting gathering dust...)  I plugged my tablet in, fired up a movie soundtrack, and left the planet.  (Battlestar Galactica Season 1 ST)",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxanqq",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "NiKnight42",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "I'm not a big fan of rap music, but I always play it loudly when I write essays or else I can't get through them.\n\nI think it helps by drowning out the outside world and giving me a steady rhythm to work to.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxdd7o",
+            "majority_type": "appreciation",
+            "post_depth": 2,
+            "in_reply_to": "t1_caxanqq",
+            "majority_link": "t1_caxanqq",
+            "body": "I don't have ADHD, but thats actually pretty cool that you don't really like rap, but it helps you write essays when you play it loud.  Pretty fascinating actually.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_caxanqq"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_caxanqq"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxanqq"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxdkzp",
+            "majority_type": "elaboration",
+            "post_depth": 3,
+            "author": "NiKnight42",
+            "in_reply_to": "t1_caxdd7o",
+            "majority_link": "t1_caxdd7o",
+            "body": "My theory is that the effort it takes to tune out the sometimes obnoxious aspects of the music (like silly voices) eliminates the need to turn in the direction of anything that moves in my peripheral or in front of my face-which happens a lot when I try to write in a lounge full of people. If that makes any sense.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxdd7o"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxdd7o"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxdd7o"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxdwyg",
             "majority_type": "appreciation",
             "post_depth": 4,
-            "author": "WhatDaFlogNut",
-            "in_reply_to": "t1_cr4r7uw",
-            "majority_link": "t1_cr4r7uw",
-            "body": "Good point! I think I'm keeping it :)",
+            "in_reply_to": "t1_caxdkzp",
+            "majority_link": "t1_caxdkzp",
+            "body": "makes no sense to me, whatsoever, but it sounded genius .. thats all that really matters.. :)",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
                     "main_type": "appreciation",
-                    "link_to_post": "t1_cr4r7uw"
+                    "link_to_post": "t1_caxdkzp"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
+                    "annotator": "324ca513dc5b339588057f321278791d",
                     "main_type": "appreciation",
-                    "link_to_post": "t1_cr4r7uw"
+                    "link_to_post": "t1_caxdkzp"
                 },
                 {
-                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_cr4r7uw"
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxdkzp"
                 }
             ]
         },
         {
-            "id": "t1_cr536o9",
-            "majority_type": "elaboration",
+            "id": "t1_caxe7vk",
+            "majority_type": "appreciation",
             "post_depth": 5,
-            "author": "souobixo",
-            "in_reply_to": "t1_cr528at",
-            "majority_link": "t1_cr528at",
-            "body": "You won't regret keeping it. As far as longevity goes, it is almost indefinite. You will wear out parts like springs, mags, and maybe even the grips. The slide, frame, and barrel will likely outlive you. Colt makes great guns. How many companies who produced pistols 100 years ago still have their products found on gun shop shelves in working and safe condition?",
+            "author": "NiKnight42",
+            "in_reply_to": "t1_caxdwyg",
+            "majority_link": "t1_caxdwyg",
+            "body": "Haha! That works for me! Thanks :D",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_cr528at"
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_caxdwyg"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_caxdwyg"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_caxdwyg"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxc5xb",
+            "majority_link": "t3_1hrkr9",
+            "post_depth": 1,
+            "in_reply_to": "t3_1hrkr9",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_cr528at"
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "question",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ],
+            "body": "Too loud to hear your own thoughts?\n\nI find white or brown noise works better."
+        },
+        {
+            "id": "t1_caxcg1j",
+            "majority_type": "agreement",
+            "post_depth": 2,
+            "author": "hyperfocus3d",
+            "in_reply_to": "t1_caxc5xb",
+            "majority_link": "t1_caxc5xb",
+            "body": "I love brown noise. White and pink noise I find very distracting, but brown noise drowns everything out.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxc5xb"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxc5xb"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t1_caxc5xb"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxct3t",
+            "majority_type": "agreement",
+            "post_depth": 3,
+            "in_reply_to": "t1_caxcg1j",
+            "majority_link": "t1_caxcg1j",
+            "body": "Yeah have to agree, brown noise is calming too.\n\nWhite noise is almost painful sometimes, it's so sharp.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxcg1j"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxcg1j"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxcg1j"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxgmg1",
+            "majority_type": "agreement",
+            "post_depth": 4,
+            "author": "derpinita",
+            "in_reply_to": "t1_caxct3t",
+            "majority_link": "t1_caxct3t",
+            "body": "YES.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxct3t"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxct3t"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxct3t"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxkmkr",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "rajanchandi",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "When a music is composed they use 100+ instruments.\nI think that helps me listen more instrument as part of the music.\nApart from that, is helps focus because you're part of the rythm.\n\nAnother reason is.. it keeps you engaged and lets you diverge extra energy there.. so, you are not distracted in my other tasks.\n\nOverall, it sort of acts as balancing mechanism to avoid distractions.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxazzm",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "marblefoot",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "For me personally, it's music without lyrics. Instrumental music is like, the best for me. ",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxei91",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "903A",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "I used to *think* that loud music helped me study, but I've realized that it's a placebo effect for me. Also, I just get distracted picking songs to play, so that doesn't help. Although... there is this *one* metal song that I can work very well too. I don't know why. I work with it on loop sometimes (its play count should be in the hundreds by now).\n\nWhite noise helps too. [SimplyNoise](http://simplynoise.com/) has a great, free web player if you're willing to give it a go!",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxjzuv",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "osamathekitten",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "[deleted]  \n ^^^^^^^^^^^^^^^^0.1690 \n > [What is this?](https://pastebin.com/64GuVi2F/64137)",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxu33c",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "shishdem",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "I hope i'm not too late responding and i hope my comment gets read. \nI experience exactly the same. I can explain this by naming everything incoming 'signals'. Birds whistling, cars driving by or a sheet of paper falling from my desk. All signals. For me, all signals have equivalent importance when they enter my brains. I have no pre-selection in those; noticing an airplane flying over is as much as important as the work in front of me on my desk. Therefore, i get easily distracted by the things that ARE from lower importance but are not sorted out this way. When i try to concentrate on my work (which could be anything), the following counts: the less signals, the better. When playing **loud** music, a shitton of signals are already canceled due to the fact i cannot notice them. Basically the only signal beside my work, is the music, which isn't a sudden signal and therefore easier to deal with. The benefit of handeling one signal in contrary of, let's say, 10 signals has always been so fucking rewarding. \nHopefully my response was clear and understandable, if you have any questions don't bother asking me. ",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_cay0kcq",
+            "majority_type": "agreement",
+            "post_depth": 2,
+            "author": "ashleeedge",
+            "in_reply_to": "t1_caxu33c",
+            "majority_link": "t1_caxu33c",
+            "body": "I totally know what you mean! Me too! I get distracted by almost everything, even if it's not important!\n\nI've been doing this new thing where I set a kitchen timer for the time span that I need to focus and not do anything else (based on Pomodoro method). \n\nBut yeah, I have nice noise - canceling headphones that help so much to cancel the extra superfluous \"signals\"",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxu33c"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "agreement",
+                    "link_to_post": "t1_caxu33c"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_caxu33c"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxcpqm",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "vvj3nvv",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "I get the best sleep ever when I fall asleep to loud music.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        },
+        {
+            "id": "t1_caxaq7n",
+            "majority_type": "answer",
+            "post_depth": 1,
+            "author": "kydjester",
+            "in_reply_to": "t3_1hrkr9",
+            "majority_link": "t3_1hrkr9",
+            "body": "perhaps the music is controlling your brain space when it's loud. kinda of like when someone has music on in the cube next to me - i get really distracted but if I have head phones on I am less distracted (even if they are playing the same music). the loud music might speak to your brain more. \n\nchewing gum also seems to send send controlling signals as well to the brain.",
+            "annotations": [
+                {
+                    "annotator": "38d643ea0762278cc21958fa2363041d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "324ca513dc5b339588057f321278791d",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                },
+                {
+                    "annotator": "887a4849ca16b52391353d094ca5aae2",
+                    "main_type": "answer",
+                    "link_to_post": "t3_1hrkr9"
+                }
+            ]
+        }
+    ],
+    "url": "https://www.reddit.com/r/ADHD/comments/1hrkr9/trying_to_understand_why_loud_music_helps_with/"
+}{
+    "title": "Clem Smith forced to apologise to Blues after drunken incident",
+    "subreddit": "afl",
+    "posts": [
+        {
+            "is_first_post": true,
+            "id": "t3_3w7d1j",
+            "majority_type": "announcement",
+            "url": "http://www.afl.com.au/news/2015-12-10/smith-forced-to-apologise-to-blues-after-drunken-incident",
+            "author": "ZachMerrett7",
+            "majority_link": "none",
+            "body": "",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "announcement",
+                    "link_to_post": "none"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "announcement",
+                    "link_to_post": "none"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "announcement",
+                    "link_to_post": "none"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxtyw3r",
+            "majority_type": "elaboration",
+            "post_depth": 1,
+            "author": "darkcraig",
+            "in_reply_to": "t3_3w7d1j",
+            "majority_link": "t3_3w7d1j",
+            "body": ">He was also directed to complete extra training sessions this week\n\nAn aside - it's interesting in Chris Judd's book he talks about how, if he were a coach, he'd never give out extra training sessions for an indiscretion. That extra training should be looked at as a reward, rather than punishment. For an indiscretion, he would get them to watch training or help with waters or some other non-player job.  Good book btw. ",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxu0cuy",
+            "majority_link": "t1_cxtyw3r",
+            "post_depth": 2,
+            "in_reply_to": "t1_cxtyw3r",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxtyw3r"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "appreciation",
+                    "link_to_post": "t1_cxtyw3r"
+                }
+            ],
+            "body": "My first thought to tbh. Get him rubbing thighs on the side lines for a real punishment",
+            "author": "sonsofgondor"
+        },
+        {
+            "id": "t1_cxui6fu",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "Poffijom",
+            "in_reply_to": "t1_cxtyw3r",
+            "majority_link": "t1_cxtyw3r",
+            "body": "That is in line with modern thinking regarding high school students. Don't give them extra homework if they misbehave, say they can't do any extra work and they miss out of the answers and discussion.",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxtyw3r"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t1_cxtyw3r"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxuqezr",
+            "majority_type": "question",
+            "post_depth": 3,
+            "author": "ujbalock",
+            "in_reply_to": "t1_cxui6fu",
+            "majority_link": "t1_cxui6fu",
+            "body": "When did this become a thing? I finished high school not too long ago and have never heard of this.",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "question",
+                    "link_to_post": "t1_cxui6fu"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "question",
+                    "link_to_post": "t1_cxui6fu"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "question",
+                    "link_to_post": "t1_cxui6fu"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxur898",
+            "majority_type": "answer",
+            "post_depth": 4,
+            "author": "Poffijom",
+            "in_reply_to": "t1_cxuqezr",
+            "majority_link": "t1_cxuqezr",
+            "body": "It isn't a thing in the same way no training isn't a thing. It's just the way modern academics are now starting to think. It's been proven in a study from 1920 but it was never properly adopted. The problem is that teachers find punishment easier than trying to change behaviour. It's easier to follow the norm and just assign extra work to naughty students than try and change an established practice. \n\nSorry for the semi rant, this is my area of study! ",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "answer",
+                    "link_to_post": "t1_cxuqezr"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "answer",
+                    "link_to_post": "t1_cxuqezr"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "answer",
+                    "link_to_post": "t1_cxuqezr"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxty2f7",
+            "majority_type": "negativereaction",
+            "post_depth": 1,
+            "author": "WogButter",
+            "in_reply_to": "t3_3w7d1j",
+            "majority_link": "t3_3w7d1j",
+            "body": "Oh this again.",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxtysjg",
+            "majority_type": "elaboration",
+            "post_depth": 1,
+            "author": "PointOfFingers",
+            "in_reply_to": "t3_3w7d1j",
+            "majority_link": "t3_3w7d1j",
+            "body": "\n>The Blues have confirmed Smith, 19, was involved in a physical incident after a night of drinking in South Yarra.  The seven-game player is believed to have come off second best in the scuffle in Chapel Street.\n\nPoor guy - picked the wrong night to bump into Dustin Martin.",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "humor",
+                    "link_to_post": "t3_3w7d1j"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxu0c2s",
+            "majority_link": "t3_3w7d1j",
+            "post_depth": 1,
+            "in_reply_to": "t3_3w7d1j",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t3_3w7d1j"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "humor",
+                    "link_to_post": "t3_3w7d1j"
+                }
+            ],
+            "body": "If he fights like he disposes the ball, he's in trouble."
+        },
+        {
+            "id": "t1_cxuj9tb",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "WogButter",
+            "in_reply_to": "t1_cxu0c2s",
+            "majority_link": "t1_cxu0c2s",
+            "body": "The article did say he came off second best.",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxu0c2s"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxu0c2s"
                 },
                 {
                     "annotator": "4400a37586eae74b5d254c81cd70e4a9",
                     "main_type": "agreement",
-                    "link_to_post": "t1_cr528at",
-                    "second_type": "question"
+                    "link_to_post": "t1_cxu0c2s"
                 }
             ]
         },
         {
-            "id": "t1_cr5iq4f",
-            "majority_type": "answer",
+            "id": "t1_cxtz6zk",
+            "majority_type": "negativereaction",
             "post_depth": 1,
-            "author": "savais",
-            "in_reply_to": "t3_35igzp",
-            "majority_link": "t3_35igzp",
-            "body": "I wouldn't trade for a Kimber ",
+            "author": "timomooko",
+            "in_reply_to": "t3_3w7d1j",
+            "majority_link": "t3_3w7d1j",
+            "body": "Jesus. What the blues need for the rebuild is a really stong culture, this is the last thing needed",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "negativereaction",
+                    "link_to_post": "t3_3w7d1j"
                 },
                 {
                     "annotator": "4400a37586eae74b5d254c81cd70e4a9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "main_type": "disagreement",
+                    "link_to_post": "t3_3w7d1j"
                 }
             ]
         },
         {
-            "id": "t1_cr5zo68",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "Luckyguny",
-            "in_reply_to": "t3_35igzp",
-            "majority_link": "t3_35igzp",
-            "body": "Why don't ya both Go to the range w box o good ammo and boxes o cheap ammo shoot a few boxes and see what you think.  If you like it and functions decide then. If you don't like it you had a day at the range.",
+            "id": "t1_cxu1uu3",
+            "majority_type": "elaboration",
+            "post_depth": 2,
+            "author": "NonsenseIncoming",
+            "in_reply_to": "t1_cxtz6zk",
+            "majority_link": "t1_cxtz6zk",
+            "body": "here's hoping Bolton is tougher than he comes across. I somehow imagine being told off by him to still be a somewhat pleasant and mildly joyful experience.",
             "annotations": [
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "question",
-                    "link_to_post": "t3_35igzp"
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxtz6zk"
                 },
                 {
-                    "annotator": "5d63b12e3a79e9d874e585dd1887b8d9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxtz6zk"
                 },
                 {
                     "annotator": "4400a37586eae74b5d254c81cd70e4a9",
-                    "main_type": "answer",
-                    "link_to_post": "t3_35igzp"
+                    "main_type": "agreement",
+                    "link_to_post": "t1_cxtz6zk"
+                }
+            ]
+        },
+        {
+            "id": "t1_cxuv6uf",
+            "majority_type": "elaboration",
+            "post_depth": 3,
+            "author": "FirstTimePlayer",
+            "in_reply_to": "t1_cxu1uu3",
+            "majority_link": "t1_cxu1uu3",
+            "body": "I get the impression he is comparable to Crawford.  The class clown in public, but ruthlessly competitive behind the scenes.  He also comes from the Clarkson school of coaching. ",
+            "annotations": [
+                {
+                    "annotator": "313010445cba4a591e2368269a150e9f",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxu1uu3"
+                },
+                {
+                    "annotator": "e1474365f12144c30dbe712de11e0aca",
+                    "main_type": "elaboration",
+                    "link_to_post": "t1_cxu1uu3"
+                },
+                {
+                    "annotator": "4400a37586eae74b5d254c81cd70e4a9",
+                    "main_type": "disagreement",
+                    "link_to_post": "t1_cxu1uu3"
                 }
             ]
         }
     ],
-    "url": "https://www.reddit.com/r/1911/comments/35igzp/help_with_a_possible_trade/"
+    "url": "https://www.reddit.com/r/AFL/comments/3w7d1j/clem_smith_forced_to_apologise_to_blues_after/"
 }

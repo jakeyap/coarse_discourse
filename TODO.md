@@ -16,6 +16,9 @@ To try to learn how to classify discourse into the following categories
 ~~Flatten tree into single comments~~
 ~~Flatten the tree into pairs~~
 ~~Get a sense of category labels density~~
+~~Remove deleted posts~~
+~~Some first posts have no body. Deal with them by concatenating title with body~~
+
 Convert labels into one-hot vectors
 Draw a histogram of token lengths for posts: 
 - In progress

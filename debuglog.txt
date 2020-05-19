@@ -1,567 +1,112 @@
 {
-    "title": "How old is Rise Whea7s?",
+    "title": "I played 2007scape when it was first released, what's changed since then?",
     "is_self_post": true,
-    "subreddit": "codcompetitive",
+    "subreddit": "2007scape",
     "posts": [
         {
             "is_first_post": true,
-            "id": "t3_2eywou",
+            "id": "t3_289m0u",
             "majority_type": "question",
-            "url": "https://www.reddit.com/r/CoDCompetitive/comments/2eywou/how_old_is_rise_whea7s/",
-            "author": "jasperohm",
+            "url": "https://www.reddit.com/r/2007scape/comments/289m0u/i_played_2007scape_when_it_was_first_released/",
+            "author": "colliemayne",
             "majority_link": "none",
-            "body": "Dude looks pretty old in comparison to most of the other pros, just an observation..",
+            "body": "I'm sorry if this is frequently asked. I played when it launched and for a few months after but haven't played since. Have their been any notable changes? Thank you! ",
             "annotations": [
                 {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
+                    "annotator": "f8484f2bc9b23a4f9dc9f441a85d5747",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "440ce79c0e6e377d44b1f9c585154a1f",
                     "main_type": "question",
                     "link_to_post": "none"
                 },
                 {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
+                    "annotator": "1b6842f6994d0e1dd00c2b611793d268",
                     "main_type": "question",
                     "link_to_post": "none"
                 }
             ]
         },
         {
-            "id": "t1_ck4b8yg",
+            "id": "t1_ci8sl95",
             "majority_type": "answer",
             "post_depth": 1,
-            "author": "andrew196196",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "Why does everyone on reddit have to be a dick and can't help the guy out... I just google searched and found his bio here at http://en.wikipedia.org/wiki/Whoopi_Goldberg\n\nSays here that he was born in 55 so that makes him 59.  I think that makes him the oldest CoD player.  ",
+            "author": "IFadedxMotionI",
+            "in_reply_to": "t3_289m0u",
+            "majority_link": "t3_289m0u",
+            "body": "[To be honest, it'd just be easier to spill through this page (Go down to patch notes).](http://services.runescape.com/m=rswiki/en/Old_School_RuneScape) It contains all the recent updates.",
             "annotations": [
                 {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
+                    "annotator": "f8484f2bc9b23a4f9dc9f441a85d5747",
                     "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
+                    "link_to_post": "t3_289m0u"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
+                    "annotator": "440ce79c0e6e377d44b1f9c585154a1f",
+                    "main_type": "answer",
+                    "link_to_post": "t3_289m0u"
                 },
                 {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
+                    "annotator": "1b6842f6994d0e1dd00c2b611793d268",
                     "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
+                    "link_to_post": "t3_289m0u"
                 }
             ]
         },
         {
-            "id": "t1_ck4ljpz",
-            "majority_type": "humor",
-            "post_depth": 3,
-            "in_reply_to": "t1_ck4b92t",
-            "annotations": [
-                {
-                    "main_type": "humor",
-                    "annotator": "d08f754eceb1c6b25096086067123c3e"
-                },
-                {
-                    "main_type": "humor",
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec"
-                }
-            ],
-            "body": "I laughed way to hard at this.",
-            "author": "ProdigalEden"
-        },
-        {
-            "id": "t1_ck4q7kp",
+            "id": "t1_ci8ui3k",
             "majority_type": "elaboration",
             "post_depth": 2,
-            "author": "andrew196196",
-            "in_reply_to": "t1_ck4b8yg",
-            "majority_link": "t1_ck4b8yg",
-            "body": "I never get up votes on my comments.  I guess I should retire while I'm ahead.",
+            "author": "Artzio",
+            "in_reply_to": "t1_ci8sl95",
+            "majority_link": "t1_ci8sl95",
+            "body": "There's still been a lot of updates after the 20th March that doesn't show there.",
             "annotations": [
                 {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
+                    "annotator": "f8484f2bc9b23a4f9dc9f441a85d5747",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_ck4b8yg"
+                    "link_to_post": "t1_ci8sl95"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "440ce79c0e6e377d44b1f9c585154a1f",
                     "main_type": "elaboration",
-                    "link_to_post": "t1_ck4b8yg"
+                    "link_to_post": "t1_ci8sl95"
                 },
                 {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "negativereaction",
-                    "link_to_post": "t1_ck4b8yg"
+                    "annotator": "1b6842f6994d0e1dd00c2b611793d268",
+                    "main_type": "disagreement",
+                    "link_to_post": "t1_ci8sl95"
                 }
             ]
         },
         {
-            "id": "t1_ck4evho",
-            "majority_type": "appreciation",
-            "post_depth": 2,
-            "in_reply_to": "t1_ck4b8yg",
-            "majority_link": "t1_ck4b8yg",
-            "body": "[deleted]",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_ck4b8yg"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_ck4b8yg"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4b8yg"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4fidw",
-            "majority_type": "humor",
-            "post_depth": 3,
-            "author": "mikeraz510",
-            "in_reply_to": "t1_ck4evho",
-            "majority_link": "t1_ck4evho",
-            "body": "Give him [this](http://img.pandawhale.com/93002-reddit-silver-medal-meme-funny-B9d2.jpeg)",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4evho"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4evho"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "elaboration",
-                    "link_to_post": "t1_ck4evho"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4q6nw",
-            "majority_type": "humor",
-            "post_depth": 4,
-            "author": "andrew196196",
-            "in_reply_to": "t1_ck4fidw",
-            "majority_link": "t1_ck4fidw",
-            "body": "I've been told silver is the new gold",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4fidw"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4fidw"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "humor",
-                    "link_to_post": "t1_ck4fidw"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4bp7m",
+            "id": "t1_ci8ub9d",
             "majority_type": "answer",
             "post_depth": 1,
-            "author": "Maxx61",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "21 http://cod.gamepedia.com/Whea7s",
+            "author": "Enthusiga5m",
+            "in_reply_to": "t3_289m0u",
+            "majority_link": "t3_289m0u",
+            "body": "There's been a ton of stuff, most notably has been the wilderness revamp where they added many new incentives to get people out into the wildy including new resources, new bosses with new drops, and more spots to collect the resources that were already present. They also added a new kind of agility course known as Rooftop courses, the advantage to training this way is that you earn tokens (they appear along the course for you to gather as you are doing obstacles) which can be traded for a weight reduction set of clothing. They also added a bunch of stuff to slayer. Added elite clues and tons of new rewards a few days ago. Those are the things that come to mind for me, there's definitely a bunch of other things I'm forgetting though.",
             "annotations": [
                 {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
+                    "annotator": "f8484f2bc9b23a4f9dc9f441a85d5747",
                     "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
+                    "link_to_post": "t3_289m0u"
                 },
                 {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
+                    "annotator": "440ce79c0e6e377d44b1f9c585154a1f",
                     "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
+                    "link_to_post": "t3_289m0u"
                 },
                 {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
+                    "annotator": "1b6842f6994d0e1dd00c2b611793d268",
                     "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4g6oy",
-            "majority_type": "appreciation",
-            "post_depth": 2,
-            "author": "someonelikegod",
-            "in_reply_to": "t1_ck4bp7m",
-            "majority_link": "t1_ck4bp7m",
-            "body": "Holy shit that pic lmao",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_ck4bp7m"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "negativereaction",
-                    "link_to_post": "t1_ck4bp7m"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "appreciation",
-                    "link_to_post": "t1_ck4bp7m"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck49zzh",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "HuzaifaElahi",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "Pretty sure he is 21 years old.",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4b7by",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "RicksFatDick",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "About 350",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4af8l",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "Coward_and_Diva",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "ITT: Lots of different numbers...",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4agto",
-            "majority_type": "agreement",
-            "post_depth": 2,
-            "author": "jasperohm",
-            "in_reply_to": "t1_ck4af8l",
-            "majority_link": "t1_ck4af8l",
-            "body": "too true ahaha",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "agreement",
-                    "link_to_post": "t1_ck4af8l"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "agreement",
-                    "link_to_post": "t1_ck4af8l"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "agreement",
-                    "link_to_post": "t1_ck4af8l"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4a7rb",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "PhAnToM444",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "12",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4apq2",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "SlimKognito",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "I don't know how old he is, but every time I see him I can't help but be reminded of the alcoholic doctor from the walking dead tv show. They've got to be related.\n\nedit: Lawrence Gilliard Jr is the actors name.",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4ajri",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "DJiViRaL",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "He looks like he exceeds the normal 18-24 that seems to be average.",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4a6w4",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "69.",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4b28l",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4g6bk",
-            "majority_type": "humor",
-            "post_depth": 1,
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "420",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "humor",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck49zbw",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "ObSLAY_MemorieZ",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "42",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4agju",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "WyaOfWade",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "24",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                }
-            ]
-        },
-        {
-            "id": "t1_ck4b39e",
-            "majority_type": "answer",
-            "post_depth": 1,
-            "author": "ricknad",
-            "in_reply_to": "t3_2eywou",
-            "majority_link": "t3_2eywou",
-            "body": "He's 28. ",
-            "annotations": [
-                {
-                    "annotator": "d08f754eceb1c6b25096086067123c3e",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "e9e4b3ab355135fa954badcc06bfccc6",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
-                },
-                {
-                    "annotator": "343090f214e68ce7f8a0c4111d6022ec",
-                    "main_type": "answer",
-                    "link_to_post": "t3_2eywou"
+                    "link_to_post": "t3_289m0u"
                 }
             ]
         }
     ],
-    "url": "https://www.reddit.com/r/CoDCompetitive/comments/2eywou/how_old_is_rise_whea7s/"
+    "url": "https://www.reddit.com/r/2007scape/comments/289m0u/i_played_2007scape_when_it_was_first_released/"
 }
