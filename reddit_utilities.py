@@ -252,7 +252,6 @@ def filter_valid_pairs(comment_pairs):
         if (post_has_majority_label(head) and post_has_majority_label(tail)):
             if post_has_body(head) and post_has_body(tail):
                 filtered_comment_pairs.append(each_pair)
-    
     return filtered_comment_pairs
     
 """
