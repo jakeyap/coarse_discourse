@@ -11,6 +11,7 @@ To try to learn how to classify discourse into the following categories
 8. humor
 9. other
 
+
 ## Task 0: Preprocessing
 ~~Import data from reddit~~
 ~~Flatten tree into single comments~~
@@ -19,14 +20,11 @@ To try to learn how to classify discourse into the following categories
 ~~Remove deleted posts~~
 ~~Some first posts have no body. Deal with them by concatenating title with body~~
 
-Convert labels into one-hot vectors
-Draw a histogram of token lengths for posts: 
+~~For 1st posts, combined title with body~~
+~~Convert label pairs into numbers~~
+~~Draw a histogram of token lengths for posts: 
 - In progress
-- problem: some posts are 0 length, because they are the 1st post.
-- sometimes, the title is the body. sometimes, it is a picture
-- probably shld discard these
 
-Decide on a length to truncate for BERT
 Tokenize the entire dataset
 
 ## Task 1: Try to learn relations from comment pairs first.
@@ -52,7 +50,7 @@ After flattening, learn classification pairwise.
 There are 3 subtasks associated with Task 1.
 
 Given (commentA, commentB),
-### Task 1a: don't use commentA's label, predict labelB
+### Task 1a: predict commentA and commentB labels simultaenously
 ### Task 1b: predict labelA, then labelB with labelA as a feature
 ### Task 1c: use labelA as a feature to predict labelB
 
