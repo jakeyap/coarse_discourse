@@ -6,20 +6,9 @@ Created on Fri May 15 16:58:11 2020
 @author: jakeyap
 """
 import torch
-from transformers import BertTokenizer, BertModel
-import pickle
-from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
-                              TensorDataset)
-from torch.nn import CrossEntropyLoss, MSELoss
-
-from tqdm import tqdm_notebook, trange
-import os
-from pytorch_pretrained_bert import BertTokenizer, BertModel, BertForMaskedLM, BertForSequenceClassification
-from pytorch_pretrained_bert.optimization import BertAdam, WarmupLinearSchedule
-
-from multiprocessing import Pool, cpu_count
-from tools import *
-import convert_examples_to_features
+from transformers import BertModel, BertForSequenceClassification
+from transformers.modeling_bert import BertPreTrainedModel
+from torch.nn import BCEWithLogitsLoss
 
 categories = ['question',
               'answer',
@@ -32,50 +21,80 @@ categories = ['question',
               'humor',
               'other',]
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# The input data dir. Should contain the .tsv files (or other data files) for the task.
-DATA_DIR = "data/"
+            
+class my_BERT_Model(BertPreTrainedModel):
+    r"""
+        **labels**: (`optional`) ``torch.LongTensor`` of shape ``(batch_size,)``:
+            Labels for computing the sequence classification/regression loss.
+            Indices should be in ``[0, ..., config.num_labels - 1]``.
+            If ``config.num_labels == 1`` a regression loss is computed (Mean-Square loss),
+            If ``config.num_labels > 1`` a classification loss is computed (Cross-Entropy).
 
-# Bert pre-trained model selected in the list: bert-base-uncased, 
-# bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased,
-# bert-base-multilingual-cased, bert-base-chinese.
-BERT_MODEL = 'bert-base-cased'
+    Outputs: `Tuple` comprising various elements depending on the configuration (config) and inputs:
+        **loss**: (`optional`, returned when ``labels`` is provided) ``torch.FloatTensor`` of shape ``(1,)``:
+            Classification (or regression if config.num_labels==1) loss.
+        **logits**: ``torch.FloatTensor`` of shape ``(batch_size, config.num_labels)``
+            Classification (or regression if config.num_labels==1) scores (before SoftMax).
+        **hidden_states**: (`optional`, returned when ``config.output_hidden_states=True``)
+            list of ``torch.FloatTensor`` (one for the output of each layer + the output of the embeddings)
+            of shape ``(batch_size, sequence_length, hidden_size)``:
+            Hidden-states of the model at the output of each layer plus the initial embedding outputs.
+        **attentions**: (`optional`, returned when ``config.output_attentions=True``)
+            list of ``torch.FloatTensor`` (one for each layer) of shape ``(batch_size, num_heads, sequence_length, sequence_length)``:
+            Attentions weights after the attention softmax, used to compute the weighted average in the self-attention heads.
 
-# The name of the task to train.I'm going to name this 'yelp'.
-TASK_NAME = 'yelp'
+    Examples::
 
-# The output directory where the fine-tuned model and checkpoints will be written.
-OUTPUT_DIR = f'outputs/{TASK_NAME}/'
+        tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
+        input_ids = torch.tensor(tokenizer.encode("Hello, my dog is cute")).unsqueeze(0)  # Batch size 1
+        labels = torch.tensor([1]).unsqueeze(0)  # Batch size 1
+        outputs = model(input_ids, labels=labels)
+        loss, logits = outputs[:2]
 
-# The directory where the evaluation reports will be written to.
-REPORTS_DIR = f'reports/{TASK_NAME}_evaluation_report/'
+    """
+    def __init__(self, config):
+        super(my_BERT_Model, self).__init__(config)
+        self.num_labels = config.num_labels
 
-# This is where BERT will look for pre-trained models to load parameters from.
-CACHE_DIR = 'cache/'
+        self.bert = BertModel(config)
+        self.dropout1 = torch.nn.Dropout(config.hidden_dropout_prob)
+        self.classifier1 = torch.nn.Linear(config.hidden_size, self.config.hidden_size)
+        self.dropout2 = torch.nn.Dropout(config.hidden_dropout_prob)
+        self.classifier2 = torch.nn.Linear(config.hidden_size, self.config.hidden_size)
+        self.classifier3 = torch.nn.Linear(config.hidden_size, self.config.num_labels)
 
-# The maximum total input sequence length after WordPiece tokenization.
-# Sequences longer than this will be truncated, and sequences shorter than this will be padded.
-MAX_SEQ_LENGTH = 128
+        self.init_weights()
 
-TRAIN_BATCH_SIZE = 24
-EVAL_BATCH_SIZE = 8
-LEARNING_RATE = 2e-5
-NUM_TRAIN_EPOCHS = 1
-RANDOM_SEED = 42
-GRADIENT_ACCUMULATION_STEPS = 1
-WARMUP_PROPORTION = 0.1
-OUTPUT_MODE = 'classification'
+    def forward(self, input_ids, attention_mask=None, token_type_ids=None,
+                position_ids=None, head_mask=None, labels=None):
 
-CONFIG_NAME = "config.json"
-WEIGHTS_NAME = "pytorch_model.bin"
-#TODO: Create a function to convert categories into one hot vectors
+        outputs = self.bert(input_ids,
+                            attention_mask=attention_mask,
+                            token_type_ids=token_type_ids,
+                            position_ids=position_ids, 
+                            head_mask=head_mask)
 
-#TODO: To add models here
+        pooled_output = outputs[1]
 
-# Load pre-trained model (weights)
-model = BertModel.from_pretrained('bert-base-uncased')
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        pooled_output = self.dropout1(pooled_output)
+        pooled_output = self.classifier1(pooled_output)
+        pooled_output = self.dropout2(pooled_output)
+        pooled_output = self.classifier2(pooled_output)
+        
+        logits = self.classifier3(pooled_output)
 
-json_filename = "coarse_discourse_dump_reddit.json"
+        outputs = (logits,) + outputs[2:]  # add hidden states and attention if they are here
 
+        if labels is not None:
+            if self.num_labels == 1:
+                #  We are doing regression
+                loss_fct = MSELoss()
+                loss = loss_fct(logits.view(-1), labels.view(-1))
+            else:
+                loss_fct = CrossEntropyLoss()
+                loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
+            outputs = (loss,) + outputs
+
+        return outputs  # (loss), logits, (hidden_states), (attentions)

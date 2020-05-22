@@ -126,7 +126,6 @@ def flatten_thread2pairs_single(thread_json, comment_pairs=[],
                 comment_pairs.append([parent, each_post])
             except Exception:
                 # sometimes, just cannot find parent post. skip
-                print("Can't find 'parent")
                 global counter_missing_parent
                 counter_missing_parent = counter_missing_parent + 1
         else:

@@ -55,6 +55,10 @@ Given (commentA, commentB),
 ### Task 1c: use labelA as a feature to predict labelB
 
 Task 1a should be the hardest to train. 
+Status: with a simple 3 layer NN after BERT, 10x10 category labels, I seem to be getting an accuracy of 50%. When I transform the features into 2D features, it is heavily skewed towards the question:answer label, so the NN gets lazy and ends up predicting Q:A for everything now.
+
+Perhaps have to explore how to weigh the cost function, increase the batch size.
+
 Task 1b is how humans really behave
 Task 1c is the cheat way
 

@@ -8,18 +8,15 @@ Created on Wed May 20 17:04:58 2020
 import logging
 import time
 
-from transformers import BertTokenizer, BertModel
-
 import reddit_utilities as reddit
+from transformers import BertTokenizer
 
 import torch
 from torch.utils.data import TensorDataset, DataLoader
-
+'''
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-model = BertModel.from_pretrained('bert-base-uncased')
-model.eval()
+'''
 
 #tokenizer = transformers.
 #transformers.BertTokenizer
@@ -134,13 +131,11 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
         pass # randomly shuffle test set selection. not implemented yet
     
     datalength = y_data.shape[0]
-    stopindex = int (datalength * test_percent / 100)
+    stopindex = int (datalength * (100 - test_percent) / 100)
     x_train = x_data [0:stopindex]
     y_train = y_data [0:stopindex]
     token_type_ids_train = token_type_ids [0:stopindex]
-    print(token_type_ids_train.shape)
     attention_mask_train = attention_mask [0:stopindex]
-    print(attention_mask_train.shape)
     
     x_tests = x_data [stopindex:]
     y_tests = y_data [stopindex:]
