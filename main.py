@@ -15,28 +15,32 @@ import torch
 import torch.optim as optim
 from classifier_models import my_BERT_Model
 from transformers import BertForSequenceClassification, BertConfig
+
+import matplotlib.pyplot as plt
+import numpy as np
 time_start = time.time()
 
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 0
+iteration = 1
+# For storing the tokenized posts
+posts_token_file = "./models/my_tokenized_file.bin"
 
 load_output_model_file = "./models/my_own_model_file"+str(iteration)+".bin"
 load_output_config_file = "./models/my_own_config_file"+str(iteration)+".bin"
 load_optim_state_file = "./models/my_optimizer_file"+str(iteration)+".bin"
-#load_output_vocab_file = "./models/my_own_vocab_file"+str(iteration)+".bin"
 
 save_output_model_file = "./models/my_own_model_file"+str(iteration+1)+".bin"
 save_output_config_file = "./models/my_own_config_file"+str(iteration+1)+".bin"
 save_optim_state_file = "./models/my_optimizer_file"+str(iteration+1)+".bin"
-#save_output_vocab_file = "./models/my_own_vocab_file"+str(iteration+1)+".bin"
 
-FROM_SCRATCH = True # True if start loading model from scratch
+FROM_SCRATCH = False # True if start loading model from scratch
+RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== HYPERPARAMETERS START ========'''
-NUM_TO_PROCESS = 1000
-BATCH_SIZE_TRAIN = 32
-BATCH_SIZE_TEST = 32
+NUM_TO_PROCESS = 1000000
+BATCH_SIZE_TRAIN = 40
+BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
@@ -55,14 +59,22 @@ cpu = torch.device('cpu')
 gpu = torch.device('cuda')
 DEVICE = cpu
 
-# extract the data into list of strings
-pairs, _ = reddit.flatten_threads2pairs_all('coarse_discourse_dump_reddit.json');
-# filter the data with missing parents or are deleted
-valid_comment_pairs = reddit.filter_valid_pairs(pairs)
-
-
-data_dict = processor.tokenize_and_encode_pairs(valid_comment_pairs, 
-                                                 count=NUM_TO_PROCESS)
+# Can skip retokenizing if possible. This takes damn long ~ 10min
+if RETOKENIZE:
+    # extract the data into list of strings
+    print('Flattening thread')
+    pairs, _ = reddit.flatten_threads2pairs_all('coarse_discourse_dump_reddit.json');
+    # filter the data with missing parents or are deleted
+    print('Filtering invalid pairs')
+    valid_comment_pairs = reddit.filter_valid_pairs(pairs)
+    
+    print('Tokenizing pairs')
+    data_dict = processor.tokenize_and_encode_pairs(valid_comment_pairs, 
+                                                     count=NUM_TO_PROCESS)
+    torch.save(data_dict, posts_token_file)
+else:
+    print('Grabbing pre-tokenized pairs')
+    data_dict = torch.load(posts_token_file)
 
 data = processor.split_dict_2_train_test_sets(data_dict=data_dict, 
                                               test_percent=TEST_PERCENT_SPLIT,
@@ -86,7 +98,6 @@ y = minibatch1[1].to(gpu)
 token_type_ids = minibatch1[2].to(gpu)
 attention_mask = minibatch1[3].to(gpu)
 '''
-
 
 if FROM_SCRATCH:
     #model = BertForSequenceClassification.from_pretrained('bert-base-uncased', 
@@ -155,12 +166,6 @@ def train(epoch):
         optimizer.step()
         
         #delete references to free up GPU space
-        '''
-        x = x.to(cpu)
-        y = x.to(cpu)
-        token_type_ids = train_examples[2].to(cpu)
-        attention_mask = train_examples[3].to(cpu)
-        '''
         del x, y, token_type_ids, attention_mask
         
         if batch_idx % LOG_INTERVAL == 0:
@@ -179,8 +184,6 @@ def train(epoch):
             torch.save(model.state_dict(), save_output_model_file)
             torch.save(optimizer.state_dict(), save_optim_state_file)
             model.config.to_json_file(save_output_config_file)
-            #tokenizer.save_vocabulary(output_vocab_file)
-            
 
 def test():
     # This function evaluates the entire test set
@@ -215,14 +218,7 @@ def test():
           test_loss, correct, len(tests_loader.dataset),
           100. * correct / len(tests_loader.dataset)))
 
-test()
-for epoch in range(1, N_EPOCHS + 1):
-    train(epoch)
-    test()
 
-#TODO
-    # find an example pair's labels
-    # check the example labels
 def eval_single_example(number_to_check, show=True):
     batch_to_check = number_to_check // BATCH_SIZE_TEST
     index_to_check = number_to_check % BATCH_SIZE_TEST
@@ -254,17 +250,24 @@ def eval_single_example(number_to_check, show=True):
                 del x, y, token_type_ids, attention_mask, outputs
                 del encoded_sentence, 
                 return reallabels, prediction
-            '''
-            '''
 
-'''   
-# The loss inside the model is automatically selected to be the 
-# multi-class NLL loss.
-out = model(input_ids = x,
-            attention_mask=attention_mask, 
-            token_type_ids=token_type_ids)
+test()
+for epoch in range(1, N_EPOCHS + 1):
+    train(epoch)
+    test()
 
-'''
+def plot_losses():
+    fig = plt.figure()
+    data_length = len(train_losses)
+    horz_points = np.arange(start=0, 
+                             stop=data_length*BATCH_SIZE_TEST*N_EPOCHS,
+                             step=BATCH_SIZE_TEST*N_EPOCHS)
+    plt.plot(horz_points, train_losses)
+    plt.ylabel('Loss')
+    plt.xlabel('Training examples seen')
+    plt.grid(True)
+    pass
+
 time_end = time.time()
 time_taken = time_end - time_start
 print('Time elapsed: %6.2fs' % time_taken)

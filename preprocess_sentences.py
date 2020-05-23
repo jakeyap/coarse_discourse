@@ -85,7 +85,8 @@ def tokenize_and_encode_pairs(valid_comment_pairs, start=0, count=1e6):
             attention_mask.append(encoded_dict['attention_mask'])
             
             pair_labels.append([head['majority_type'], tail['majority_type']])
-        
+        if counter % 1000 == 0:
+                print('Tokenizing comment: %00000d' % counter)
         counter = counter + 1
     return {'encoded_pairs': encoded_pairs,
             'token_type_ids': token_type_ids,
