@@ -8,7 +8,7 @@ Created on Fri May 15 16:58:11 2020
 import torch
 from transformers import BertModel, BertForSequenceClassification
 from transformers.modeling_bert import BertPreTrainedModel
-from torch.nn import BCEWithLogitsLoss
+from torch.nn import MSELoss, CrossEntropyLoss
 
 categories = ['question',
               'answer',
@@ -59,10 +59,12 @@ class my_BERT_Model(BertPreTrainedModel):
         self.num_labels = config.num_labels
 
         self.bert = BertModel(config)
-        self.dropout1 = torch.nn.Dropout(config.hidden_dropout_prob)
+        self.dropout0 = torch.nn.Dropout(config.hidden_dropout_prob)
         self.classifier1 = torch.nn.Linear(config.hidden_size, self.config.hidden_size)
-        self.dropout2 = torch.nn.Dropout(config.hidden_dropout_prob)
+        self.relu1 = torch.nn.ReLU()
+        self.dropout1 = torch.nn.Dropout(config.hidden_dropout_prob)
         self.classifier2 = torch.nn.Linear(config.hidden_size, self.config.hidden_size)
+        self.relu2 = torch.nn.ReLU()
         self.classifier3 = torch.nn.Linear(config.hidden_size, self.config.num_labels)
 
         self.init_weights()
@@ -78,11 +80,12 @@ class my_BERT_Model(BertPreTrainedModel):
 
         pooled_output = outputs[1]
 
-        pooled_output = self.dropout1(pooled_output)
+        pooled_output = self.dropout0(pooled_output)
         pooled_output = self.classifier1(pooled_output)
-        pooled_output = self.dropout2(pooled_output)
+        pooled_output = self.relu1(pooled_output)
+        pooled_output = self.dropout1(pooled_output)
         pooled_output = self.classifier2(pooled_output)
-        
+        pooled_output = self.relu2(pooled_output)
         logits = self.classifier3(pooled_output)
 
         outputs = (logits,) + outputs[2:]  # add hidden states and attention if they are here

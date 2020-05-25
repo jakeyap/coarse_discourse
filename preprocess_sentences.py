@@ -97,7 +97,7 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
                                  training_batch_size=64,
                                  testing_batch_size=64,
                                  randomize=False,
-                                 device='cuda'):
+                                 device='cpu'):
     '''
     Takes in a data dictionary, then splits them into 2 dictionaries
     
@@ -129,7 +129,7 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
     attention_mask = attention_mask.to(device)
     
     if randomize:
-        pass # randomly shuffle test set selection. not implemented yet
+        shuffle_arrays_synch([x_data, y_data, token_type_ids, attention_mask])
     
     datalength = y_data.shape[0]
     stopindex = int (datalength * (100 - test_percent) / 100)
@@ -154,23 +154,46 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
     
     train_loader = DataLoader(train_dataset, 
                               batch_size=training_batch_size,
-                              shuffle=True)
+                              shuffle=randomize)
     tests_loader = DataLoader(tests_dataset,
                               batch_size=testing_batch_size)
     
     return [train_loader, tests_loader]
 
-if __name__ =='__main__':
-    
-    import reddit_utilities as reddit
-    time_start = time.time()
-    NUM_TO_PROCESS = 1000
-    pairs, errors = reddit.flatten_threads2pairs_all('coarse_discourse_dump_reddit.json');
-    valid_comment_pairs = reddit.filter_valid_pairs(pairs)
+def shuffle_arrays_synch(arrays, set_seed=-1):
+    """Shuffles arrays in-place, in the same order, along axis=0
 
-    data = tokenize_and_encode_pairs(valid_comment_pairs, count=NUM_TO_PROCESS)
+    Parameters:
+    -----------
+    arrays : List of NumPy arrays.
+    set_seed : Seed value if int >= 0, else seed is random.
+    """
+    seed = np.random.randint(0, 2**(32 - 1) - 1) if set_seed < 0 else set_seed
+    datalength = arrays[0].shape[0]
+    shuffle_indices = torch.randint(low=0, high=datalength, size=(datalength,1))
+    
+    for arr in arrays:
+        for i in range(datalength):
+            j = shuffle_indices[i]
+            temp = arr[i].item()
+            arr[i] = arr[j].item()
+            arr[j] = temp
+
+if __name__ =='__main__':
+    time_start = time.time()
+    NUM_TO_PROCESS = 1000    
+    
+    # extract the data into list of strings
+    print('Flattening thread')
+    pairs, _ = reddit.flatten_threads2pairs_all('coarse_discourse_dump_reddit.json');
+    # filter the data with missing parents or are deleted
+    print('Filtering invalid pairs')
+    valid_comment_pairs = reddit.filter_valid_pairs(pairs)
+    
+    print('Tokenizing pairs')
+    data_dict = tokenize_and_encode_pairs(valid_comment_pairs, count=NUM_TO_PROCESS)
+    torch.save(data_dict, './models/test_tokenized_file.bin')
     
     time_end = time.time()
     time_taken = time_end - time_start
     print('Time elapsed: %6.2fs' % time_taken)
-    

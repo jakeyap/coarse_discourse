@@ -34,12 +34,12 @@ ax.set_xticks(np.arange(10))
 ax.set_yticks(np.arange(10))
 
 # ... and label them with the respective list entries
-ax.set_xticklabels(label_list)
-ax.set_yticklabels(label_list)
+ax.set_xticklabels(label_list,size=8)
+ax.set_yticklabels(label_list, size=8)
 
 # Rotate the tick labels and set their alignment.
-plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-         rotation_mode="anchor")
+plt.setp(ax.get_xticklabels(), rotation=45, 
+         ha="right",rotation_mode="anchor")
 
 # Loop over data dimensions and create text annotations.
 for i in range(10):
@@ -47,11 +47,18 @@ for i in range(10):
         number = label_counts[i, j]
         if number > 25000:
             text = ax.text(j, i, str(number),
-                           ha="center", va="center", color="black")
+                           ha="center", va="center", 
+                           color="black", size=8)
         else:
             text = ax.text(j, i, str(number),
-                           ha="center", va="center", color="white")
+                           ha="center", va="center", 
+                           color="white", size=8)
 
-plt.colorbar()
+plt.colorbar(aspect=50)
+plt.title('Pairwise comment types', size=15)
+plt.ylabel('1st comment type', size=10)
+plt.xlabel('2nd comment type', size=10)
+
+#plt.tight_layout()
 #imshow(label_count)
 #plt.colorbar()

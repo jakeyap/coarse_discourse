@@ -20,33 +20,36 @@ import matplotlib.pyplot as plt
 import numpy as np
 time_start = time.time()
 
+FROM_SCRATCH = True # True if start loading model from scratch
+RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 1
+iteration = 0
 # For storing the tokenized posts
 posts_token_file = "./models/my_tokenized_file.bin"
 
 load_output_model_file = "./models/my_own_model_file"+str(iteration)+".bin"
 load_output_config_file = "./models/my_own_config_file"+str(iteration)+".bin"
 load_optim_state_file = "./models/my_optimizer_file"+str(iteration)+".bin"
+load_losses_file = "./results/my_losses_file"+str(iteration)+".bin"
+
 
 save_output_model_file = "./models/my_own_model_file"+str(iteration+1)+".bin"
 save_output_config_file = "./models/my_own_config_file"+str(iteration+1)+".bin"
 save_optim_state_file = "./models/my_optimizer_file"+str(iteration+1)+".bin"
+save_losses_file = "./results/my_losses_file"+str(iteration+1)+".bin"
 
-FROM_SCRATCH = False # True if start loading model from scratch
-RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== HYPERPARAMETERS START ========'''
-NUM_TO_PROCESS = 1000000
+NUM_TO_PROCESS = 100000
 BATCH_SIZE_TRAIN = 40
 BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 3
+N_EPOCHS = 10
 LEARNING_RATE = 0.001
-MOMENTUM = 0.1
+MOMENTUM = 0.5
 
 PRINT_PICTURE = False
 '''======== HYPERPARAMETERS END ========'''
@@ -85,19 +88,7 @@ data = processor.split_dict_2_train_test_sets(data_dict=data_dict,
 
 train_loader = data[0]
 tests_loader = data[1]
-train_examples = enumerate(train_loader)
-tests_examples = enumerate(tests_loader)
 
-'''
-print('Show 1 example of training examples')
-batch_id, minibatch1 = next(tests_examples)
-x = minibatch1[0].to(gpu)
-print(x)
-print('x shape is: ', x.shape)
-y = minibatch1[1].to(gpu)
-token_type_ids = minibatch1[2].to(gpu)
-attention_mask = minibatch1[3].to(gpu)
-'''
 
 if FROM_SCRATCH:
     #model = BertForSequenceClassification.from_pretrained('bert-base-uncased', 
@@ -105,9 +96,16 @@ if FROM_SCRATCH:
     config = BertConfig.from_pretrained('bert-base-uncased')
     config.num_labels = 100
     model = my_BERT_Model(config)
+    # Move model into GPU
+    model.to(gpu)
     # Define the optimizer. Use SGD
     optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE,
                           momentum=MOMENTUM)
+    # Variables to store losses
+    train_losses = []
+    train_count = [0]
+    tests_losses = []
+    tests_count = [0]
 else:
     config = BertConfig.from_json_file(load_output_config_file)
     #model = BertForSequenceClassification(config)
@@ -115,29 +113,23 @@ else:
     
     state_dict = torch.load(load_output_model_file)
     model.load_state_dict(state_dict)
-    
+    # Move model into GPU
+    model.to(gpu)
     # Define the optimizer. Use SGD
     optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE,
                           momentum=MOMENTUM)
     optim_state = torch.load(load_optim_state_file)
     optimizer.load_state_dict(optim_state)
+    # Variables to store losses
+    losses = torch.load(load_losses_file)
+    train_losses = losses[0]
+    train_count = losses[1]
+    tests_losses = losses[2]
+    tests_count = losses[3]
 
-
-# Turn off drop out randomizer
-model.eval()
-# Move model into GPU
-model.to(gpu)
 
 # Define the loss function
 loss_function = torch.nn.CrossEntropyLoss(reduction='sum')
-#loss_fn = MSELoss(reduction='sum') then test_loss += loss_fn(output, label).item()
-
-# Variables to store losses
-train_losses = []
-train_counter = []
-test_losses = []
-test_counter = [i*len(train_loader.dataset) for i in range(N_EPOCHS + 1)]
-
 
 def train(epoch):
     # Set network into training mode to enable dropout
@@ -171,21 +163,24 @@ def train(epoch):
         if batch_idx % LOG_INTERVAL == 0:
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                   epoch, batch_idx * BATCH_SIZE_TRAIN, len(train_loader.dataset),
-                  100. * batch_idx / len(train_loader), loss.item()))
+                  100. * batch_idx / len(train_loader), 
+                  loss.item() / BATCH_SIZE_TRAIN))
             
-            train_losses.append(loss.item())
-            train_counter.append(
-                (batch_idx*BATCH_SIZE_TRAIN) + ((epoch-1)*len(train_loader.dataset))
-            )
+            train_losses.append(loss.item() / BATCH_SIZE_TRAIN)
+            train_count.append(train_count[-1] + BATCH_SIZE_TEST*LOG_INTERVAL)
             
             # Store the states of model and optimizer into logfiles
             # In case training gets interrupted, you can load old states
             
             torch.save(model.state_dict(), save_output_model_file)
             torch.save(optimizer.state_dict(), save_optim_state_file)
+            torch.save([train_losses,
+                        train_count,
+                        tests_losses,
+                        tests_count], save_losses_file)
             model.config.to_json_file(save_output_config_file)
 
-def test():
+def test(save=True):
     # This function evaluates the entire test set
     
     # Set network into evaluation mode
@@ -213,7 +208,10 @@ def test():
             del x, y, token_type_ids, attention_mask
             
     test_loss /= len(tests_loader.dataset)
-    test_losses.append(test_loss)
+    tests_losses.append(test_loss)
+    tests_count.append(tests_count[-1] + len(train_loader.dataset))
+    torch.save([train_losses,train_count,tests_losses,tests_count], 
+               save_losses_file)
     print('\nTest set: Avg. loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
           test_loss, correct, len(tests_loader.dataset),
           100. * correct / len(tests_loader.dataset)))
@@ -251,22 +249,27 @@ def eval_single_example(number_to_check, show=True):
                 del encoded_sentence, 
                 return reallabels, prediction
 
-test()
+def plot_losses():
+    fig = plt.figure(1)
+    losses = torch.load(save_losses_file)
+    train_losses = losses[0]
+    train_count = losses[1]
+    tests_losses = losses[2]
+    tests_count = losses[3]
+    
+    plt.scatter(train_count[1:], train_losses, label='Train')
+    plt.scatter(tests_count[1:], tests_losses, label='Test')
+    plt.ylabel('Loss')
+    plt.xlabel('Minibatches seen. Batchsize='+str(BATCH_SIZE_TEST))
+    plt.legend(loc='best')
+    plt.grid(True)
+    return losses
+
+
 for epoch in range(1, N_EPOCHS + 1):
     train(epoch)
     test()
-
-def plot_losses():
-    fig = plt.figure()
-    data_length = len(train_losses)
-    horz_points = np.arange(start=0, 
-                             stop=data_length*BATCH_SIZE_TEST*N_EPOCHS,
-                             step=BATCH_SIZE_TEST*N_EPOCHS)
-    plt.plot(horz_points, train_losses)
-    plt.ylabel('Loss')
-    plt.xlabel('Training examples seen')
-    plt.grid(True)
-    pass
+plot_losses()
 
 time_end = time.time()
 time_taken = time_end - time_start
