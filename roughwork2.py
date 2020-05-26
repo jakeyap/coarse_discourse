@@ -75,6 +75,8 @@ for i in range(10):
                            ha="center", va="center", color="white")
 
 plt.colorbar()
+plt.ylabel('1st comment', size=10)
+plt.xlabel('2nd comment', size=10)
 #imshow(label_count)
 #plt.colorbar()
 
@@ -106,3 +108,5 @@ for i in range(10):
                             ha="center", va="center", color="white")
             
 plt.colorbar()
+plt.ylabel('1st comment', size=10)
+plt.xlabel('2nd comment', size=10)

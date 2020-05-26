@@ -20,15 +20,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 time_start = time.time()
 
-FROM_SCRATCH = True # True if start loading model from scratch
+FROM_SCRATCH = False # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
 iteration = 1
 # For storing the tokenized posts
 posts_token_file = "./data/my_tokenized_file.bin"
-
-
 
 load_output_model_file = "./models/my_own_model_file"+str(iteration)+".bin"
 load_output_config_file = "./models/my_own_config_file"+str(iteration)+".bin"
@@ -40,10 +38,10 @@ load_losses_file = "./results/my_losses_file"+str(iteration)+".bin"
 timestamp = time.time()
 timestamp = str("%10d" % timestamp)
 
-save_output_model_file = "./models/my_own_model_file"+str(iteration)+"_"+timestamp+".bin"
-save_output_config_file = "./models/my_own_config_file"+str(iteration)+"_"+timestamp+".bin"
-save_optim_state_file = "./models/my_optimizer_file"+str(iteration)+"_"+timestamp+".bin"
-save_losses_file = "./results/my_losses_file"+str(iteration)+"_"+timestamp+".bin"
+save_output_model_file = "./models/my_own_model_file"+str(iteration+1)+"_"+timestamp+".bin"
+save_output_config_file = "./models/my_own_config_file"+str(iteration+1)+"_"+timestamp+".bin"
+save_optim_state_file = "./models/my_optimizer_file"+str(iteration+1)+"_"+timestamp+".bin"
+save_losses_file = "./results/my_losses_file"+str(iteration+1)+"_"+timestamp+".bin"
 
 
 '''======== HYPERPARAMETERS START ========'''
@@ -53,8 +51,8 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 2
-LEARNING_RATE = 0.002
+N_EPOCHS = 4
+LEARNING_RATE = 0.001
 MOMENTUM = 0.5
 
 PRINT_PICTURE = False
@@ -111,7 +109,9 @@ if FROM_SCRATCH:
     train_losses = []
     train_count = [0]
     tests_losses = []
+    tests_accuracy = []
     tests_count = [0]
+    
 else:
     config = BertConfig.from_json_file(load_output_config_file)
     #model = BertForSequenceClassification(config)
@@ -131,7 +131,8 @@ else:
     train_losses = losses[0]
     train_count = losses[1]
     tests_losses = losses[2]
-    tests_count = losses[3]
+    tests_accuracy = losses[3]
+    tests_count = losses[4]
 
 
 # Define the loss function
@@ -221,8 +222,13 @@ def test(save=True):
     test_loss /= len(tests_loader.dataset)
     if save:
         tests_losses.append(test_loss)
+        tests_accuracy.append(100. * correct / len(tests_loader.dataset))
         tests_count.append(tests_count[-1] + len(train_loader.dataset))
-        torch.save([train_losses,train_count,tests_losses,tests_count], 
+        torch.save([train_losses,
+                    train_count,
+                    tests_losses,
+                    tests_accuracy,
+                    tests_count], 
                    save_losses_file)
     print('\nTest set: Avg. loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
           test_loss, correct, len(tests_loader.dataset),
@@ -271,7 +277,8 @@ def plot_losses():
     train_losses = losses[0]
     train_count = losses[1]
     tests_losses = losses[2]
-    tests_count = losses[3]
+    tests_accuracy = losses[3]
+    tests_count = losses[4]
     
     plt.scatter(train_count[1:], train_losses, label='Train')
     plt.scatter(tests_count[1:], tests_losses, label='Test')
