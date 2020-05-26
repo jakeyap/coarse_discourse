@@ -24,9 +24,11 @@ FROM_SCRATCH = True # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 0
+iteration = 1
 # For storing the tokenized posts
-posts_token_file = "./models/my_tokenized_file.bin"
+posts_token_file = "./data/my_tokenized_file.bin"
+
+
 
 load_output_model_file = "./models/my_own_model_file"+str(iteration)+".bin"
 load_output_config_file = "./models/my_own_config_file"+str(iteration)+".bin"
@@ -34,10 +36,14 @@ load_optim_state_file = "./models/my_optimizer_file"+str(iteration)+".bin"
 load_losses_file = "./results/my_losses_file"+str(iteration)+".bin"
 
 
-save_output_model_file = "./models/my_own_model_file"+str(iteration+1)+".bin"
-save_output_config_file = "./models/my_own_config_file"+str(iteration+1)+".bin"
-save_optim_state_file = "./models/my_optimizer_file"+str(iteration+1)+".bin"
-save_losses_file = "./results/my_losses_file"+str(iteration+1)+".bin"
+# Put a timestamp saved states so that overwrite accidents are less likely
+timestamp = time.time()
+timestamp = str("%10d" % timestamp)
+
+save_output_model_file = "./models/my_own_model_file"+str(iteration)+"_"+timestamp+".bin"
+save_output_config_file = "./models/my_own_config_file"+str(iteration)+"_"+timestamp+".bin"
+save_optim_state_file = "./models/my_optimizer_file"+str(iteration)+"_"+timestamp+".bin"
+save_losses_file = "./results/my_losses_file"+str(iteration)+"_"+timestamp+".bin"
 
 
 '''======== HYPERPARAMETERS START ========'''
@@ -47,8 +53,8 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 10
-LEARNING_RATE = 0.001
+N_EPOCHS = 2
+LEARNING_RATE = 0.002
 MOMENTUM = 0.5
 
 PRINT_PICTURE = False
@@ -66,7 +72,7 @@ DEVICE = cpu
 if RETOKENIZE:
     # extract the data into list of strings
     print('Flattening thread')
-    pairs, _ = reddit.flatten_threads2pairs_all('coarse_discourse_dump_reddit.json');
+    pairs, _ = reddit.flatten_threads2pairs_all('./data/coarse_discourse_dump_reddit.json');
     # filter the data with missing parents or are deleted
     print('Filtering invalid pairs')
     valid_comment_pairs = reddit.filter_valid_pairs(pairs)
@@ -83,7 +89,7 @@ data = processor.split_dict_2_train_test_sets(data_dict=data_dict,
                                               test_percent=TEST_PERCENT_SPLIT,
                                               training_batch_size=BATCH_SIZE_TRAIN,
                                               testing_batch_size=BATCH_SIZE_TEST,
-                                              randomize=False,
+                                              randomize=True,
                                               device=cpu)
 
 train_loader = data[0]
@@ -187,6 +193,9 @@ def test(save=True):
     model.eval()
     test_loss = 0
     correct = 0
+    # start the label arrays. 1st data point has to be deleted later
+    predicted_label_arr = torch.tensor([[0]])
+    #predicted_label_arr = torch.zeros(1, len(tests_loader.dataset))
     with torch.no_grad():
         for batchid, minibatch in enumerate(tests_loader):
             x = minibatch[0].to('cuda')
@@ -200,21 +209,25 @@ def test(save=True):
             outputs = outputs[0]
             test_loss += loss_function(outputs, y).item()
             
-            
             predicted_label = outputs.data.max(1, keepdim=True)[1]
             correct += predicted_label.eq(y.data.view_as(predicted_label)).sum()
             
+            #predicted_label_list.append(predicted_label.to('cpu'))
+            predicted_label_arr = torch.cat((predicted_label_arr,
+                                             predicted_label.to('cpu')),
+                                            0)
             #delete references to free up GPU space
             del x, y, token_type_ids, attention_mask
-            
     test_loss /= len(tests_loader.dataset)
-    tests_losses.append(test_loss)
-    tests_count.append(tests_count[-1] + len(train_loader.dataset))
-    torch.save([train_losses,train_count,tests_losses,tests_count], 
-               save_losses_file)
+    if save:
+        tests_losses.append(test_loss)
+        tests_count.append(tests_count[-1] + len(train_loader.dataset))
+        torch.save([train_losses,train_count,tests_losses,tests_count], 
+                   save_losses_file)
     print('\nTest set: Avg. loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
           test_loss, correct, len(tests_loader.dataset),
           100. * correct / len(tests_loader.dataset)))
+    return predicted_label_arr[1:]
 
 
 def eval_single_example(number_to_check, show=True):
@@ -251,7 +264,10 @@ def eval_single_example(number_to_check, show=True):
 
 def plot_losses():
     fig = plt.figure(1)
-    losses = torch.load(save_losses_file)
+    try:
+        losses = torch.load(save_losses_file)
+    except Exception:
+        losses = torch.load(load_losses_file)
     train_losses = losses[0]
     train_count = losses[1]
     tests_losses = losses[2]
@@ -265,12 +281,13 @@ def plot_losses():
     plt.grid(True)
     return losses
 
+if __name__ =='__main__':
+    test(save=False)
+    for epoch in range(1, N_EPOCHS + 1):
+        train(epoch)
+        labels = test()
+    plot_losses()
 
-for epoch in range(1, N_EPOCHS + 1):
-    train(epoch)
-    test()
-plot_losses()
-
-time_end = time.time()
-time_taken = time_end - time_start
-print('Time elapsed: %6.2fs' % time_taken)
+    time_end = time.time()
+    time_taken = time_end - time_start
+    print('Time elapsed: %6.2fs' % time_taken)

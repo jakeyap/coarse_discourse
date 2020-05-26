@@ -58,6 +58,9 @@ __pycache__/*
 
 # models intermediate weights and configs are too big
 models/*
+# debugging files
+debug/*
+
 # =========================
 # Spyder config folder
 # =========================

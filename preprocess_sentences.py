@@ -10,7 +10,7 @@ import time
 
 import reddit_utilities as reddit
 from transformers import BertTokenizer
-
+import numpy as np
 import torch
 from torch.utils.data import TensorDataset, DataLoader
 '''
@@ -127,10 +127,11 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
     y_data = y_data.to(device)
     token_type_ids = token_type_ids.to(device)
     attention_mask = attention_mask.to(device)
-    
+    ''' 
+    # TODO Can't fix this now
     if randomize:
         shuffle_arrays_synch([x_data, y_data, token_type_ids, attention_mask])
-    
+    '''
     datalength = y_data.shape[0]
     stopindex = int (datalength * (100 - test_percent) / 100)
     x_train = x_data [0:stopindex]
@@ -160,6 +161,7 @@ def split_dict_2_train_test_sets(data_dict, test_percent,
     
     return [train_loader, tests_loader]
 
+#TODO. Cant fix this now
 def shuffle_arrays_synch(arrays, set_seed=-1):
     """Shuffles arrays in-place, in the same order, along axis=0
 
@@ -170,13 +172,14 @@ def shuffle_arrays_synch(arrays, set_seed=-1):
     """
     seed = np.random.randint(0, 2**(32 - 1) - 1) if set_seed < 0 else set_seed
     datalength = arrays[0].shape[0]
+    print(datalength)
     shuffle_indices = torch.randint(low=0, high=datalength, size=(datalength,1))
-    
+    print(arrays[0].shape)
     for arr in arrays:
         for i in range(datalength):
             j = shuffle_indices[i]
-            temp = arr[i].item()
-            arr[i] = arr[j].item()
+            temp = torch.clone(arr[i])
+            arr[i] = torch.clone(arr[j])
             arr[j] = temp
 
 if __name__ =='__main__':
