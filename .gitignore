@@ -60,7 +60,8 @@ __pycache__/*
 models/*
 # debugging files
 debug/*
-
+# ipython temp files
+.ipynb_checkpoints/
 # =========================
 # Spyder config folder
 # =========================

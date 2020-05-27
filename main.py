@@ -196,6 +196,7 @@ def test(save=True):
     correct = 0
     # start the label arrays. 1st data point has to be deleted later
     predicted_label_arr = torch.tensor([[0]])
+    groundtruth_arr = torch.tensor([0])
     #predicted_label_arr = torch.zeros(1, len(tests_loader.dataset))
     with torch.no_grad():
         for batchid, minibatch in enumerate(tests_loader):
@@ -217,6 +218,9 @@ def test(save=True):
             predicted_label_arr = torch.cat((predicted_label_arr,
                                              predicted_label.to('cpu')),
                                             0)
+            groundtruth_arr = torch.cat((groundtruth_arr,
+                                         y.to('cpu')),
+                                        0)
             #delete references to free up GPU space
             del x, y, token_type_ids, attention_mask
     test_loss /= len(tests_loader.dataset)
@@ -233,7 +237,7 @@ def test(save=True):
     print('\nTest set: Avg. loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
           test_loss, correct, len(tests_loader.dataset),
           100. * correct / len(tests_loader.dataset)))
-    return predicted_label_arr[1:]
+    return predicted_label_arr[1:], groundtruth_arr[1:]
 
 
 def eval_single_example(number_to_check, show=True):

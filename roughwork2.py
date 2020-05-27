@@ -17,6 +17,7 @@ from preprocess_sentences import convert_label_pairs_num2string
 pair_labels = main.data_dict['pair_labels']
 label_counts = np.zeros(shape=(10,10), dtype=int)
 test_label_counts = np.zeros(shape=(10,10), dtype=int)
+test_truth_counts = np.zeros(shape=(10,10), dtype=int)
 
 label_dict = reddit.empty_label_dictionary()
 label_list = list(label_dict.keys())
@@ -31,8 +32,8 @@ for eachpair in pair_labels:
     label_counts[index0, index1] += 1
     
     
-# Grab the predicted labels
-predicted = main.test(save=False)
+# Grab the predicted and test set labels
+predicted, groundtruth = main.test(save=False)
 # Convert into a row
 predicted = predicted.reshape(-1)
 test_len = predicted.shape[0]
@@ -44,7 +45,28 @@ while counter < test_len:
     index0 = label_list.index(label0)
     index1 = label_list.index(label1)
     test_label_counts[index0, index1] += 1
+    
+    test_pair_truth = convert_label_pairs_num2string(groundtruth[counter])
+    label0 = test_pair_truth[0]
+    label1 = test_pair_truth[1]
+    index0 = label_list.index(label0)
+    index1 = label_list.index(label1)
+    test_truth_counts[index0, index1] += 1
     counter += 1
+
+predicted = predicted.reshape(-1)
+test_len = predicted.shape[0]
+counter = 0
+while counter < test_len:
+    test_pair_labels = convert_label_pairs_num2string(groundtruth[counter])
+    label0 = test_pair_labels[0]
+    label1 = test_pair_labels[1]
+    index0 = label_list.index(label0)
+    index1 = label_list.index(label1)
+    test_label_counts[index0, index1] += 1
+    counter += 1
+
+
 
 
 plt.figure(1)
@@ -108,6 +130,39 @@ for i in range(10):
             text = ax2.text(j, i, str(number),
                             ha="center", va="center", color="white",size=6)
             
+plt.colorbar()
+plt.ylabel('1st comment', size=10)
+plt.xlabel('2nd comment', size=10)
+plt.tight_layout()
+
+# For test set labels
+plt.figure(3)
+plt.title('Test Set labels')
+plt.imshow(test_truth_counts, cmap='gray')
+ax = plt.gca()
+# We want to show all ticks...
+ax.set_xticks(np.arange(10))
+ax.set_yticks(np.arange(10))
+
+# ... and label them with the respective list entries
+ax.set_xticklabels(label_list, size=6)
+ax.set_yticklabels(label_list, size=6)
+
+# Rotate the tick labels and set their alignment.
+plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+         rotation_mode="anchor")
+
+# Loop over data dimensions and create text annotations.
+for i in range(10):
+    for j in range(10):
+        number = test_truth_counts[i, j]
+        if number > 2000:
+            text = ax.text(j, i, str(number),
+                           ha="center", va="center", color="black",size=6)
+        else:
+            text = ax.text(j, i, str(number),
+                           ha="center", va="center", color="white",size=6)
+
 plt.colorbar()
 plt.ylabel('1st comment', size=10)
 plt.xlabel('2nd comment', size=10)

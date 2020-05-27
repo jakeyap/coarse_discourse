@@ -91,14 +91,20 @@ To try to learn how to classify discourse into the following categories
 
 ![loss](./results/losses_6epochs.png)
 
-![predicted_labels](./results/predicted_labels_6_epochs.png)
+![predicted labels](./results/predicted_labels_6_epochs.png)
 
+    For comparison, here's the real label density for the test set
+![testset labels](./results/testset_labels.png)
 
 ### **Remarks:**
     Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.
     In order to account for that, perhaps need to weigh the cost function, to decrease cost associated with (question,answer) label
+    The 3 categories <humor>, <negative reaction>, <other>, are very under represented. Perhaps their cost need to be weighted upwardssss
     Perhaps increase the batch size and lower the tokenization length.
-
+    Further handicaps
+        -Looking at a comment pair with no context. How do you tell whether it is an announcement or elaboration?
+        
+    
 # Task 2: Maintain tree structure 
     Use PLAN model. Not sure how yet.
 
