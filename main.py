@@ -24,7 +24,7 @@ FROM_SCRATCH = False # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 1
+iteration = 3
 # For storing the tokenized posts
 posts_token_file = "./data/my_tokenized_file.bin"
 

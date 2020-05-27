@@ -1,4 +1,4 @@
-# TO DO LIST
+# **TO DO LIST**
 To try to learn how to classify discourse into the following categories
 0. question/request
 1. answer
@@ -12,55 +12,108 @@ To try to learn how to classify discourse into the following categories
 9. other
 
 
-## Task 0: Preprocessing
-~~Import data from reddit~~
-~~Flatten tree into single comments~~
-~~Flatten the tree into pairs~~
-~~Get a sense of category labels density~~
-~~Remove deleted posts~~
-~~Some first posts have no body. Deal with them by concatenating title with body~~
+## **Task 0: Preprocessing**
+    [x] Import data from reddit
+    [x] Flatten tree into single comments
+    [x] Flatten the tree into pairs
+    [x] Get a sense of category labels density
+    [x] Get a sense of pair labels density
+    [x] Remove deleted posts
+    [x] Remove comments with no parent
+    [x] For 1st posts, combined title with body
+    [x] Convert label pairs into numbers
+    [x] Draw a histogram of token lengths for posts
+    [x] Tokenize the entire dataset
 
-~~For 1st posts, combined title with body~~
-~~Convert label pairs into numbers~~
-~~Draw a histogram of token lengths for posts: 
-- In progress
+## **Task 1: Learn relations from comment pairs**
+    For example, a reddit thread with this structure
+        -post-1
+            -comment-1.1
+                -comment-1.1.1
+                -comment-1.1.2
+            -comment-1.2
+                -comment-1.2.1
+            -comment-1.3
 
-Tokenize the entire dataset
+    will break down into a general form (commentA commentB)
+        -(post-1, comment-1.1)
+        -(post-1, comment-1.2)
+        -(post-1, comment-1.3)
+        -(comment-1.1, comment-1.1.1)
+        -(comment-1.1, comment-1.1.2
+        -(comment-1.2, comment-1.2.1)
 
-## Task 1: Try to learn relations from comment pairs first.
-For example,
--post-1
-    -comment-1.1
-        -comment-1.1.1
-        -comment-1.1.2
-    -comment-1.2
-        -comment-1.2.1
-    -comment-1.3
+    After flattening, learn classification pairwise. 
+    There are 3 possible methods associated with Task 1.
+    Method A: predict labelA, labelB simultaenously
+    Method B: predict labelA, then labelB with labelA as a feature
+    Method C: use labelA as a feature to predict labelB
+    Method A/B is how humans really behave. Method C is the cheat way.
 
-will break down into
-(post-1, comment-1.1)
-(post-1, comment-1.2)
-(post-1, comment-1.3)
-(comment-1.1, comment-1.1.1)
-(comment-1.1, comment-1.1.2)
-(comment-1.2, comment-1.2.1)
-Generalized as (commentA commentB)
+### **Data:**
+    70672 valid comment pairs: 
+        63604 training set
+        7068 test set
+    10x10 category comment pair labels
+    
+    Here's how the category density looks like for comment pairs
+![True labels](./results/true_labels.png)
 
-After flattening, learn classification pairwise. 
-There are 3 subtasks associated with Task 1.
+### **Model:**
+    BERT
+    Dropout1 10%
+    Linear1
+    RELU1
+    Dropout2 10%
+    Linear2
+    RELU2
+    Linear3
 
-Given (commentA, commentB),
-### Task 1a: predict commentA and commentB labels simultaenously
-### Task 1b: predict labelA, then labelB with labelA as a feature
-### Task 1c: use labelA as a feature to predict labelB
+### **Loss Function:**
+    Cross Entropy Loss, flat weights
 
-Task 1a should be the hardest to train. 
-Status: with a simple 3 layer NN after BERT, 10x10 category labels, I seem to be getting an accuracy of 50%. When I transform the features into 2D features, it is heavily skewed towards the question:answer label, so the NN gets lazy and ends up predicting Q:A for everything now.
+### **Training algo:**
+    SGD
+        Learning rate = 0.001
+        Momentum = 0.5
+        Minibatch size = 40
 
-Perhaps have to explore how to weigh the cost function, increase the batch size.
+### **Hardware used:**
+    GPU: RTX 2080 Super (8Gb RAM)
+    CPU: Ryzen 3900 (12 cores 24 threads)
 
-Task 1b is how humans really behave
-Task 1c is the cheat way
+### **Results:**
+    Emphirically, after 6-7 epochs, overfitting kicks in. 
+    
+![overfit](./results/overfitting.png)
 
-## Task 2: 
-Maintain tree structure. Not sure how yet.
+    Stop training at 6 epochs then. The ball park accuracy is 53%-56%.
+
+![loss](./results/losses_6epochs.png)
+
+![predicted_labels](./results/predicted_labels_6_epochs.png)
+
+
+### **Remarks:**
+    Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.
+    In order to account for that, perhaps need to weigh the cost function, to decrease cost associated with (question,answer) label
+    Perhaps increase the batch size and lower the tokenization length.
+
+# Task 2: Maintain tree structure 
+    Use PLAN model. Not sure how yet.
+
+
+# Concepts/tools used for this exercise
+    pytorch: 
+        how to build NNs
+        how to train and use NNs
+        huggingface transformers library
+    CUDA stuff: 
+        moving things to GPU only when needed
+        deleting references to objects no longer needed
+        release memory by calling cuda.emptying_cache()
+        if all else fails, backup models, data, then reboot python kernel
+    General stuff:
+        Practice proper file handling to prevent overwrite accidents
+        
+    

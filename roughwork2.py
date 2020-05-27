@@ -56,8 +56,8 @@ ax.set_xticks(np.arange(10))
 ax.set_yticks(np.arange(10))
 
 # ... and label them with the respective list entries
-ax.set_xticklabels(label_list)
-ax.set_yticklabels(label_list)
+ax.set_xticklabels(label_list, size=6)
+ax.set_yticklabels(label_list, size=6)
 
 # Rotate the tick labels and set their alignment.
 plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
@@ -69,14 +69,15 @@ for i in range(10):
         number = label_counts[i, j]
         if number > 20000:
             text = ax.text(j, i, str(number),
-                           ha="center", va="center", color="black")
+                           ha="center", va="center", color="black",size=6)
         else:
             text = ax.text(j, i, str(number),
-                           ha="center", va="center", color="white")
+                           ha="center", va="center", color="white",size=6)
 
 plt.colorbar()
 plt.ylabel('1st comment', size=10)
 plt.xlabel('2nd comment', size=10)
+plt.tight_layout()
 #imshow(label_count)
 #plt.colorbar()
 
@@ -89,8 +90,8 @@ ax2.set_xticks(np.arange(10))
 ax2.set_yticks(np.arange(10))
 
 # ... and label them with the respective list entries
-ax2.set_xticklabels(label_list)
-ax2.set_yticklabels(label_list)
+ax2.set_xticklabels(label_list, size=6)
+ax2.set_yticklabels(label_list, size=6)
 
 # Rotate the tick labels and set their alignment.
 plt.setp(ax2.get_xticklabels(), rotation=45, ha="right",
@@ -102,11 +103,12 @@ for i in range(10):
         number = test_label_counts[i, j]
         if number > 2000:
             text = ax2.text(j, i, str(number),
-                            ha="center", va="center", color="black")
+                            ha="center", va="center", color="black",size=6)
         else:
             text = ax2.text(j, i, str(number),
-                            ha="center", va="center", color="white")
+                            ha="center", va="center", color="white",size=6)
             
 plt.colorbar()
 plt.ylabel('1st comment', size=10)
 plt.xlabel('2nd comment', size=10)
+plt.tight_layout()
