@@ -24,25 +24,30 @@ FROM_SCRATCH = False # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 3
+iteration = 0
+MODELNAME = 'modelB'
+
+ITER1 = str(iteration)
+DATADIR = './data/'
+MODELDIR= './models/'
+RESULTDIR='./results/'
 # For storing the tokenized posts
-posts_token_file = "./data/my_tokenized_file.bin"
+posts_token_file = DATADIR + "my_tokenized_file.bin"
 
-load_output_model_file = "./models/my_own_model_file"+str(iteration)+".bin"
-load_output_config_file = "./models/my_own_config_file"+str(iteration)+".bin"
-load_optim_state_file = "./models/my_optimizer_file"+str(iteration)+".bin"
-load_losses_file = "./results/my_losses_file"+str(iteration)+".bin"
-
+load_model_file = MODELDIR+MODELNAME+"_model_"+ITER1+".bin"
+load_config_file = MODELDIR+MODELNAME+"_config_"+ITER1+".bin"
+load_optstate_file = MODELDIR+MODELNAME+"_optimizer_"+ITER1+".bin"
+load_losses_file = RESULTDIR+MODELNAME+"_losses_"+ITER1+".bin"
 
 # Put a timestamp saved states so that overwrite accidents are less likely
 timestamp = time.time()
 timestamp = str("%10d" % timestamp)
 
-save_output_model_file = "./models/my_own_model_file"+str(iteration+1)+"_"+timestamp+".bin"
-save_output_config_file = "./models/my_own_config_file"+str(iteration+1)+"_"+timestamp+".bin"
-save_optim_state_file = "./models/my_optimizer_file"+str(iteration+1)+"_"+timestamp+".bin"
-save_losses_file = "./results/my_losses_file"+str(iteration+1)+"_"+timestamp+".bin"
-
+ITER2 = str(iteration+1)
+save_model_file = MODELDIR+MODELNAME+"_model_"+ITER2+"_"+timestamp+".bin"
+save_config_file = MODELDIR+MODELNAME+"_config_"+ITER2+"_"+timestamp+".bin"
+save_optstate_file = MODELDIR+MODELNAME+"_optimizer_"+ITER2+"_"+timestamp+".bin"
+save_losses_file = RESULTDIR+MODELNAME+"_losses_"+ITER2+"_"+timestamp+".bin"
 
 '''======== HYPERPARAMETERS START ========'''
 NUM_TO_PROCESS = 100000
@@ -51,7 +56,7 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 4
+N_EPOCHS = 2
 LEARNING_RATE = 0.001
 MOMENTUM = 0.5
 
@@ -93,6 +98,20 @@ data = processor.split_dict_2_train_test_sets(data_dict=data_dict,
 train_loader = data[0]
 tests_loader = data[1]
 
+# count the number in the labels
+pair_labels = data_dict['pair_labels']
+label_counts = torch.zeros(size=(1,100), dtype=float)
+for eachpair in pair_labels:
+    label0 = eachpair[0]
+    label1 = eachpair[1]    
+    labelnum = processor.convert_label_pairs_string2num(label0, label1)     
+    label_counts[0,labelnum] += 1
+# add 1000 to all to make sure no division by 0 occurs 
+# and for numerical stability
+label_counts = label_counts + 1000
+loss_weights = torch.sum(label_counts)
+loss_weights = loss_weights // label_counts
+loss_weights = loss_weights.reshape(100).to('cuda')
 
 if FROM_SCRATCH:
     #model = BertForSequenceClassification.from_pretrained('bert-base-uncased', 
@@ -113,18 +132,18 @@ if FROM_SCRATCH:
     tests_count = [0]
     
 else:
-    config = BertConfig.from_json_file(load_output_config_file)
+    config = BertConfig.from_json_file(load_config_file)
     #model = BertForSequenceClassification(config)
     model = my_BERT_Model(config)
     
-    state_dict = torch.load(load_output_model_file)
+    state_dict = torch.load(load_model_file)
     model.load_state_dict(state_dict)
     # Move model into GPU
     model.to(gpu)
     # Define the optimizer. Use SGD
     optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE,
                           momentum=MOMENTUM)
-    optim_state = torch.load(load_optim_state_file)
+    optim_state = torch.load(load_optstate_file)
     optimizer.load_state_dict(optim_state)
     # Variables to store losses
     losses = torch.load(load_losses_file)
@@ -136,7 +155,9 @@ else:
 
 
 # Define the loss function
-loss_function = torch.nn.CrossEntropyLoss(reduction='sum')
+#loss_weights = 
+loss_function = torch.nn.CrossEntropyLoss(weight=loss_weights.float(),
+                                          reduction='sum')
 
 def train(epoch):
     # Set network into training mode to enable dropout
@@ -179,13 +200,14 @@ def train(epoch):
             # Store the states of model and optimizer into logfiles
             # In case training gets interrupted, you can load old states
             
-            torch.save(model.state_dict(), save_output_model_file)
-            torch.save(optimizer.state_dict(), save_optim_state_file)
+            torch.save(model.state_dict(), save_model_file)
+            torch.save(optimizer.state_dict(), save_optstate_file)
             torch.save([train_losses,
                         train_count,
                         tests_losses,
+                        tests_accuracy,
                         tests_count], save_losses_file)
-            model.config.to_json_file(save_output_config_file)
+            model.config.to_json_file(save_config_file)
 
 def test(save=True):
     # This function evaluates the entire test set
@@ -226,7 +248,7 @@ def test(save=True):
     test_loss /= len(tests_loader.dataset)
     if save:
         tests_losses.append(test_loss)
-        tests_accuracy.append(100. * correct / len(tests_loader.dataset))
+        tests_accuracy.append(100. * correct.to('cpu') / len(tests_loader.dataset))
         tests_count.append(tests_count[-1] + len(train_loader.dataset))
         torch.save([train_losses,
                     train_count,
@@ -272,7 +294,7 @@ def eval_single_example(number_to_check, show=True):
                 del encoded_sentence, 
                 return reallabels, prediction
 
-def plot_losses():
+def plot_losses(offset=5):
     fig = plt.figure(1)
     try:
         losses = torch.load(save_losses_file)
@@ -284,7 +306,8 @@ def plot_losses():
     tests_accuracy = losses[3]
     tests_count = losses[4]
     
-    plt.scatter(train_count[1:], train_losses, label='Train')
+    plt.scatter(train_count[1+offset:], 
+                train_losses[offset:], label='Train')
     plt.scatter(tests_count[1:], tests_losses, label='Test')
     plt.ylabel('Loss')
     plt.xlabel('Minibatches seen. Batchsize='+str(BATCH_SIZE_TEST))
