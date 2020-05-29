@@ -13,8 +13,8 @@ import preprocess_sentences as processor
 import time
 import torch
 import torch.optim as optim
-from classifier_models import my_BERT_Model
-from transformers import BertForSequenceClassification, BertConfig
+from classifier_models import my_ModelA1, my_ModelA2
+from transformers import BertConfig
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,8 +24,8 @@ FROM_SCRATCH = False # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 0
-MODELNAME = 'modelB'
+iteration = 2
+MODELNAME = 'modelA3'
 
 ITER1 = str(iteration)
 DATADIR = './data/'
@@ -56,7 +56,7 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 2
+N_EPOCHS = 1
 LEARNING_RATE = 0.001
 MOMENTUM = 0.5
 
@@ -109,16 +109,17 @@ for eachpair in pair_labels:
 # add 1000 to all to make sure no division by 0 occurs 
 # and for numerical stability
 label_counts = label_counts + 1000
-loss_weights = torch.sum(label_counts)
-loss_weights = loss_weights // label_counts
+loss_sum = torch.sum(label_counts)
+loss_weights = torch.true_divide(loss_sum, label_counts)
 loss_weights = loss_weights.reshape(100).to('cuda')
+loss_weights = torch.true_divide(loss_weights, loss_weights.max())
 
 if FROM_SCRATCH:
     #model = BertForSequenceClassification.from_pretrained('bert-base-uncased', 
     #                                                      num_labels=100)
     config = BertConfig.from_pretrained('bert-base-uncased')
     config.num_labels = 100
-    model = my_BERT_Model(config)
+    model = my_ModelA2(config)
     # Move model into GPU
     model.to(gpu)
     # Define the optimizer. Use SGD
@@ -134,7 +135,7 @@ if FROM_SCRATCH:
 else:
     config = BertConfig.from_json_file(load_config_file)
     #model = BertForSequenceClassification(config)
-    model = my_BERT_Model(config)
+    model = my_ModelA2(config)
     
     state_dict = torch.load(load_model_file)
     model.load_state_dict(state_dict)
@@ -162,6 +163,16 @@ loss_function = torch.nn.CrossEntropyLoss(weight=loss_weights.float(),
 def train(epoch):
     # Set network into training mode to enable dropout
     model.train()
+    #reshuffle the training data
+    data = processor.split_dict_2_train_test_sets(data_dict=data_dict, 
+                                              test_percent=TEST_PERCENT_SPLIT,
+                                              training_batch_size=BATCH_SIZE_TRAIN,
+                                              testing_batch_size=BATCH_SIZE_TEST,
+                                              randomize=True,
+                                              device=cpu)
+
+    train_loader = data[0]
+    #tests_loader = data[1]
     
     for batch_idx, minibatch in enumerate(train_loader):
         #move stuff to gpu
@@ -209,7 +220,7 @@ def train(epoch):
                         tests_count], save_losses_file)
             model.config.to_json_file(save_config_file)
 
-def test(save=True):
+def test(save=False):
     # This function evaluates the entire test set
     
     # Set network into evaluation mode
@@ -319,7 +330,7 @@ if __name__ =='__main__':
     test(save=False)
     for epoch in range(1, N_EPOCHS + 1):
         train(epoch)
-        labels = test()
+        labels = test(save=True)
     plot_losses()
 
     time_end = time.time()

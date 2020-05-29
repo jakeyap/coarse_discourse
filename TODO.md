@@ -1,15 +1,15 @@
 # **TO DO LIST**
-To try to learn how to classify discourse into the following categories
-0. question/request
-1. answer
-2. annoucement
-3. agreement
-4. positive reaction / appreciation
-5. disagreement
-6. negative reaction
-7. elaboration / FYI
-8. humor
-9. other
+    To try to learn how to classify discourse into the following categories
+    0. question/request
+    1. answer
+    2. annoucement
+    3. agreement
+    4. positive reaction / appreciation
+    5. disagreement
+    6. negative reaction
+    7. elaboration / FYI
+    8. humor
+    9. other
 
 
 ## **Task 0: Preprocessing**
@@ -59,18 +59,24 @@ To try to learn how to classify discourse into the following categories
     Here's how the category density looks like for comment pairs
 ![True labels](./results/true_labels.png)
 
-### **Model:**
-    BERT
-    Dropout1 10%
-    Linear1
-    RELU1
-    Dropout2 10%
-    Linear2
-    RELU2
-    Linear3
-
-### **Loss Function:**
-    Cross Entropy Loss, flat weights
+### **Models:**
+    ModelA1
+    BERT ==> Dropout1 10% ==> Linear1 ==> RELU1
+         ==> Dropout2 10% ==> Linear2 ==> RELU2 ==> Linear3
+    Loss: Cross Entropy Loss, flat weights
+    
+    ModelA2
+    BERT ==> Linear
+    Loss: Cross Entropy Loss, inverse weights to label occurence
+        add 1k to all counts
+        then divide the sum by each element
+        
+    ModelA3
+    BERT ==> Linear
+    Loss: Cross Entropy Loss, inverse weights to label occurence
+        add 1k to all counts
+        then divide the sum by each element
+        then divide by the biggest number to normalize to 1 or lower
 
 ### **Training algo:**
     SGD
@@ -81,6 +87,8 @@ To try to learn how to classify discourse into the following categories
 ### **Hardware used:**
     GPU: RTX 2080 Super (8Gb RAM)
     CPU: Ryzen 3900 (12 cores 24 threads)
+    1 epoch takes ~40 min
+    Peak GPU RAM usage is ~7/8 Gb. Dont use maximum to give some buffer
 
 ### **Results:**
     Emphirically, after 6-7 epochs, overfitting kicks in. 
@@ -99,7 +107,7 @@ To try to learn how to classify discourse into the following categories
 ### **Remarks:**
     Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.
     In order to account for that, perhaps need to weigh the cost function, to decrease cost associated with (question,answer) label
-    The 3 categories <humor>, <negative reaction>, <other>, are very under represented. Perhaps their cost need to be weighted upwardssss
+    The 3 categories <humor>, <negative reaction>, <other>, are very under represented. Perhaps their cost need to be weighted upwards
     Perhaps increase the batch size and lower the tokenization length.
     Further handicaps
         -Looking at a comment pair with no context. How do you tell whether it is an announcement or elaboration?
