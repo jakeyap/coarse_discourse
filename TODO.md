@@ -10,12 +10,18 @@
     7. elaboration / FYI
     8. humor
     9. other
-
+    
+    There are 3 possible methods associated with Task 1.
+    Method A: predict labelA, labelB simultaneously
+    Method B: predict labelA, then labelB with predicted labelA as a feature
+    Method C: use true labelA as a feature to predict labelB
+    Method A/B is how humans really behave. Method C is the cheat way.
 
 ## **Task 0: Preprocessing**
     [x] Import data from reddit
     [x] Flatten tree into single comments
-    [x] Flatten the tree into pairs
+    [x] Group comments into pairs (For method A)
+    [ ] Regroup comments into groups based on tree depth (For method B)
     [x] Get a sense of category labels density
     [x] Get a sense of pair labels density
     [x] Remove deleted posts
@@ -24,9 +30,11 @@
     [x] Convert label pairs into numbers
     [x] Draw a histogram of token lengths for posts
     [x] Tokenize the entire dataset
+    
 
-## **Task 1: Learn relations from comment pairs**
-    For example, a reddit thread with this structure
+## **Task 1: Try to classify using BERT**
+
+    A reddit thread with this structure
         -post-1
             -comment-1.1
                 -comment-1.1.1
@@ -35,7 +43,8 @@
                 -comment-1.2.1
             -comment-1.3
 
-    will break down into a general form (commentA commentB)
+### Method A
+    Learn from comment pairs, thus require a general form (commentA commentB)
         -(post-1, comment-1.1)
         -(post-1, comment-1.2)
         -(post-1, comment-1.3)
@@ -44,13 +53,17 @@
         -(comment-1.2, comment-1.2.1)
 
     After flattening, learn classification pairwise. 
-    There are 3 possible methods associated with Task 1.
-    Method A: predict labelA, labelB simultaenously
-    Method B: predict labelA, then labelB with labelA as a feature
-    Method C: use labelA as a feature to predict labelB
-    Method A/B is how humans really behave. Method C is the cheat way.
-
+### Method B
+    Learn from previous comment's label, thus requires parent's label. Reshape the problem into traversing the tree breath first.
+        -level1 posts: [post-1, post-2, ...]
+        -level2 posts: [comment-1.1, comment-1.2, comment2.1, ...]
+        -level3 posts: [comment-1.1.1, comment-1.2.1, comment2.1.1, ...]
+    Do level1 posts 1st, then label
+    Need a lookup table to index the labels and parents 
+    
+    
 ### **Data:**
+    For method A, 
     70672 valid comment pairs: 
         63604 training set
         7068 test set
@@ -58,6 +71,9 @@
     
     Here's how the category density looks like for comment pairs
 ![True labels](./results/true_labels.png)
+
+    For method B,
+        
 
 ### **Models:**
     ModelA1
@@ -77,7 +93,10 @@
         add 1k to all counts
         then divide the sum by each element
         then divide by the biggest number to normalize to 1 or lower
-
+    
+    ModelB1
+    
+    
 ### **Training algo:**
     SGD
         Learning rate = 0.001
@@ -93,13 +112,13 @@
 ### **Results:**
     Emphirically, after 6-7 epochs, overfitting kicks in. 
     
-![overfit](./results/overfitting.png)
+![overfit](./results/MODELA/modelA1_overfitting.png)
 
     Stop training at 6 epochs then. The ball park accuracy is 53%-56%.
 
-![loss](./results/losses_6epochs.png)
+![loss](./results/MODELA/modelA1_losses_6epochs.png)
 
-![predicted labels](./results/predicted_labels_6_epochs.png)
+![predicted labels](./results/MODELA/modelA1_predicted_labels_6_epochs.png)
 
     For comparison, here's the real label density for the test set
 ![testset labels](./results/testset_labels.png)
@@ -112,6 +131,10 @@
     Further handicaps
         -Looking at a comment pair with no context. How do you tell whether it is an announcement or elaboration?
         
+    I tried to weigh the cost function (see ModelA2 and ModelA3 above for details). ModelA2 didnt learn at all. ModelA3 somewhat works OK, with a peak accuracy of 47% after 7 training epochs. The losses are shown here.
+    
+![ModelA3 loss](./results/MODELA/modelA3_losses.png)
+    
     
 # Task 2: Maintain tree structure 
     Use PLAN model. Not sure how yet.

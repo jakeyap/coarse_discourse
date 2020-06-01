@@ -7,8 +7,6 @@ Some utility functions to help with data processing
 """
 import json
 from transformers import BertTokenizer
-print('Loading pre-trained model tokenizer')
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 import numpy as np
 
 counter_first_post_no_bodyco = 0
@@ -228,8 +226,7 @@ def filter_valid_pairs(comment_pairs):
     """
     Goes thru the comment_pairs, 
     rejects the ones that are have either one with no clear label
-    rejects the ones with len(body) == 0
-    rejects the ones with deleted body
+    rejects the ones with len(body) == 0 or deleted body
     
     Parameters
     ----------
@@ -252,7 +249,50 @@ def filter_valid_pairs(comment_pairs):
             if post_has_body(head) and post_has_body(tail):
                 filtered_comment_pairs.append(each_pair)
     return filtered_comment_pairs
+
+def filter_valid_comments(comments):
+    '''
+    Goes thru comments,
+    reject the ones with no clear label.
+    reject the ones with len(body) == 0 or deleted body
+    reject the ones with no parent
     
+    comments: list of dicts
+    returns a new list of comments
+    '''
+    seen_ids = set()
+    filtered_comments = []
+    for each_comment in comments:
+        if post_has_majority_label(each_comment) and post_has_body(each_comment):
+            if post_is_first(each_comment):
+                filtered_comments.append(each_comment)
+                seen_ids.add(each_comment['id'])
+            else:
+                try:
+                    parent_id = each_comment['in_reply_to']
+                    if parent_id in seen_ids:
+                        filtered_comments.append(each_comment)
+                        seen_ids.add(each_comment['id'])
+                except Exception:
+                    try:
+                        parent_id = each_comment['majority_link']
+                        if parent_id in seen_ids:
+                            filtered_comments.append(each_comment)
+                            seen_ids.add(each_comment['id'])
+                    except Exception:
+                        print('No parent found. Skip post')
+                        pass
+    return filtered_comments
+        
+def filter_first_comments(comments):
+    '''
+    Goes thru comments, spits out a list of comments which are 1st posts
+    '''
+    filtered_comments = []
+    for each_comment in comments:
+        if post_is_first(each_comment):
+            filtered_comments.append(each_comment)
+    return filtered_comments
 """
 Some helper functions below
 """
@@ -278,7 +318,6 @@ def post_is_first(post_json):
     else:
         return False
     
-
 def post_has_body(post_json):
     """
     Determine if post has text/body. If no, data is missing
@@ -303,7 +342,6 @@ def post_has_body(post_json):
             return True
     else:
         return False    
-    
     
 def post_parent(single_post_json, posts_json, lut):
     """
@@ -351,7 +389,6 @@ def post_parent(single_post_json, posts_json, lut):
     # Just give up on this post. Throw error
     return parent
 
-
 def post_has_majority_label(post_json):
     """
     Determines if post has a majority label
@@ -373,7 +410,6 @@ def post_has_majority_label(post_json):
     else:
         return False  
     
-
 def count_tokens(post_json):
     """
     Counts the number of tokens in a post
@@ -388,11 +424,12 @@ def count_tokens(post_json):
     count : int
         number of tokens in post.
     """
+    print('Loading pre-trained model tokenizer')
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
     tokenizer_text = tokenizer.tokenize(post_json['body'])
     count = len(tokenizer_text)
     return count
 
-#TODO tidy up comments
 def count_all_labels(comments):
     """
     Goes thru all the threads in dataset, 
@@ -430,12 +467,25 @@ def count_all_labels(comments):
         counter = counter + 1
     return histogram, errorloc
 
-#TODO
 def count_all_labels_pairs(valid_comment_pairs):
-    '''
+    """
     Goes thru all the comment pairs in dataset, 
     then count the labels in a histogram
-    '''
+
+    Parameters
+    ----------
+    valid_comment_pairs : list of list
+        Truncated version of comment_pairs.
+
+    Returns
+    -------
+    histogram : dictionary
+        key=labels, value=counts.
+    seen_ids : set
+        set of unique IDs of posts that were explored.
+        
+    """
+    
     # Set to store seen posts
     seen_ids = set()
     # Dictionary to store histogram
@@ -480,19 +530,31 @@ def count_all_labels_pairs(valid_comment_pairs):
             
     return histogram, seen_ids
     
-
-
-#TODO check, comment
 def count_all_token_lengths(comments):
+    """
+    Goes thru all comments, counts the number of tokens inside
+
+    Parameters
+    ----------
+    comments : list of dictionaries
+        List of all posts in the thread in dictionary form.
+
+    Returns
+    -------
+    token_counts : list of int
+        a list where each element corresponds to the number of tokens in 
+        a post at the same index in the comments list.
+
+    """
     token_counts = []
     counter = 0
     for each_post in comments:
         if (counter % 1000 == 0):
-            print("Tokenizing sample ", counter)
+            print("Tokenizing & counting sample ", counter)
         token_count = count_tokens(each_post)
         token_counts.append(token_count)
         counter = counter + 1
-    return 
+    return token_counts
 
 def print_json_file(json_filename, start=0, count=5, debug=False):
     """
@@ -591,6 +653,25 @@ def empty_label_dictionary():
     return categories
 
 def find_post_wo_body(json_filename, start=0, stop=1000000):
+    """
+    Finds the index of a post without a body field or an empty body content
+    Returns the first index that matches the search criteria
+    
+    Parameters
+    ----------
+    json_filename : string
+        text of database file name..
+    start : int, optional
+        index to start counting from. The default is 0.
+    stop : int, optional
+        index to stop at. The default is 1000000.
+
+    Returns
+    -------
+    TYPE
+        DESCRIPTION.
+
+    """
     counter = start
     with open(json_filename) as jsonfile:
         threads_string = jsonfile.readlines()
@@ -606,6 +687,20 @@ def find_post_wo_body(json_filename, start=0, stop=1000000):
     return -1
 
 def count_firstposts_wo_body(comments):
+    """
+    Counts the number of posts that have no body content or field
+
+    Parameters
+    ----------
+    comments : list of dictionaries
+        List of all posts in the thread in dictionary form.
+
+    Returns
+    -------
+    counter : int
+        number of first posts without a body field or body content.
+
+    """
     counter = 0
     for each_comment in comments:
         if post_has_body(each_comment):
@@ -614,18 +709,62 @@ def count_firstposts_wo_body(comments):
             counter = counter + 1
     return counter
 
-if __name__ =='__main__':
+def filter_leaf_nodes(comments):
+    ''' 
+    counts how deep a branch goes. do it by looking at the "depth field" 
+    how it works: 
+        1st, record all reply link IDs
+        2nd, for any post, if no link to it exists, it is a leaf node
     
-    pairs, errors = flatten_threads2pairs_all('coarse_discourse_dump_reddit.json')
-    comments = flatten_threads2single_all('coarse_discourse_dump_reddit.json')
+    do step 1 by storing 'majority_link' & 'in_reply_to' fields in a set
+    do step 2 by searching thru the set
+    comments: list of json comments
+    '''
+    seen_ids = set()
+    filtered_comments = []
+    # do step 1 first. create the lookup table of reply links
+    for each_comment in comments:
+        if 'majority_link' in each_comment.keys():
+            seen_ids.add(each_comment['majority_link'])
+        if 'in_reply_to' in each_comment.keys():
+            seen_ids.add(each_comment['in_reply_to'])
+    
+    # do step 2. go thru all comments, see whether it is inside the list
+    for each_comment in comments:
+        if each_comment['id'] in seen_ids:
+            pass
+        else:
+            filtered_comments.append(each_comment)
+    return filtered_comments
+
+def tree_depth_histogram(leaf_comments):
+    ''' '''
+    counts = []
+    for each_comment in leaf_comments:
+        try:
+            counts.append(each_comment['post_depth']+1)
+        except Exception:
+            pass
+    num_bins = max(counts)
+    histogram = np.histogram(counts, bins=num_bins, range=(0,num_bins))
+    return histogram
+
+if __name__ =='__main__':
+    DATADIR = './data/'
+    FILENAME = 'coarse_discourse_dump_reddit.json'
+    pairs, errors = flatten_threads2pairs_all(DATADIR+FILENAME)
+    comments = flatten_threads2single_all(DATADIR+FILENAME)
     
     histogram1, errorlocations = count_all_labels(comments)
     
     labels1 = list(histogram1.keys())
     counts1 = list(histogram1.values())
     
-    valid_comment_pairs = filter_valid_pairs(pairs)
-    histogram2, _ = count_all_labels_pairs(valid_comment_pairs)
+    #valid_comment_pairs = filter_valid_pairs(pairs)
+    valid_comments = filter_valid_comments(comments)
+    first_comments = filter_first_comments(valid_comments)
+    #histogram2, _ = count_all_labels_pairs(valid_comment_pairs)
+    histogram2, _ = count_all_labels(first_comments)
     labels2 = list(histogram2.keys())
     counts2 = list(histogram2.values())
     
@@ -633,7 +772,7 @@ if __name__ =='__main__':
     import matplotlib.pyplot as plt
     plt.figure(1)
     xpts = np.arange(len(histogram1))
-    plt.bar(x=xpts+width/2, height=counts1, width=width, label='unfiltered')
+    #plt.bar(x=xpts+width/2, height=counts1, width=width, label='unfiltered')
     plt.bar(x=xpts-width/2, height=counts2, width=width, label='filtered')
     plt.ylabel('Counts')
     plt.xlabel('Filtering removes [deleted] or empty posts')
@@ -643,24 +782,5 @@ if __name__ =='__main__':
     plt.grid(True)
 
 
-"""
-token_counts = []
-counter = 0
-for each_post in comments:
-    if (counter % 1000 == 0):
-        print("Tokenizing sample ", counter)
-    token_count = count_tokens(each_post)
-    token_counts.append(token_count)
-    counter = counter + 1
-
-plt.figure(2)
-plt.hist(token_counts, bins=10,
-         edgecolor='black', 
-         facecolor='blue')
-plt.yscale('log')
-#plt.xscale('log')
-plt.ylabel('frequency')
-plt.xlabel('token length')
-"""
 
 
