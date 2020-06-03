@@ -87,7 +87,7 @@
         Since the majority of the dataset max a max depth of 5, let's just stick to 5. Here's a look at how deep the reddit threads go.
 ![Thread depth](./results/thread_depth.png)
         
-
+    
 ### **Models:**
     ModelA1
     BERT ==> Dropout1 10% ==> Linear1 ==> RELU1
@@ -108,8 +108,8 @@
         then divide by the biggest number to normalize to 1 or lower
     
     ModelB1 
-    BERT ==> Dropout 10% ==> Linear1 ==> RELU1 ==> Dropout2 10% ==> Linear2
-            parent_label ==>
+    BERT ==> Dropout1 10% ==> Linear1 ==> RELU1 ==> Dropout2 10% ==> Linear2
+            parent_label  ==>
     Loss: Cross Entropy Loss, flat weights
     
     
@@ -168,5 +168,5 @@
         if all else fails, backup models, data, then reboot python kernel
     General stuff:
         Practice proper file handling to prevent overwrite accidents
-        
+        Saving and caching tokenizer outputs. Tokenizing the entire dataset is damn slow. ~3.5hr
     

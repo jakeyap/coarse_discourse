@@ -203,13 +203,17 @@ class my_ModelB1(BertPreTrainedModel):
         self.num_labels = config.num_labels
 
         self.bert = BertModel(config)
-        self.dropout = Dropout(config.hidden_dropout_prob)
-        self.classifier = torch.nn.Linear(config.hidden_size, config.num_labels)
-
+        self.dropout1 = Dropout(config.hidden_dropout_prob)
+        # The plus 1 factor is to stitch in the input label
+        self.classifier1 = torch.nn.Linear(config.hidden_size+1, config.hidden_size)
+        self.relu1 = torch.nn.ReLU()
+        self.dropout2 = Dropout(config.hidden_dropout_prob)
+        self.classifier2 = torch.nn.Linear(config.hidden_size, config.num_labels)
         self.init_weights()
 
     def forward(self, input_ids, attention_mask=None, token_type_ids=None,
-                position_ids=None, head_mask=None, labels=None):
+                position_ids=None, head_mask=None, labels=None, 
+                parent_labels=None):
 
         outputs = self.bert(input_ids,
                             attention_mask=attention_mask,
@@ -217,10 +221,11 @@ class my_ModelB1(BertPreTrainedModel):
                             position_ids=position_ids, 
                             head_mask=head_mask)
         
-        pooled_output = outputs[1]
-        pooled_output = self.dropout(pooled_output)
-        logits = self.classifier(pooled_output)
-
+        output = outputs[1]
+        output = self.dropout1(output)
+        output = self.classifier1(torch.cat((output, parent_labels), 1))
+        output = self.relu1(output)
+        logits = self.dropout2(output)
         outputs = (logits,) + outputs[2:]  # add hidden states and attention if they are here
 
         if labels is not None:

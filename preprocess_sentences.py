@@ -51,15 +51,20 @@ def convert_label_string2num(label):
     Converts text label into a number
     '''
     all_labels = list(dictionary.keys())
-    return all_labels.index(label)
+    if label == 'firstpost':
+        return len(all_labels)
+    else:
+        return all_labels.index(label)
     
-
 def convert_label_num2string(number):
     '''
     Converts a numerical label back into a string
     '''
     all_labels = list(dictionary.keys())
-    return all_labels[number]
+    if number == len(all_labels):
+        return 'firstpost'
+    else:
+        return all_labels[number]
 
 def tokenize_example():    
     print('Example usage of tokenizer')
@@ -256,7 +261,9 @@ def tokenize_and_encode_pandas(dataframe, tk=None):
     encoded_comments = []
     token_type_ids = []
     attention_mask = []
-    labels = []    
+    labels = []
+    parent_labels = []
+    counter = 0
     for i in range(len(dataframe)):
         tokenized_comment = tk.tokenize(dataframe.at[i, 'body'])
         encoded_dict = tk.encode_plus(text=tokenized_comment,
@@ -265,13 +272,28 @@ def tokenize_and_encode_pandas(dataframe, tk=None):
         encoded_comments.append(encoded_dict['input_ids'])
         token_type_ids.append(encoded_dict['token_type_ids'])
         attention_mask.append(encoded_dict['attention_mask'])
+        
         label = dataframe.at[i, 'majority_type']
         labels.append(convert_label_string2num(label))
-    dataframe['encoded_comments'] = encoded_comments
-    dataframe['token_type_ids'] = token_type_ids
-    dataframe['attention_mask'] = attention_mask
-    dataframe['number_labels'] = labels
+        parent_id   = dataframe.at[i, 'majority_link']
+        parent_index= reddit.pandas_find_parent_index(parent_id, dataframe)
+        if parent_index==-1:
+            parent_label = 'firstpost'
+        else:
+            parent_label = dataframe.at[parent_index, 'majority_type']
+        parent_labels.append(convert_label_string2num(parent_label))
+        
+        if counter % 1000 == 0:
+            print('Tokenizing comment: %00000d' % counter)
+        counter = counter + 1
     
+    width = dataframe.shape[1]
+    dataframe.insert(width+0, 'encoded_comments', encoded_comments)
+    dataframe.insert(width+1,'token_type_ids', token_type_ids)
+    dataframe.insert(width+2,'attention_mask', attention_mask)
+    dataframe.insert(width+3,'number_labels', labels)
+    dataframe.insert(width+4,'parent_labels', parent_labels)
+    return dataframe
     
 def split_dict_2_train_test_sets_single(data_dict, test_percent, 
                                         training_batch_size=64,
@@ -287,7 +309,6 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
         'token_type_ids': token_type_ids,
         'attention_mask': attention_mask,
         'labels': labels,
-        'parent_ids': parent_ids
     }
     
     Returns a list of 2 Dataloaders. [train_loader, tests_loader]
@@ -303,7 +324,6 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     y_data = torch.tensor(labels_num)
     token_type_ids = torch.tensor(data_dict['token_type_ids'])
     attention_mask = torch.tensor(data_dict['attention_mask'])
-    parent_ids = data_dict['parent_ids']
     
     x_data = x_data.to(device)
     y_data = y_data.to(device)
@@ -314,8 +334,7 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
         print('Shuffling data')
         shuffle_arrays_synch([x_data, y_data, 
                               token_type_ids, 
-                              attention_mask,
-                              parent_ids])
+                              attention_mask])
     
     datalength = y_data.shape[0]
     stopindex = int (datalength * (100 - test_percent) / 100)
@@ -323,24 +342,20 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     y_train = y_data [0:stopindex]
     token_type_ids_train = token_type_ids [0:stopindex]
     attention_mask_train = attention_mask [0:stopindex]
-    parent_ids_train = parent_ids[0:stopindex]
     
     x_tests = x_data [stopindex:]
     y_tests = y_data [stopindex:]
     token_type_ids_tests = token_type_ids [stopindex:]
     attention_mask_tests = attention_mask [stopindex:]
-    parent_ids_tests = parent_ids [stopindex:]
     
     train_dataset = TensorDataset(x_train,
                                   y_train,
                                   token_type_ids_train,
-                                  attention_mask_train,
-                                  parent_ids_train)
+                                  attention_mask_train)
     tests_dataset = TensorDataset(x_tests,
                                   y_tests,
                                   token_type_ids_tests,
-                                  attention_mask_tests,
-                                  parent_ids_tests)
+                                  attention_mask_tests)
     
     train_loader = DataLoader(train_dataset, 
                               batch_size=training_batch_size,
@@ -350,6 +365,15 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     
     return [train_loader, tests_loader]
 
+def split_pandas_2_train_test_sets(dataframe,
+                                   test_percent, 
+                                   training_batch_size=64,
+                                   testing_batch_size=64,
+                                   randomize=False,
+                                   device='cpu'):
+    '''Splits up dataframe into 2. One for test, one for train'''
+    
+    
 def extract_ids(comments):
     ''' Takes a list of comments, extract the 
     comment IDs and puts into a dictionary '''
@@ -359,7 +383,7 @@ def extract_ids(comments):
 
 if __name__ =='__main__':
     time_start = time.time()
-    NUM_TO_PROCESS = 100
+    NUM_TO_PROCESS = 1000000
     '''
     # extract the data into list of strings
     print('Flattening thread')
@@ -379,6 +403,7 @@ if __name__ =='__main__':
     # convert to pandas dataframe
     panda_comments = reddit.comments_to_pandas(filtered_comments)
     panda_comments = reddit.pandas_remove_nan(panda_comments) 
+    #data = tokenize_and_encode_pandas(panda_comments[0:NUM_TO_PROCESS])
     data = tokenize_and_encode_pandas(panda_comments)
     
     #data_dict = tokenize_and_encode_comments(filtered_comments, count=NUM_TO_PROCESS)

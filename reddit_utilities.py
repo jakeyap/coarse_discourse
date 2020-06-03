@@ -279,7 +279,7 @@ def filter_valid_comments(comments):
                         filtered_comments.append(each_comment)
                         seen_ids.add(each_comment['id'])
                 except Exception:
-                    print('No parent found. Skip post')
+                    #print('No parent found. Skip post')
                     pass
                         
                 '''
@@ -856,7 +856,7 @@ def pandas_find_post_label_str(index, dataframe):
 def pandas_find_post_label_num(index, dataframe):
     return dataframe.at[index, 'number_labels']
 
-"""
+
 
 if __name__ =='__main__':
     DATADIR = './data/'
@@ -896,5 +896,3 @@ if __name__ =='__main__':
     plt.legend(loc='best')
     plt.grid(True)
     '''
-
-"""

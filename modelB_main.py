@@ -20,7 +20,6 @@ import numpy as np
 time_start = time.time()
     
 FROM_SCRATCH = False # True if start loading model from scratch
-RETOKENIZE = False # True if need to retokenize sentences again
 TRAIN = False # True if you want to train the network. False to just test
 
 '''======== FILE NAMES FLOR LOGGING ========'''
@@ -32,7 +31,7 @@ DATADIR = './data/'
 MODELDIR= './models/MODELB/'
 RESULTDIR='./results/MODELB/'
 # For storing the tokenized posts
-posts_token_file = DATADIR + "single_comments_tokenized_file.bin"
+posts_token_file = DATADIR + "pandas_tokenized.bin"
 #posts_token_file = DATADIR + "first_comments_tokenized_file.bin"
 
 load_model_file = MODELDIR+MODELNAME+"_model_"+ITER1+".bin"
@@ -72,22 +71,8 @@ cpu = torch.device('cpu')
 gpu = torch.device('cuda')
 DEVICE = cpu
 
-# Can skip retokenizing if possible. This takes damn long ~ 10min
-if RETOKENIZE:
-    # extract the data into list of strings
-    print('Flattening thread')
-    comments = reddit.flatten_threads2single_all('./data/coarse_discourse_dump_reddit.json');
-    # filter the data with missing parents or are deleted
-    print('Filtering comments')
-    valid_comments = reddit.filter_valid_pairs(comments)
-    
-    print('Tokenizing comments')
-    data_dict = processor.tokenize_and_encode_comments(valid_comments,
-                                                       count=NUM_TO_PROCESS)
-    torch.save(data_dict, posts_token_file)
-else:
-    print('Grabbing pre-tokenized pairs')
-    data_dict = torch.load(posts_token_file)
+print('Importing tokenized & encoded comments')
+data_dict = torch.load(posts_token_file)
 
 data = processor.split_dict_2_train_test_sets_single(data_dict=data_dict, 
                                                      test_percent=TEST_PERCENT_SPLIT,
