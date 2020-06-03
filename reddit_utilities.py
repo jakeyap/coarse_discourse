@@ -8,6 +8,8 @@ Some utility functions to help with data processing
 import json
 from transformers import BertTokenizer
 import numpy as np
+import pandas as pd
+import math
 
 counter_first_post_no_bodyco = 0
 counter_missing_parent = 0
@@ -62,7 +64,6 @@ def flatten_threads2pairs_all(filename, comments=[], start=0, count=100000,
                 print('Flattening thread to pair: %00000d' % counter)
             counter = counter + 1
     return comments, errors
-
 
 def flatten_thread2pairs_single(thread_json, comment_pairs=[], 
                                 merge_title=True):
@@ -132,7 +133,6 @@ def flatten_thread2pairs_single(thread_json, comment_pairs=[],
             
     return comment_pairs
 
-
 def flatten_threads2single_all(filename, comments=[], start=0, 
                                count=100000, merge_title=True):
     """
@@ -179,7 +179,6 @@ def flatten_threads2single_all(filename, comments=[], start=0,
             counter = counter + 1
     return comments
 
-
 def flatten_thread2single_single(thread_json, comments=[], merge_title=True):
     """
     Flattens a single reddit reddit into a list of comments
@@ -221,7 +220,6 @@ def flatten_thread2single_single(thread_json, comments=[], merge_title=True):
             pass
     return comments
 
-
 def filter_valid_pairs(comment_pairs):
     """
     Goes thru the comment_pairs, 
@@ -251,15 +249,22 @@ def filter_valid_pairs(comment_pairs):
     return filtered_comment_pairs
 
 def filter_valid_comments(comments):
-    '''
+    """
     Goes thru comments,
-    reject the ones with no clear label.
-    reject the ones with len(body) == 0 or deleted body
-    reject the ones with no parent
+    reject those (without label), (len(body)==0 or deleted), no parent
+
+    Parameters
+    ----------
+    comments : list of dictionaries
+        list of dictionaries, where each dictionary is a comment.
+
+    Returns
+    -------
+    filtered_comments : list of dictionaries
+        list of dictionaries, where each dictionary is a comment.
+
+    """
     
-    comments: list of dicts
-    returns a new list of comments
-    '''
     seen_ids = set()
     filtered_comments = []
     for each_comment in comments:
@@ -268,6 +273,16 @@ def filter_valid_comments(comments):
                 filtered_comments.append(each_comment)
                 seen_ids.add(each_comment['id'])
             else:
+                try:
+                    parent_id = each_comment['majority_link']
+                    if parent_id in seen_ids:
+                        filtered_comments.append(each_comment)
+                        seen_ids.add(each_comment['id'])
+                except Exception:
+                    print('No parent found. Skip post')
+                    pass
+                        
+                '''
                 try:
                     parent_id = each_comment['in_reply_to']
                     if parent_id in seen_ids:
@@ -282,12 +297,24 @@ def filter_valid_comments(comments):
                     except Exception:
                         print('No parent found. Skip post')
                         pass
+                        '''
     return filtered_comments
         
 def filter_first_comments(comments):
-    '''
+    """
     Goes thru comments, spits out a list of comments which are 1st posts
-    '''
+
+    Parameters
+    ----------
+    comments : list of dictionaries
+        list of dictionaries where each comment is a dictionary
+
+    Returns
+    -------
+    filtered_comments : list of dictionaries
+        list of dictionaries where each comment is a dictionary
+
+    """
     filtered_comments = []
     for each_comment in comments:
         if post_is_first(each_comment):
@@ -710,7 +737,7 @@ def count_firstposts_wo_body(comments):
     return counter
 
 def filter_leaf_nodes(comments):
-    ''' 
+    """
     counts how deep a branch goes. do it by looking at the "depth field" 
     how it works: 
         1st, record all reply link IDs
@@ -718,8 +745,19 @@ def filter_leaf_nodes(comments):
     
     do step 1 by storing 'majority_link' & 'in_reply_to' fields in a set
     do step 2 by searching thru the set
-    comments: list of json comments
-    '''
+    
+    Parameters
+    ----------
+    comments : list of dictionaries
+        list of dictionaries where each dict is a comment
+
+    Returns
+    -------
+    filtered_comments : list of dictionaries
+        list of dictionaries where each dict is a leaf comment
+
+    """
+    
     seen_ids = set()
     filtered_comments = []
     # do step 1 first. create the lookup table of reply links
@@ -738,23 +776,100 @@ def filter_leaf_nodes(comments):
     return filtered_comments
 
 def tree_depth_histogram(leaf_comments):
-    ''' '''
+    """
+    Creates a histogram of leaf nodes' depth
+
+    Parameters
+    ----------
+    leaf_comments : list of dictionaries
+        list of dictionaries where each dict is a leaf comment.
+
+    Returns
+    -------
+    histogram : tuple of 2 arrays
+        (counts, bin_edges).
+
+    """
+    
     counts = []
     for each_comment in leaf_comments:
         try:
             counts.append(each_comment['post_depth']+1)
         except Exception:
-            pass
+            counts.append(1)
     num_bins = max(counts)
     histogram = np.histogram(counts, bins=num_bins, range=(0,num_bins))
     return histogram
 
+def comments_to_pandas(filtered_comments):
+    """
+    Convert a list of comments into pandas. 
+
+    Parameters
+    ----------
+    filtered_comments : list of dictionaries
+        list of dictionaries where each dict is a comment
+
+    Returns
+    -------
+    Pandas dataframe
+
+    """
+    return pd.DataFrame(filtered_comments)
+
+def pandas_remove_nan(dataframe):
+    """
+    Goes thru the rows in pandas dataframe, remove NaNs in data depth & 
+    is_first_post fields
+
+    Parameters
+    ----------
+    dataframe : pandas dataframe
+
+    Returns
+    -------
+    dataframe : pandas dataframe
+
+    """
+    datalength = len(dataframe)
+    for i in range(datalength):
+        if math.isnan(dataframe.at[i, 'post_depth']):
+            dataframe.at[i, 'post_depth'] = 1
+        else:
+            dataframe.at[i, 'post_depth'] = dataframe.at[i, 'post_depth'] + 1
+            dataframe.at[i, 'is_first_post'] = False
+    return dataframe
+
+def pandas_find_parent_index(parent_id, dataframe):
+    ''' given a parent_id, return the index inside the dataframe '''
+    index = -1
+    for i in range(len(dataframe)):
+        test_id = dataframe.at[i, 'id']
+        if (test_id == parent_id):
+            index = i
+            break
+    return index
+
+def pandas_find_post_label_str(index, dataframe):
+    return dataframe.at[index, 'majority_type']
+
+def pandas_find_post_label_num(index, dataframe):
+    return dataframe.at[index, 'number_labels']
+
+"""
+
 if __name__ =='__main__':
     DATADIR = './data/'
     FILENAME = 'coarse_discourse_dump_reddit.json'
-    pairs, errors = flatten_threads2pairs_all(DATADIR+FILENAME)
+    #pairs, errors = flatten_threads2pairs_all(DATADIR+FILENAME)
     comments = flatten_threads2single_all(DATADIR+FILENAME)
     
+    # remove posts with no body, no links, no labels
+    valid_comments = filter_valid_comments(comments)
+    # convert into pandas
+    panda_comments = comments_to_pandas(valid_comments)    
+    # tokenize each sentence and append to pandas dataframe
+    '''
     histogram1, errorlocations = count_all_labels(comments)
     
     labels1 = list(histogram1.keys())
@@ -780,7 +895,6 @@ if __name__ =='__main__':
     plt.tight_layout()
     plt.legend(loc='best')
     plt.grid(True)
+    '''
 
-
-
-
+"""

@@ -52,14 +52,25 @@
         -(comment-1.1, comment-1.1.2
         -(comment-1.2, comment-1.2.1)
 
-    After flattening, learn classification pairwise. 
+    After flattening, learn classification pairwise, with 100 different categories.
+    
 ### Method B
     Learn from previous comment's label, thus requires parent's label. Reshape the problem into traversing the tree breath first.
         -level1 posts: [post-1, post-2, ...]
         -level2 posts: [comment-1.1, comment-1.2, comment2.1, ...]
         -level3 posts: [comment-1.1.1, comment-1.2.1, comment2.1.1, ...]
-    Do level1 posts 1st, then label
-    Need a lookup table to index the labels and parents 
+    
+    To split the data into training set and test set, need some work.
+    Just use first posts to split dataset.
+    
+    For training, lump all comments and train in 1 shot.
+    
+    Each training example contains the following information 
+        {parent_label, parent_id, text, self_label}
+        If post is first post, then it will have a NIL parent_id
+    
+    Once the model is trained, the test data should be
+    Need a lookup table to index the labels and parents
     
     
 ### **Data:**
@@ -72,7 +83,9 @@
     Here's how the category density looks like for comment pairs
 ![True labels](./results/true_labels.png)
 
-    For method B,
+    For method B, I will hardcode how many steps to look down.
+        Since the majority of the dataset max a max depth of 5, let's just stick to 5. Here's a look at how deep the reddit threads go.
+![Thread depth](./results/thread_depth.png)
         
 
 ### **Models:**
@@ -94,7 +107,10 @@
         then divide the sum by each element
         then divide by the biggest number to normalize to 1 or lower
     
-    ModelB1
+    ModelB1 
+    BERT ==> Dropout 10% ==> Linear1 ==> RELU1 ==> Dropout2 10% ==> Linear2
+            parent_label ==>
+    Loss: Cross Entropy Loss, flat weights
     
     
 ### **Training algo:**
@@ -106,7 +122,7 @@
 ### **Hardware used:**
     GPU: RTX 2080 Super (8Gb RAM)
     CPU: Ryzen 3900 (12 cores 24 threads)
-    1 epoch takes ~40 min
+    1 epoch takes ~40 min for modelA
     Peak GPU RAM usage is ~7/8 Gb. Dont use maximum to give some buffer
 
 ### **Results:**

@@ -181,31 +181,43 @@ def shuffle_arrays_synch(arrays, set_seed=-1):
 
     Parameters:
     -----------
-    arrays : List of torch tensors.
+    arrays : List of torch tensors or lists.
     set_seed : Seed value if int >= 0, else seed is random.
     """
     # set up the seed for the RNG
     seed = np.random.randint(0, 2**(32 - 1) - 1) if set_seed < 0 else set_seed
     torch.manual_seed(seed)
     # number of torch tensors inside arrays
-    datalength = arrays[0].shape[0] 
+    try:
+        datalength = arrays[0].shape[0]
+    except Exception:
+        datalength = len(arrays[0])
     # set up the shuffling indexes
     shuffle_indices = torch.randint(low=0, high=datalength, size=(datalength,1))
     
     for arr in arrays:
-        for i in range(datalength):
-            j = shuffle_indices[i]
-            temp = torch.clone(arr[i])
-            arr[i] = torch.clone(arr[j])
-            arr[j] = temp
+        if type(arr) is torch.Tensor:
+            for i in range(datalength):
+                j = shuffle_indices[i]
+                temp = torch.clone(arr[i])
+                arr[i] = torch.clone(arr[j])
+                arr[j] = temp
+        else:
+            for i in range(datalength):
+                j = shuffle_indices[i]
+                temp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
 
 def tokenize_and_encode_comments(valid_comments, start=0, count=1e6, tk=None):
     if tk is None:
         tk = BertTokenizer.from_pretrained('bert-base-uncased')
+    
     encoded_comments = []
     token_type_ids = []
     attention_mask = []
     labels = []
+    parent_ids = []
     counter = 0
     end = start + count
     for each_comment in valid_comments:
@@ -223,14 +235,44 @@ def tokenize_and_encode_comments(valid_comments, start=0, count=1e6, tk=None):
             token_type_ids.append(encoded_dict['token_type_ids'])
             attention_mask.append(encoded_dict['attention_mask'])
             labels.append(each_comment['majority_type'])
+            if 'majority_link' in each_comment.keys():
+                parent_ids.append(each_comment['majority_link'])
+            elif 'in_reply_to' in each_comment.keys():
+                parent_ids.append(each_comment['in_reply_to'])
+            else:
+                parent_ids.append('nil')
         if counter % 1000 == 0:
             print('Tokenizing comment: %00000d' % counter)
         counter = counter + 1
     return {'encoded_comments': encoded_comments,
             'token_type_ids': token_type_ids,
             'attention_mask': attention_mask,
-            'labels': labels}
+            'labels': labels,
+            'parent_ids':parent_ids}
 
+def tokenize_and_encode_pandas(dataframe, tk=None):
+    if tk is None:
+        tk = BertTokenizer.from_pretrained('bert-base-uncased')
+    encoded_comments = []
+    token_type_ids = []
+    attention_mask = []
+    labels = []    
+    for i in range(len(dataframe)):
+        tokenized_comment = tk.tokenize(dataframe.at[i, 'body'])
+        encoded_dict = tk.encode_plus(text=tokenized_comment,
+                                      max_length=128,
+                                      pad_to_max_length=True)
+        encoded_comments.append(encoded_dict['input_ids'])
+        token_type_ids.append(encoded_dict['token_type_ids'])
+        attention_mask.append(encoded_dict['attention_mask'])
+        label = dataframe.at[i, 'majority_type']
+        labels.append(convert_label_string2num(label))
+    dataframe['encoded_comments'] = encoded_comments
+    dataframe['token_type_ids'] = token_type_ids
+    dataframe['attention_mask'] = attention_mask
+    dataframe['number_labels'] = labels
+    
+    
 def split_dict_2_train_test_sets_single(data_dict, test_percent, 
                                         training_batch_size=64,
                                         testing_batch_size=64,
@@ -244,7 +286,8 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
         'encoded_comments': encoded_comments,
         'token_type_ids': token_type_ids,
         'attention_mask': attention_mask,
-        'labels': labels
+        'labels': labels,
+        'parent_ids': parent_ids
     }
     
     Returns a list of 2 Dataloaders. [train_loader, tests_loader]
@@ -260,6 +303,7 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     y_data = torch.tensor(labels_num)
     token_type_ids = torch.tensor(data_dict['token_type_ids'])
     attention_mask = torch.tensor(data_dict['attention_mask'])
+    parent_ids = data_dict['parent_ids']
     
     x_data = x_data.to(device)
     y_data = y_data.to(device)
@@ -268,7 +312,10 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     
     if randomize:
         print('Shuffling data')
-        shuffle_arrays_synch([x_data, y_data, token_type_ids, attention_mask])
+        shuffle_arrays_synch([x_data, y_data, 
+                              token_type_ids, 
+                              attention_mask,
+                              parent_ids])
     
     datalength = y_data.shape[0]
     stopindex = int (datalength * (100 - test_percent) / 100)
@@ -276,20 +323,24 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     y_train = y_data [0:stopindex]
     token_type_ids_train = token_type_ids [0:stopindex]
     attention_mask_train = attention_mask [0:stopindex]
+    parent_ids_train = parent_ids[0:stopindex]
     
     x_tests = x_data [stopindex:]
     y_tests = y_data [stopindex:]
     token_type_ids_tests = token_type_ids [stopindex:]
     attention_mask_tests = attention_mask [stopindex:]
+    parent_ids_tests = parent_ids [stopindex:]
     
     train_dataset = TensorDataset(x_train,
                                   y_train,
                                   token_type_ids_train,
-                                  attention_mask_train)
+                                  attention_mask_train,
+                                  parent_ids_train)
     tests_dataset = TensorDataset(x_tests,
                                   y_tests,
                                   token_type_ids_tests,
-                                  attention_mask_tests)
+                                  attention_mask_tests,
+                                  parent_ids_tests)
     
     train_loader = DataLoader(train_dataset, 
                               batch_size=training_batch_size,
@@ -300,14 +351,15 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     return [train_loader, tests_loader]
 
 def extract_ids(comments):
-    ''' Takes a list of comments, extract the comment IDs and puts into a dictionary '''
+    ''' Takes a list of comments, extract the 
+    comment IDs and puts into a dictionary '''
     seen_ids = set()
     for each_comment in comments:
         seen_ids.add(each_comment[''])
 
 if __name__ =='__main__':
     time_start = time.time()
-    NUM_TO_PROCESS = 1000000
+    NUM_TO_PROCESS = 100
     '''
     # extract the data into list of strings
     print('Flattening thread')
@@ -324,11 +376,14 @@ if __name__ =='__main__':
     print('Flattening threads to single level')
     comments = reddit.flatten_threads2single_all('./data/coarse_discourse_dump_reddit.json')
     filtered_comments = reddit.filter_valid_comments(comments)
-    first_comments = reddit.filter_first_comments(filtered_comments)
-    data_dict = tokenize_and_encode_comments(first_comments, count=NUM_TO_PROCESS)
-    #data_dict = tokenize_and_encode_comments(filtered_comments, count=NUM_TO_PROCESS)
-    torch.save(data_dict, './data/first_comments_tokenized_file.bin')
+    # convert to pandas dataframe
+    panda_comments = reddit.comments_to_pandas(filtered_comments)
+    panda_comments = reddit.pandas_remove_nan(panda_comments) 
+    data = tokenize_and_encode_pandas(panda_comments)
     
+    #data_dict = tokenize_and_encode_comments(filtered_comments, count=NUM_TO_PROCESS)
+    #torch.save(data_dict, './data/first_comments_tokenized_file_with_parent_id.bin')
+    torch.save(data, './data/pandas_tokenized.bin')
     time_end = time.time()
     time_taken = time_end - time_start
     print('Time elapsed: %6.2fs' % time_taken)

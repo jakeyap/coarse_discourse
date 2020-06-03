@@ -167,3 +167,11 @@ plt.colorbar()
 plt.ylabel('1st comment', size=10)
 plt.xlabel('2nd comment', size=10)
 plt.tight_layout()
+
+for i in range(710,len(panda_comments)):
+    is_first_post = panda_comments.at[i, 'is_first_post']
+    majority_link = panda_comments.at[i, 'majority_link'] == 'none'
+    
+    if (not is_first_post) and majority_link:
+        print (i)
+        break
