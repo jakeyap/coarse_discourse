@@ -186,7 +186,7 @@ def shuffle_arrays_synch(arrays, set_seed=-1):
 
     Parameters:
     -----------
-    arrays : List of torch tensors or lists.
+    arrays : List of torch tensors.
     set_seed : Seed value if int >= 0, else seed is random.
     """
     # set up the seed for the RNG
@@ -201,18 +201,11 @@ def shuffle_arrays_synch(arrays, set_seed=-1):
     shuffle_indices = torch.randint(low=0, high=datalength, size=(datalength,1))
     
     for arr in arrays:
-        if type(arr) is torch.Tensor:
-            for i in range(datalength):
-                j = shuffle_indices[i]
-                temp = torch.clone(arr[i])
-                arr[i] = torch.clone(arr[j])
-                arr[j] = temp
-        else:
-            for i in range(datalength):
-                j = shuffle_indices[i]
-                temp = arr[i]
-                arr[i] = arr[j]
-                arr[j] = temp
+        for i in range(datalength):
+            j = shuffle_indices[i]
+            temp = torch.clone(arr[i])
+            arr[i] = torch.clone(arr[j])
+            arr[j] = temp
 
 def tokenize_and_encode_comments(valid_comments, start=0, count=1e6, tk=None):
     if tk is None:
@@ -370,9 +363,110 @@ def split_pandas_2_train_test_sets(dataframe,
                                    training_batch_size=64,
                                    testing_batch_size=64,
                                    randomize=False,
-                                   device='cpu'):
+                                   DEBUG=False):
     '''Splits up dataframe into 2. One for test, one for train'''
+    """
+    Takes in a pandas dataframe, then splits them into 2 dictionaries
     
+    dataframe is a pandas dataframe which contains all examples. 
+    it has the following columns 
+    {
+        is_first_post, id, encoded_comments, majority_type, url, author,
+        majority_link, body, annotations, post_depth, in_reply_to,
+        encoded_comments, token_type_ids, attention_masks, 
+        number_labels, parent_labels
+    }
+    
+    Returns a list of 2 Dataloaders. [train_loader, tests_loader]
+    Each dataloader is packed into the following tuple
+    {   
+         index in original data,
+         x (encoded comment), 
+         token_typed_ids,
+         attention_masks,
+         y (true label),
+         parent_y (parent's label)
+    }
+    """
+    if DEBUG:
+        pass
+        datalength = 1200
+        midindex = int (datalength * (100 - test_percent) / 100)
+        stopindex = datalength
+    else:
+        datalength = len(dataframe)
+        midindex = int (datalength * (100 - test_percent) / 100)
+        stopindex = datalength
+    
+    posts_index     = np.arange(0, datalength)
+    
+    encoded_comments= dataframe['encoded_comments'].values
+    encoded_comments= np.array(encoded_comments.tolist())
+    token_type_ids  = dataframe['token_type_ids'].values
+    token_type_ids  = np.array(token_type_ids.tolist())
+    attention_masks = dataframe['attention_masks'].values
+    attention_masks = np.array(attention_masks.tolist())
+    
+    number_labels   = dataframe['number_labels'].values
+    parent_labels   = dataframe['parent_labels'].values
+    
+    posts_index     = posts_index.reshape(((-1,1)))
+    
+    number_labels   = number_labels.reshape(((-1,1)))
+    parent_labels   = parent_labels.reshape(((-1,1)))
+    
+    # convert numpy arrays into torch tensors
+    posts_index     = torch.from_numpy(posts_index)
+    encoded_comments= torch.from_numpy(encoded_comments)
+    token_type_ids  = torch.from_numpy(token_type_ids)
+    attention_masks = torch.from_numpy(attention_masks)
+    number_labels   = torch.from_numpy(number_labels)
+    parent_labels   = torch.from_numpy(parent_labels)
+    
+    if randomize:
+        # Do shuffle here
+        shuffle_arrays_synch([posts_index,
+                              encoded_comments,
+                              token_type_ids,
+                              attention_masks,
+                              number_labels,
+                              parent_labels])
+        
+    train_posts_index       = posts_index[0:midindex]
+    train_encoded_comments  = encoded_comments[0:midindex]
+    train_token_type_ids    = token_type_ids[0:midindex]
+    train_attention_masks   = attention_masks[0:midindex]
+    train_number_labels     = number_labels[0:midindex]
+    train_parent_labels     = parent_labels[0:midindex]
+    
+    tests_posts_index       = posts_index[midindex:stopindex]
+    tests_encoded_comments  = encoded_comments[midindex:stopindex]
+    tests_token_type_ids    = token_type_ids[midindex:stopindex]
+    tests_attention_masks   = attention_masks[midindex:stopindex]
+    tests_number_labels     = number_labels[midindex:stopindex]
+    tests_parent_labels     = parent_labels[midindex:stopindex]
+    
+    train_dataset = TensorDataset(train_posts_index,
+                                  train_encoded_comments,
+                                  train_token_type_ids,
+                                  train_attention_masks,
+                                  train_number_labels,
+                                  train_parent_labels)
+    
+    tests_dataset = TensorDataset(tests_posts_index,
+                                  tests_encoded_comments,
+                                  tests_token_type_ids,
+                                  tests_attention_masks,
+                                  tests_number_labels,
+                                  tests_parent_labels)
+    
+    train_loader = DataLoader(train_dataset, 
+                              batch_size=training_batch_size,
+                              shuffle=randomize)
+    tests_loader = DataLoader(tests_dataset,
+                              batch_size=testing_batch_size)
+    
+    return [train_loader, tests_loader]
     
 def extract_ids(comments):
     ''' Takes a list of comments, extract the 
@@ -404,11 +498,11 @@ if __name__ =='__main__':
     panda_comments = reddit.comments_to_pandas(filtered_comments)
     panda_comments = reddit.pandas_remove_nan(panda_comments) 
     #data = tokenize_and_encode_pandas(panda_comments[0:NUM_TO_PROCESS])
-    data = tokenize_and_encode_pandas(panda_comments)
+    '''data = tokenize_and_encode_pandas(panda_comments)
     
     #data_dict = tokenize_and_encode_comments(filtered_comments, count=NUM_TO_PROCESS)
     #torch.save(data_dict, './data/first_comments_tokenized_file_with_parent_id.bin')
-    torch.save(data, './data/pandas_tokenized.bin')
+    torch.save(data, './data/pandas_tokenized.bin')'''
     time_end = time.time()
     time_taken = time_end - time_start
     print('Time elapsed: %6.2fs' % time_taken)

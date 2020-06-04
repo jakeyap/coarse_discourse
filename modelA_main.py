@@ -20,18 +20,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 time_start = time.time()
     
-FROM_SCRATCH = True # True if start loading model from scratch
+FROM_SCRATCH = False # True if start loading model from scratch
 RETOKENIZE = False # True if need to retokenize sentences again
 TRAIN = False # True if you want to train the network. False to just test
 
 '''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 1
+iteration = 2
 MODELNAME = 'modelA3'
 
 ITER1 = str(iteration)
 DATADIR = './data/'
 MODELDIR= './models/'
-RESULTDIR='./results/'
+RESULTDIR='./results/MODELA/'
 # For storing the tokenized posts
 posts_token_file = DATADIR + "my_tokenized_file.bin"
 

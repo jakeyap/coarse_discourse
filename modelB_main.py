@@ -19,11 +19,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 time_start = time.time()
     
-FROM_SCRATCH = False # True if start loading model from scratch
-TRAIN = False # True if you want to train the network. False to just test
+FROM_SCRATCH = True # True if start loading model from scratch
+TRAIN = True # True if you want to train the network. False to just test
 
-'''======== FILE NAMES FLOR LOGGING ========'''
-iteration = 2
+'''======== FILE NAMES FOR LOGGING ========'''
+iteration = 0
 MODELNAME = 'modelB1'
 
 ITER1 = str(iteration)
@@ -56,7 +56,7 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 12
+N_EPOCHS = 2
 LEARNING_RATE = 0.001
 MOMENTUM = 0.5
 
@@ -71,25 +71,27 @@ cpu = torch.device('cpu')
 gpu = torch.device('cuda')
 DEVICE = cpu
 
-print('Importing tokenized & encoded comments')
-data_dict = torch.load(posts_token_file)
+print('Importing original tokenized & encoded comments')
+dataframe = torch.load(posts_token_file)
 
-data = processor.split_dict_2_train_test_sets_single(data_dict=data_dict, 
-                                                     test_percent=TEST_PERCENT_SPLIT,
-                                                     training_batch_size=BATCH_SIZE_TRAIN,
-                                                     testing_batch_size=BATCH_SIZE_TEST,
-                                                     randomize=True,
-                                                     device=cpu)
+print('Splitting into training and test sets')
+data = processor.split_pandas_2_train_test_sets(dataframe=dataframe, 
+                                                test_percent=TEST_PERCENT_SPLIT,
+                                                training_batch_size=BATCH_SIZE_TRAIN,
+                                                testing_batch_size=BATCH_SIZE_TEST,
+                                                randomize=True,
+                                                DEBUG=False)
 
 train_loader = data[0]
 tests_loader = data[1]
-
+'''
 # count the number in the labels
-labels = data_dict['labels']
+labels = dataframe['labels']
 label_counts = torch.zeros(size=(1,100), dtype=float)
 for each_label in labels:
     labelnum = processor.convert_label_string2num(each_label)
     label_counts[0,labelnum] += 1
+'''
 '''
 # add 1000 to all to make sure no division by 0 occurs 
 # and for numerical stability
@@ -153,32 +155,43 @@ def train(epoch):
     model.train()
 
     train_loader = data[0]
-    #tests_loader = data[1]
     
     for batch_idx, minibatch in enumerate(train_loader):
+        '''
+        index in original data,
+        x (encoded comment), 
+        token_typed_ids,
+        attention_masks,
+        y (true label),
+        parent_y (parent's label)
+        '''
         #move stuff to gpu
-        x = minibatch[0].to(gpu)
-        y = minibatch[1].to(gpu)
+        x = minibatch[1].to(gpu)
         token_type_ids = minibatch[2].to(gpu)
         attention_mask = minibatch[3].to(gpu)
+        own_y = minibatch[4].to(gpu)
+        length = own_y.shape[0]
+        own_y = own_y.reshape(length)
+        parent_y = minibatch[5].float().to(gpu)
         
         # Reset gradients to prevent accumulation
         optimizer.zero_grad()
         # Forward prop throught BERT
         outputs = model(input_ids = x,
                         attention_mask=attention_mask, 
-                        token_type_ids=token_type_ids)
+                        token_type_ids=token_type_ids,
+                        parent_labels =parent_y)
         
         #outputs is a length=1 tuple. Get index 0 to access real outputs
         # Calculate loss
-        loss = loss_function(outputs[0], y)
+        loss = loss_function(outputs[0], own_y)
         # Backward prop find gradients
         loss.backward()
         # Update weights & biases
         optimizer.step()
         
         #delete references to free up GPU space
-        del x, y, token_type_ids, attention_mask
+        del x, token_type_ids, attention_mask, own_y, parent_y
         
         if batch_idx % LOG_INTERVAL == 0:
             print('Train Epoch: {:2d} [{:5d}/{:5d} ({:2.1f}%)]\tLoss: {:2.4f}'.format(
@@ -211,36 +224,40 @@ def test(save=False):
     # start the label arrays. 1st data point has to be deleted later
     predicted_label_arr = torch.tensor([[0]])
     groundtruth_arr = torch.tensor([0])
-    #predicted_label_arr = torch.zeros(1, len(tests_loader.dataset))
+    
     with torch.no_grad():
         for batchid, minibatch in enumerate(tests_loader):
-            x = minibatch[0].to('cuda')
-            y = minibatch[1].to('cuda')
-            token_type_ids = minibatch[2].to('cuda')
-            attention_mask = minibatch[3].to('cuda')
+            x = minibatch[1].to(gpu)
+            token_type_ids = minibatch[2].to(gpu)
+            attention_mask = minibatch[3].to(gpu)
+            own_y = minibatch[4].to(gpu)
+            length = own_y.shape[0]
+            own_y = own_y.reshape(length)
+            parent_y = minibatch[5].float().to(gpu)
+            
             outputs = model(input_ids = x,
                             attention_mask=attention_mask, 
-                            token_type_ids=token_type_ids)
+                            token_type_ids=token_type_ids,
+                            parent_labels =parent_y)
             #outputs is a length=1 tuple. Get index 0 to access real outputs
             outputs = outputs[0]
-            test_loss += loss_function(outputs, y).item()
+            test_loss += loss_function(outputs, own_y).item()
             
             predicted_label = outputs.data.max(1, keepdim=True)[1]
-            correct += predicted_label.eq(y.data.view_as(predicted_label)).sum()
+            correct += predicted_label.eq(own_y.data.view_as(predicted_label)).sum()
             
-            #predicted_label_list.append(predicted_label.to('cpu'))
             predicted_label_arr = torch.cat((predicted_label_arr,
-                                             predicted_label.to('cpu')),
+                                             predicted_label.to(cpu)),
                                             0)
             groundtruth_arr = torch.cat((groundtruth_arr,
-                                         y.to('cpu')),
+                                         own_y.to(cpu)),
                                         0)
             #delete references to free up GPU space
-            del x, y, token_type_ids, attention_mask
+            del x, token_type_ids, attention_mask, own_y, parent_y
     test_loss /= len(tests_loader.dataset)
     if save:
         tests_losses.append(test_loss)
-        tests_accuracy.append(100. * correct.to('cpu') / len(tests_loader.dataset))
+        tests_accuracy.append(100. * correct.to(cpu) / len(tests_loader.dataset))
         tests_count.append(tests_count[-1] + len(train_loader.dataset))
         torch.save([train_losses,
                     train_count,
@@ -272,10 +289,10 @@ def eval_single_example(number_to_check=None, show=True):
     with torch.no_grad():
         for batchid, minibatch in enumerate(tests_loader):
             if batchid == batch_to_check:
-                x = minibatch[0].to('cuda')
-                y = minibatch[1].to('cuda')
-                token_type_ids = minibatch[2].to('cuda')
-                attention_mask = minibatch[3].to('cuda')
+                x = minibatch[0].to(gpu)
+                y = minibatch[1].to(gpu)
+                token_type_ids = minibatch[2].to(gpu)
+                attention_mask = minibatch[3].to(gpu)
                 outputs = model(input_ids = x,
                                 attention_mask=attention_mask, 
                                 token_type_ids=token_type_ids)

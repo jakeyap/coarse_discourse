@@ -225,8 +225,9 @@ class my_ModelB1(BertPreTrainedModel):
         output = self.dropout1(output)
         output = self.classifier1(torch.cat((output, parent_labels), 1))
         output = self.relu1(output)
-        logits = self.dropout2(output)
-        outputs = (logits,) + outputs[2:]  # add hidden states and attention if they are here
+        output = self.dropout2(output)
+        output = self.classifier2(output)
+        outputs = (output,) + outputs[2:]  # add hidden states and attention if they are here
 
         if labels is not None:
             if self.num_labels == 1:
