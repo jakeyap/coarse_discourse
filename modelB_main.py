@@ -19,8 +19,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 time_start = time.time()
     
-FROM_SCRATCH = True # True if start loading model from scratch
-TRAIN = True # True if you want to train the network. False to just test
+FROM_SCRATCH = False # True if start loading model from scratch
+TRAIN = False # True if you want to train the network. False to just test
 
 '''======== FILE NAMES FOR LOGGING ========'''
 iteration = 0
@@ -56,7 +56,7 @@ BATCH_SIZE_TEST = 40
 TEST_PERCENT_SPLIT = 10
 LOG_INTERVAL = 10
 
-N_EPOCHS = 2
+N_EPOCHS = 10
 LEARNING_RATE = 0.001
 MOMENTUM = 0.5
 
@@ -275,7 +275,7 @@ def test(save=False):
     print(' F1 score: {:1.2f}'.format(score))
     return predicted_label_arr[1:], groundtruth_arr[1:]
 
-
+# TODO improve this for the new code
 def eval_single_example(number_to_check=None, show=True):
     datalength = len(tests_loader.dataset)
     if number_to_check is None:

@@ -72,45 +72,55 @@
     Once the model is trained, the test data should be
     Need a lookup table to index the labels and parents
     
-    
+### Method C
+    This is the same as method B, except I use the true label from the parent post. The implementation is a bit easier.
+
 ### **Data:**
-    For method A, 
-    70672 valid comment pairs: 
-        63604 training set
-        7068 test set
-    10x10 category comment pair labels
+    Here's how the data looks like.
+
+![Comment labels](./results/category_density.png)
+
+        Here's a look at how deep the reddit threads go.
+![Thread depth](./results/thread_depth.png)
+
+    For method A, we are working with comment pairs. 
     
     Here's how the category density looks like for comment pairs
 ![True labels](./results/true_labels.png)
 
-    For method B, I will hardcode how many steps to look down.
-        Since the majority of the dataset max a max depth of 5, let's just stick to 5. Here's a look at how deep the reddit threads go.
-![Thread depth](./results/thread_depth.png)
+    There are 70672 valid comment pairs: 
+        63604 training set
+        7068 test set
+    10x10 category comment pair labels
         
     
 ### **Models:**
-    ModelA1
+
+### ModelA1
     BERT ==> Dropout1 10% ==> Linear1 ==> RELU1
          ==> Dropout2 10% ==> Linear2 ==> RELU2 ==> Linear3
     Loss: Cross Entropy Loss, flat weights
     
-    ModelA2
+### ModelA2
     BERT ==> Linear
     Loss: Cross Entropy Loss, inverse weights to label occurence
         add 1k to all counts
         then divide the sum by each element
         
-    ModelA3
+### ModelA3
     BERT ==> Linear
     Loss: Cross Entropy Loss, inverse weights to label occurence
         add 1k to all counts
         then divide the sum by each element
         then divide by the biggest number to normalize to 1 or lower
     
-    ModelB1 
+### ModelB1 
     BERT ==> Dropout1 10% ==> Linear1 ==> RELU1 ==> Dropout2 10% ==> Linear2
             parent_label  ==>
     Loss: Cross Entropy Loss, flat weights
+    
+### ModelC1
+    Same as model B1
     
     
 ### **Training algo:**
@@ -126,6 +136,8 @@
     Peak GPU RAM usage is ~7/8 Gb. Dont use maximum to give some buffer
 
 ### **Results:**
+
+### ModelA1
     Emphirically, after 6-7 epochs, overfitting kicks in. 
     
 ![overfit](./results/MODELA/modelA1_overfitting.png)
@@ -138,7 +150,23 @@
 
     For comparison, here's the real label density for the test set
 ![testset labels](./results/testset_labels.png)
+    
+### ModelA2
+    Not meaningful. Didn't learn after 10 epochs
+    
+### ModelA3
+    Peak accuracy of 47% after 7 training epochs. 
 
+![ModelA3 loss](./results/MODELA/modelA3_losses.png)
+
+    
+### ModelB1
+    TODO: build the algo later
+    
+### ModelC1
+    TODO: Insert the results here later
+    Peak accuracy after 10 epochs is 80.8%. F1 score of 0.81
+    
 ### **Remarks:**
     Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.
     In order to account for that, perhaps need to weigh the cost function, to decrease cost associated with (question,answer) label
@@ -147,9 +175,7 @@
     Further handicaps
         -Looking at a comment pair with no context. How do you tell whether it is an announcement or elaboration?
         
-    I tried to weigh the cost function (see ModelA2 and ModelA3 above for details). ModelA2 didnt learn at all. ModelA3 somewhat works OK, with a peak accuracy of 47% after 7 training epochs. The losses are shown here.
-    
-![ModelA3 loss](./results/MODELA/modelA3_losses.png)
+    I tried to weigh the cost function (see ModelA2 and ModelA3 above for details). ModelA2 didnt learn at all. ModelA3 somewhat works OK, with a peak accuracy of 47% after 7 training epochs. The losses are shown above in results section.
     
     
 # Task 2: Maintain tree structure 
