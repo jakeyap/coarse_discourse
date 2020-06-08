@@ -164,8 +164,10 @@
     TODO: build the algo later
     
 ### ModelC1
-    TODO: Insert the results here later
-    Peak accuracy after 10 epochs is 80.8%. F1 score of 0.81
+    The peak accuracy after 10 epochs is 80-82%. F1 score of 0.80-0.83.
+![ModelC1 loss](./results/MODELB/modelC1_losses_10epochs.png)
+
+    
     
 ### **Remarks:**
     Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.

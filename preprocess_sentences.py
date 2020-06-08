@@ -358,11 +358,12 @@ def split_dict_2_train_test_sets_single(data_dict, test_percent,
     
     return [train_loader, tests_loader]
 
-def split_pandas_2_train_test_sets(dataframe,
+def split_pandas_2_train_test_sets(pandas_dataframe,
                                    test_percent, 
                                    training_batch_size=64,
                                    testing_batch_size=64,
                                    randomize=False,
+                                   split_first_post=False,
                                    DEBUG=False):
     '''Splits up dataframe into 2. One for test, one for train'''
     """
@@ -394,12 +395,17 @@ def split_pandas_2_train_test_sets(dataframe,
         midindex = int (datalength * (100 - test_percent) / 100)
         stopindex = datalength
     else:
-        datalength = len(dataframe)
+        datalength = len(pandas_dataframe)
         midindex = int (datalength * (100 - test_percent) / 100)
         stopindex = datalength
     
-    posts_index     = np.arange(0, datalength)
-    
+    if randomize:
+        # Do shuffle here
+        dataframe = pandas_dataframe.sample(frac=1)
+    else:
+        dataframe = pandas_dataframe
+
+    posts_index     = dataframe.index[0:datalength].values
     encoded_comments= dataframe['encoded_comments'].values
     encoded_comments= np.array(encoded_comments.tolist())
     token_type_ids  = dataframe['token_type_ids'].values
@@ -423,15 +429,6 @@ def split_pandas_2_train_test_sets(dataframe,
     number_labels   = torch.from_numpy(number_labels)
     parent_labels   = torch.from_numpy(parent_labels)
     
-    if randomize:
-        # Do shuffle here
-        shuffle_arrays_synch([posts_index,
-                              encoded_comments,
-                              token_type_ids,
-                              attention_masks,
-                              number_labels,
-                              parent_labels])
-        
     train_posts_index       = posts_index[0:midindex]
     train_encoded_comments  = encoded_comments[0:midindex]
     train_token_type_ids    = token_type_ids[0:midindex]
@@ -439,34 +436,106 @@ def split_pandas_2_train_test_sets(dataframe,
     train_number_labels     = number_labels[0:midindex]
     train_parent_labels     = parent_labels[0:midindex]
     
-    tests_posts_index       = posts_index[midindex:stopindex]
-    tests_encoded_comments  = encoded_comments[midindex:stopindex]
-    tests_token_type_ids    = token_type_ids[midindex:stopindex]
-    tests_attention_masks   = attention_masks[midindex:stopindex]
-    tests_number_labels     = number_labels[midindex:stopindex]
-    tests_parent_labels     = parent_labels[midindex:stopindex]
-    
-    train_dataset = TensorDataset(train_posts_index,
-                                  train_encoded_comments,
-                                  train_token_type_ids,
-                                  train_attention_masks,
-                                  train_number_labels,
-                                  train_parent_labels)
-    
-    tests_dataset = TensorDataset(tests_posts_index,
-                                  tests_encoded_comments,
-                                  tests_token_type_ids,
-                                  tests_attention_masks,
-                                  tests_number_labels,
-                                  tests_parent_labels)
-    
-    train_loader = DataLoader(train_dataset, 
-                              batch_size=training_batch_size,
-                              shuffle=randomize)
-    tests_loader = DataLoader(tests_dataset,
-                              batch_size=testing_batch_size)
-    
-    return [train_loader, tests_loader]
+    if (split_first_post):
+        tests_posts_index       = posts_index[midindex:stopindex]
+        tests_encoded_comments  = encoded_comments[midindex:stopindex]
+        tests_token_type_ids    = token_type_ids[midindex:stopindex]
+        tests_attention_masks   = attention_masks[midindex:stopindex]
+        tests_number_labels     = number_labels[midindex:stopindex]
+        tests_parent_labels     = parent_labels[midindex:stopindex]
+        
+        # Get the index to sort by. If label==10, it is a 1st post
+        # ascending order. smallest first largest end
+        sortindex = tests_parent_labels.argsort(dim=0)
+        sortindex = sortindex.reshape(-1)
+        
+        # Sort based on parent label
+        tests_posts_index       = tests_posts_index[sortindex]
+        tests_encoded_comments  = tests_encoded_comments[sortindex]
+        tests_token_type_ids    = tests_token_type_ids[sortindex]
+        tests_attention_masks   = tests_attention_masks[sortindex]
+        tests_number_labels     = tests_number_labels[sortindex]
+        tests_parent_labels     = tests_parent_labels[sortindex]
+        
+        # Grab the number representation of posts with no parent
+        is_first_post_label     = tests_parent_labels.max().item()
+        # Find the starting label of the first instance of first_posts
+        index = np.where(tests_parent_labels.numpy().reshape(-1)==is_first_post_label)
+        # np.where returns a tuple
+        index = index[0][0]
+        
+        
+        test1_posts_index       = tests_posts_index[0:index]
+        test1_encoded_comments  = tests_encoded_comments[0:index]
+        test1_token_type_ids    = tests_token_type_ids[0:index]
+        test1_attention_masks   = tests_attention_masks[0:index]
+        test1_number_labels     = tests_number_labels[0:index]
+        test1_parent_labels     = tests_parent_labels[0:index]
+        
+        test2_posts_index       = tests_posts_index[index:stopindex]
+        test2_encoded_comments  = tests_encoded_comments[index:stopindex]
+        test2_token_type_ids    = tests_token_type_ids[index:stopindex]
+        test2_attention_masks   = tests_attention_masks[index:stopindex]
+        test2_number_labels     = tests_number_labels[index:stopindex]
+        test2_parent_labels     = tests_parent_labels[index:stopindex]
+        
+        train_dataset = TensorDataset(train_posts_index,
+                                      train_encoded_comments,
+                                      train_token_type_ids,
+                                      train_attention_masks,
+                                      train_number_labels,
+                                      train_parent_labels)
+        
+        other_posts_dataset = TensorDataset(test1_posts_index,
+                                            test1_encoded_comments,
+                                            test1_token_type_ids,
+                                            test1_attention_masks,
+                                            test1_number_labels,
+                                            test1_parent_labels)
+        
+        first_posts_dataset = TensorDataset(test2_posts_index,
+                                            test2_encoded_comments,
+                                            test2_token_type_ids,
+                                            test2_attention_masks,
+                                            test2_number_labels,
+                                            test2_parent_labels)
+        train_loader = DataLoader(train_dataset, 
+                                  batch_size=training_batch_size,
+                                  shuffle=randomize)
+        other_tests_loader = DataLoader(other_posts_dataset,
+                                        batch_size=testing_batch_size)
+        first_tests_loader = DataLoader(first_posts_dataset,
+                                        batch_size=testing_batch_size)
+        return [train_loader, other_tests_loader, first_tests_loader]
+    else:
+        tests_posts_index       = posts_index[midindex:stopindex]
+        tests_encoded_comments  = encoded_comments[midindex:stopindex]
+        tests_token_type_ids    = token_type_ids[midindex:stopindex]
+        tests_attention_masks   = attention_masks[midindex:stopindex]
+        tests_number_labels     = number_labels[midindex:stopindex]
+        tests_parent_labels     = parent_labels[midindex:stopindex]
+        
+        train_dataset = TensorDataset(train_posts_index,
+                                      train_encoded_comments,
+                                      train_token_type_ids,
+                                      train_attention_masks,
+                                      train_number_labels,
+                                      train_parent_labels)
+        
+        tests_dataset = TensorDataset(tests_posts_index,
+                                      tests_encoded_comments,
+                                      tests_token_type_ids,
+                                      tests_attention_masks,
+                                      tests_number_labels,
+                                      tests_parent_labels)
+        
+        train_loader = DataLoader(train_dataset, 
+                                  batch_size=training_batch_size,
+                                  shuffle=randomize)
+        tests_loader = DataLoader(tests_dataset,
+                                  batch_size=testing_batch_size)
+        
+        return [train_loader, tests_loader]
     
 def extract_ids(comments):
     ''' Takes a list of comments, extract the 
