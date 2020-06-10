@@ -471,7 +471,7 @@ def find_parent_index(string_id):
     return row_number
 ''' 
 Try this
-dataframe[dataframe.iloc['id']=='t3_1kun69']
+dataframe[dataframe['id']=='t3_1kun69']
 You get 2 parents!!?!?
 '''
 def find_parents_index(parent_ids):
@@ -480,10 +480,8 @@ def find_parents_index(parent_ids):
     i = 0
     while i < len(parent_ids):
         string_id = parent_ids[i]
-        row = dataframe[dataframe['id']==string_id]
-        #print(row)
-        print(row)
-        row_number = row.index.item()
+        row = dataframe[dataframe['id']==string_id].index[0]
+        row_number = row.item()
         parents_index[i] = int(row_number)
         i += 1
     return parents_index

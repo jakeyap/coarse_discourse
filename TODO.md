@@ -1,4 +1,4 @@
-# **TO DO LIST**
+# **TO DO LIST / RESULTS **
     To try to learn how to classify discourse into the following categories
     0. question/request
     1. answer
@@ -21,7 +21,7 @@
     [x] Import data from reddit
     [x] Flatten tree into single comments
     [x] Group comments into pairs (For method A)
-    [ ] Regroup comments into groups based on tree depth (For method B)
+    [x] Regroup comments into groups based on tree depth (For method B)
     [x] Get a sense of category labels density
     [x] Get a sense of pair labels density
     [x] Remove deleted posts
@@ -69,8 +69,13 @@
         {parent_label, parent_id, text, self_label}
         If post is first post, then it will have a NIL parent_id
     
-    Once the model is trained, the test data should be
-    Need a lookup table to index the labels and parents
+    During training, every post is fed thru network with its parent's true label. Here's the pseudo code
+    For each_comment:
+        if each_comment is NOT a first_post:
+            1. use the model, generate a label for its parent (take grandparent true label)
+            2. use parent label, then generate each_comment's label
+        else: 
+            1. since this post has no parent, just pass through model directly
     
 ### Method C
     This is the same as method B, except I use the true label from the parent post. The implementation is a bit easier.
@@ -119,10 +124,17 @@
             parent_label  ==>
     Loss: Cross Entropy Loss, flat weights
     
+### ModelB2
+    Same as model B1
+    TODO: Loss: weighted loss. 
+
 ### ModelC1
     Same as model B1
     
-    
+### ModelC2
+    Same as model B2
+    TODO
+
 ### **Training algo:**
     SGD
         Learning rate = 0.001
@@ -161,13 +173,18 @@
 
     
 ### ModelB1
-    TODO: build the algo later
+    See ModelC1. Trained using true parent's label.
+    Accuracy is 78-80%. F1 score is 0.79-0.80.
+    
+### ModelB2
+    TODO
     
 ### ModelC1
     The peak accuracy after 10 epochs is 80-82%. F1 score of 0.80-0.83.
 ![ModelC1 loss](./results/MODELB/modelC1_losses_10epochs.png)
 
-    
+### ModelC1
+    TODO
     
 ### **Remarks:**
     Comment pairs, heavily skewed towards the (question,answer) label, so the other types seem to get drowned out.
