@@ -52,7 +52,7 @@ Temporary Items
 # passwords
 join_forum_data/reddit_tokens.py
 # data binaries. too big, move it manually with a HDD wherever needed
-data/*
+data/backup/*
 *.bin
 # python cache files
 __pycache__/*
